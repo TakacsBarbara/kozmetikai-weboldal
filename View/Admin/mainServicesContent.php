@@ -16,4 +16,4 @@
         <div class="col"></div>
     </div>
 
-    <script src="../../Resources/js/Admin/index.js"></script>
+    <script src="../../Resources/js/Admin/index2.js"></script>

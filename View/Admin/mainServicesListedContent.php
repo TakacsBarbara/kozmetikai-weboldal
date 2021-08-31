@@ -2,25 +2,29 @@
     
     
 <?php
-    //include "../../Model/Admin/queries.php"; // így sikerült megoldani, displayContent() metódussal nem include-olta be
-
-    echo "<br>Tartalom Szolgáltatások: ";
-    print_r($row);
+    //echo "<br>Tartalom Szolgáltatások: ";
+    //print_r ($row = $result -> fetch_array(MYSQLI_ASSOC));
 ?>
 <table class="table table-striped">
   <thead>
     <tr>
       <th scope="col">#</th>
       <th scope="col">Szolgáltatás neve</th>
-    </tr>
-    <?php foreach($row) { 
-      $id = 1;?>
-      <tr>
-        <td scope="col"><?php echo $id ?></td>
-        <td scope="col"><?php echo $row["szolgaltatas_neve"]?></td>
-      </tr>
-    <?php ++$id;
-      } ?>
+    </tr>    
   </thead>
+  <tbody>
+    <?php
+      $services_ordinal_number = 1;
+      while($row = $result -> fetch_array(MYSQLI_ASSOC)) {
+        ?>
+      <tr>
+        <th scope="row"><?php echo $services_ordinal_number ?> </th>
+        <td> <?php echo $row["szolgaltatas_neve"] ?> </td>
+      </tr>
+    <?php 
+      $services_ordinal_number++;
+      } 
+    ?>
+  </tbody>
   
 </table>

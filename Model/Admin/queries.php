@@ -1,14 +1,14 @@
 <?php
-    echo "queries";
 
 
     $sql = "SELECT * FROM szolgaltatas_fokategoria";
     //echo "LEKÉRDEZÉS". $sql;
     $result = $conn->query($sql);
 
-   
-    $row = $result -> fetch_array(MYSQLI_ASSOC);
+    $row = $result;
+    // $row = $result -> fetch_array(MYSQLI_ASSOC);
 
+    
 
     /*
     if ($result->num_rows > 0) {
