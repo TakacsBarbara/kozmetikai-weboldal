@@ -59,4 +59,37 @@ $(document).ready( () => {
             }
         });
     });
+
+    
+$("#subServiceDelete").click( () => {
+    let deletedSubService = $("#nameOfSubService").val();
+    $.post({
+        url: "../../Controller/Admin/ajax/ajax.php",
+        data: {deletedSubService: deletedSubService},
+        success: function(data) {
+            $("#result").html(data);
+        }
+    });
+});
+
+$("#subServiceEdit").click( () => {
+    let editedSubService = $("#nameOfService").val();
+    let editedSubServiceID = $("#serviceID").val();
+    $.post({
+        url: "../../Controller/Admin/ajax/ajax.php",
+        data: {editedSubService: editedSubService, editedSubServiceID: editedSubServiceID},
+        success: function(data) {
+            $("#result").html(data);
+            
+            setTimeout(refresh, 3000);
+        }
+    });
+});
+
+function refresh(){
+    //alert("refresh");
+    //location.reload(true);
+    window.location.replace("http://localhost/PHP/View/Admin/mainServicesListed.php");
+}
+
 });

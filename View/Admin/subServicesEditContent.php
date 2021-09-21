@@ -27,5 +27,3 @@
     </div>
     <div class="col"></div>
 </div>
-
-<script src="../../Resources/js/Admin/index2.js"></script>

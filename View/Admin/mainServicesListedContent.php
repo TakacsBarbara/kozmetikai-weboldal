@@ -2,7 +2,7 @@
 //echo "<br>Tartalom Szolgáltatások: ";
 //print_r ($row = $result -> fetch_array(MYSQLI_ASSOC));
 ?>
-<button id="addMainService">Új szolgáltatás hozzáadása</button>
+<button onclick="location.href = 'http://localhost/PHP/view/Admin/mainServices.php';" id="addMainService">Új szolgáltatás hozzáadása</button>
 <table class="table table-striped">
   <thead>
     <tr>
