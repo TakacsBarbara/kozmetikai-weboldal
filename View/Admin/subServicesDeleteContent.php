@@ -23,10 +23,8 @@
                 </div>
                 <button type="button" class="btn btn-primary" id="subServiceDelete">Törlés</button>
             </form>
-            <!-- <script>console.log($('#nameOfSubService').val());</script> -->
         <div id="result"></div>
     </div>
     <div class="col"></div>
 </div>
 
-<script src="../../Resources/js/Admin/index2.js"></script>
