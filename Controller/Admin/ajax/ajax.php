@@ -44,6 +44,7 @@ if (isset($_POST["savedMainService"])) {
     }
 }
 
+<<<<<<< HEAD
 if (isset($_POST["deletedMainService"])) {
     $deletedMainService = $_POST["deletedMainService"];
 
@@ -53,13 +54,69 @@ if (isset($_POST["deletedMainService"])) {
 
     $result = $conn->query($sql);
     //echo $conn -> affected_rows;
+=======
+if (isset($_POST["editedMainService"])) {
+    $editedMainService = $_POST["editedMainService"];
+    $editedMainServiceID = $_POST["editedMainServiceID"];
+
+    $sql = "UPDATE szolgaltatas_fokategoria SET szolgaltatas_neve='$editedMainService' WHERE id='$editedMainServiceID'";
+    $result = $conn->query($sql);
+
+    if ($result === TRUE) {
+        echo "Szolgáltatás módosítása sikeresen megtörtént!";
+    } else {
+        echo "Szolgáltatás módosítása sikertelen! <br> Error: " . $sql . "<br>" . $conn->error;
+    }
+}
+
+if (isset($_POST["editedSubService"])) {
+    //echo "hello";
+    $editedSubService = $_POST["editedSubService"];
+    $editedSubServiceID = $_POST["editedSubServiceID"];
+
+    // echo $editedSubService;
+    // echo $editedSubServiceID;
+
+    $sql = "UPDATE szolgaltatas_alkategoria SET megnevezes='$editedSubService' WHERE id='$editedSubServiceID'";
+    $result = $conn->query($sql);
+
+    //echo $result;
+
+    if ($result === TRUE) {
+        echo "Szolgáltatás módosítása sikeresen megtörtént!";
+    } else {
+        echo "Szolgáltatás módosítása sikertelen! <br> Error: " . $sql . "<br>" . $conn->error;
+    }
+}
+
+if (isset($_POST["deletedMainService"])) {
+    $deletedMainService = $_POST["deletedMainService"];
+    $sql = "DELETE FROM szolgaltatas_fokategoria WHERE szolgaltatas_neve='$deletedMainService'";
+    $result = $conn->query($sql);
+>>>>>>> 1421ef9d8d53813974c95a3981df67f0b31d2436
     
     if ($result === TRUE) {
         echo "Szolgáltatás törlése sikerült!";
     } else {
         echo "Szolgáltatás törlése sikertelen volt! <br> Error: " . $sql . "<br>" . $conn->error;
     }
+<<<<<<< HEAD
     
 }
 
 ?>
+=======
+}
+
+if (isset($_POST["deletedSubService"])) {
+    $deletedSubService = $_POST["deletedSubService"];
+    $sql = "DELETE FROM szolgaltatas_alkategoria WHERE megnevezes='$deletedSubService'";
+    $result = $conn->query($sql);
+    
+    if ($result === TRUE) {
+        echo "Szolgáltatás törlése sikerült!";
+    } else {
+        echo "Szolgáltatás törlése sikertelen volt! <br> Error: " . $sql . "<br>" . $conn->error;
+    }
+}
+>>>>>>> 1421ef9d8d53813974c95a3981df67f0b31d2436
