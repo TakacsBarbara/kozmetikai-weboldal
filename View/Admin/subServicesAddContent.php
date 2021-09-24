@@ -17,14 +17,14 @@ $main_service_id = $row["id"];
         <div class="col-5">
             <form action="">
                 <div class="mb-3">
-                    <label for="nameOfService" class="form-label">Szolgáltatás neve</label>
+                    <label for="mainService" class="form-label">Szolgáltatáshoz tartozó főkategória</label>
+                    <input type="text" class="form-control" id="mainService" name="mainService" value="<?php echo $main_service_name ?>">
+                    <label for="nameOfService" class="form-label">Új szolgáltatás neve</label>
                     <input type="text" class="form-control" id="nameOfService" name="nameOfService">
                     <label for="priceOfService" class="form-label">Szolgáltatás ára</label>
                     <input type="text" class="form-control" id="priceOfService" name="priceOfService">
                     <label for="durationOfService" class="form-label">Szolgáltatás időtartama</label>
                     <input type="text" class="form-control" id="durationOfService" name="durationOfService">
-                    <label for="mainService" class="form-label">Szolgáltatáshoz tartozó főkategória</label>
-                    <input type="text" class="form-control" id="mainService" name="mainService" value="<?php echo $main_service_name ?>">
                 </div>
                 <button type="button" class="btn btn-primary" id="subServiceSave">Mentés</button>
             </form>
