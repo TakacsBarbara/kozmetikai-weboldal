@@ -93,5 +93,3 @@ function refresh(){
 }
 
 });
-
-// Egy komment
