@@ -1,42 +1,13 @@
-<<<<<<< HEAD
-
-    
-    
-<?php
-    //echo "<br>Tartalom Szolgáltatások: ";
-    //print_r ($row = $result -> fetch_array(MYSQLI_ASSOC));
-?>
-=======
 <?php
 //echo "<br>Tartalom Szolgáltatások: ";
 //print_r ($row = $result -> fetch_array(MYSQLI_ASSOC));
 ?>
 <button onclick="location.href = 'http://localhost/PHP/view/Admin/mainServices.php';" id="addMainService">Új szolgáltatás hozzáadása</button>
->>>>>>> 1421ef9d8d53813974c95a3981df67f0b31d2436
 <table class="table table-striped">
   <thead>
     <tr>
       <th scope="col">#</th>
       <th scope="col">Szolgáltatás neve</th>
-<<<<<<< HEAD
-    </tr>    
-  </thead>
-  <tbody>
-    <?php
-      $services_ordinal_number = 1;
-      while($row = $result -> fetch_array(MYSQLI_ASSOC)) {
-        ?>
-      <tr>
-        <th scope="row"><?php echo $services_ordinal_number ?> </th>
-        <td> <?php echo $row["szolgaltatas_neve"] ?> </td>
-      </tr>
-    <?php 
-      $services_ordinal_number++;
-      } 
-    ?>
-  </tbody>
-  
-=======
       <th scope="col">Alkategória neve</th>
       <th scope="col">Ár</th>
       <th scope="col">Időtartam</th>
@@ -79,5 +50,4 @@
     ?>
   </tbody>
 
->>>>>>> 1421ef9d8d53813974c95a3981df67f0b31d2436
 </table>

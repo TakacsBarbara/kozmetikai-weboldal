@@ -5,11 +5,6 @@
     //echo "LEKÉRDEZÉS". $sql;
     $result = $conn->query($sql);
 
-<<<<<<< HEAD
-    $row = $result;
-    // $row = $result -> fetch_array(MYSQLI_ASSOC);
-
-=======
     //print_r($result);
 
     $sql_2 = "SELECT * FROM szolgaltatas_alkategoria";
@@ -41,7 +36,6 @@
     // while($row_2_t = $result_2->fetch_array(MYSQLI_ASSOC)) {
     //     print_r ($row_2_t);
     // }
->>>>>>> 1421ef9d8d53813974c95a3981df67f0b31d2436
     
 
     /*

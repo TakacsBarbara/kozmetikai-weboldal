@@ -44,17 +44,6 @@ if (isset($_POST["savedMainService"])) {
     }
 }
 
-<<<<<<< HEAD
-if (isset($_POST["deletedMainService"])) {
-    $deletedMainService = $_POST["deletedMainService"];
-
-    $sql = "DELETE FROM szolgaltatas_fokategoria WHERE szolgaltatas_neve='$deletedMainService'";
-
-    //$sql = "DELETE FROM szolgaltatas_fokategoria WHERE id=12";
-
-    $result = $conn->query($sql);
-    //echo $conn -> affected_rows;
-=======
 if (isset($_POST["editedMainService"])) {
     $editedMainService = $_POST["editedMainService"];
     $editedMainServiceID = $_POST["editedMainServiceID"];
@@ -93,19 +82,12 @@ if (isset($_POST["deletedMainService"])) {
     $deletedMainService = $_POST["deletedMainService"];
     $sql = "DELETE FROM szolgaltatas_fokategoria WHERE szolgaltatas_neve='$deletedMainService'";
     $result = $conn->query($sql);
->>>>>>> 1421ef9d8d53813974c95a3981df67f0b31d2436
     
     if ($result === TRUE) {
         echo "Szolgáltatás törlése sikerült!";
     } else {
         echo "Szolgáltatás törlése sikertelen volt! <br> Error: " . $sql . "<br>" . $conn->error;
     }
-<<<<<<< HEAD
-    
-}
-
-?>
-=======
 }
 
 if (isset($_POST["deletedSubService"])) {
@@ -119,4 +101,3 @@ if (isset($_POST["deletedSubService"])) {
         echo "Szolgáltatás törlése sikertelen volt! <br> Error: " . $sql . "<br>" . $conn->error;
     }
 }
->>>>>>> 1421ef9d8d53813974c95a3981df67f0b31d2436
