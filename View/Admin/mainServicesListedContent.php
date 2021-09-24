@@ -17,7 +17,6 @@
     <?php
     $mainservices_ordinal_number = 1;
     while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
-      //echo "főkat_id " . $row["id"] . "\n";
     ?>
       <tr>
         <th scope="row"><?php echo $mainservices_ordinal_number ?> </th>
