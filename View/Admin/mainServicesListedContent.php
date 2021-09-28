@@ -28,7 +28,8 @@
         foreach ($row_2_t as $row_number => $row_2) {
           if ($row["id"] == $row_2["foKat_id"]) {
         ?>
-          <tr class="sc_<?php echo $row['id'] ?>" style="display:none;">
+        <!-- style="display:none;" a 32. sorban lévő tr style-ja -->
+          <tr class="sc_<?php echo $row['id'] ?>" style="display: none;">
             <td></td>
             <td></td>
             <td> <?php echo $row_2["megnevezes"] ?> </td>

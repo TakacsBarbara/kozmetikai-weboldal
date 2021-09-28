@@ -7,6 +7,8 @@
 
     $service_name = $row["megnevezes"];
     $service_id = $row["id"];
+    $service_price = $row["ar"];
+    $service_duration = $row["idotartam"];
 
     //print_r($row);
 ?>
@@ -19,6 +21,10 @@
                 <div class="mb-3">
                     <label for="nameOfService" class="form-label">Szolgáltatás neve</label>
                     <input type="text" class="form-control" id="nameOfService" name="nameOfService" value="<?php echo $service_name ?>">
+                    <label for="nameOfService" class="form-label">Szolgáltatás ára</label>
+                    <input type="text" class="form-control" id="priceOfService" name="priceOfService" value="<?php echo $service_price ?>">
+                    <label for="nameOfService" class="form-label">Szolgáltatás időtartama</label>
+                    <input type="text" class="form-control" id="durationOfService" name="durationOfService" value="<?php echo $service_duration ?>">
                     <input type="hidden" id="serviceID" value="<?php echo $service_id ?>">
                 </div>
                 <button type="button" class="btn btn-primary" id="subServiceEdit">Módosítás</button>
