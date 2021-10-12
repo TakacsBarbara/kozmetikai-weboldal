@@ -1,6 +1,12 @@
-<?php
-//echo "<br>Tartalom Szolgáltatások: ";
-//print_r ($row = $result -> fetch_array(MYSQLI_ASSOC));
+<?php 
+
+  if ($_SESSION["username"]) { 
+    echo $_SESSION["username"]; 
+  } else { 
+    echo "";
+  }
+  echo "<br>";
+
 ?>
 <button onclick="location.href = 'http://localhost/PHP/view/Admin/mainServices.php';" id="addMainService">Új szolgáltatás hozzáadása</button>
 <table class="table table-striped">
@@ -20,7 +26,11 @@
     ?>
       <tr>
         <th scope="row"><?php echo $mainservices_ordinal_number ?> </th>
-        <td class="mainServices" colspan="4"> <a id="<?php echo $row['id'] ?>" href="#"><?php echo $row["szolgaltatas_neve"] ?> </a> </td>
+        <td class="mainServices" colspan="4"> 
+          <a id="<?php echo $row['id'] ?>" href="#"><?php echo $row["szolgaltatas_neve"] ?> 
+          <i id="arrow_<?php echo $row['id'] ?>" class="fas fa-chevron-down"></i>
+          </a> 
+        </td>
         <td><a href="./subServicesAdd.php?id=<?php echo $row["id"] ?>"> Új alkategória ➕</a></td>
         <td><a href="./mainServicesEdit.php?id=<?php echo $row["id"] ?>"> Módosítás ✏</a></td>
         <td><a href="./mainServicesDelete.php?id=<?php echo $row["id"] ?>"> Törlés 🗑</a></td>

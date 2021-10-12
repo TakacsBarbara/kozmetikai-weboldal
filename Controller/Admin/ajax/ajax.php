@@ -1,37 +1,33 @@
 <?php
 
 include "../../../Model/Admin/db.php";
-
-// $email = $password = $emailErr = $passwordErr = "";
-// $servername = "localhost";
-// $username = "root";
-// $password = "";
-// $dbname = "kozmetika_db";
-
-// // Create connection
-// $conn = new mysqli($servername, $username, $password, $dbname);
-// mysqli_set_charset($conn,"utf8");
-// // Check connection
-// if ($conn->connect_error) {
-// die("Connection failed: " . $conn->connect_error);
-// }
+// session_start();
 
 if (isset($_POST["username"]) && isset($_POST["password"])) {
     $username = $_POST["username"];
     $password = $_POST["password"];
     $sql = "SELECT * FROM admin WHERE felhasznalonev='$username' AND jelszo='$password'";
     //echo "LEKÉRDEZÉS". $sql;
-    $result = $conn->query($sql);
-
-    //echo "AjAX";
-
-    
-    if ($result->num_rows > 0) {
+    //$result = $conn->query($sql);
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_array($result);
+    if (is_array($row)) {
+        $_SESSION["id"] = $row["id"];
+        $_SESSION["username"] = $row["felhasznalonev"];
         echo "True";
     } else {
         echo "False";
     }
-    
+
+    //echo "AjAX";
+
+
+    // if ($result->num_rows > 0) {
+    //     echo "True";
+    // } else {
+    //     echo "False";
+    // }
+
 }
 
 if (isset($_POST["savedMainService"])) {

@@ -4,20 +4,23 @@ $(document).ready( () => {
 
     $('.mainServices').on('click',function(){
         let mainServiceID = $(this).children("a").attr('id');
+        let arrow = $(this).children("i");
+        console.log(arrow);
         
         let state = $('.sc_'+mainServiceID).attr("style");
         if(state === "display: none;"){
             $.each( $('.sc_'+mainServiceID), function() {
                     $(this).css("display","table-row");
             });
+            $('#arrow_'+mainServiceID).removeClass("fa-chevron-down").addClass("fa-chevron-up");
         }
         else{
             $.each( $('.sc_'+mainServiceID), function() {
                 $(this).css("display","none");
-        });
+            });
+            $('#arrow_'+mainServiceID).removeClass("fa-chevron-up").addClass("fa-chevron-down");
         }
-        
-    })
+    });
 
 
     $("#login").click( function() {
@@ -31,13 +34,11 @@ $(document).ready( () => {
             url: "../../Controller/Admin/ajax/ajax.php",
             data: {username: username, password: password},
             success: function(data) {
-                //$("#result").html(data);
-                console.log("Hello");
-                console.log(data);
                 if (data === "True") {
-                   window.location.replace("http://localhost/PHP/View/Admin/mainServicesListed.php");
+                    // $("#loginMessage").html("Sikeres!");
+                    window.location.replace("http://localhost/PHP/View/Admin/mainServicesListed.php");
                 } else if (data === "False") {
-                    $("#result").html("Sikertelen bejelentkezés!");
+                    $("#loginMessage").html("Sikertelen bejelentkezés!");
                 }
             }
         });
