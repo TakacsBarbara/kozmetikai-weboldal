@@ -1,27 +1,23 @@
 <?php
 
 include "../../../Model/Admin/db.php";
-// session_start();
+session_start();
 
 if (isset($_POST["username"]) && isset($_POST["password"])) {
     $username = $_POST["username"];
     $password = $_POST["password"];
     $sql = "SELECT * FROM admin WHERE felhasznalonev='$username' AND jelszo='$password'";
-    //echo "LEKÉRDEZÉS". $sql;
     //$result = $conn->query($sql);
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_array($result);
-    if (is_array($row)) {
+    // if (is_array($row)) {
+    if ($row > 0) {
         $_SESSION["id"] = $row["id"];
         $_SESSION["username"] = $row["felhasznalonev"];
         echo "True";
     } else {
         echo "False";
     }
-
-    //echo "AjAX";
-
-
     // if ($result->num_rows > 0) {
     //     echo "True";
     // } else {

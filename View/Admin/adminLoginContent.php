@@ -1,25 +1,5 @@
 <?php
 
-// session_start();
-
-// if (count($_POST) > 0) {
-//     $username = $_POST["username"];
-//     $password = $_POST["password"];
-
-//     $sql = "SELECT * FROM admin WHERE felhasznalonev='$username' AND jelszo='$password'";
-//     $result = mysqli_query($conn, $sql);
-//     $row = mysqli_fetch_array($result);
-//     if (is_array($row)) {
-//         $_SESSION["id"] = $row["id"];
-//         $_SESSION["username"] = $row["felhasznalonev"];
-//     } else {
-//         $loginMessage = "Invalid Username or Password!";
-//     }
-// }
-// if (isset($_SESSION["id"])) {
-//     header("Location: ./");
-// }
-
 if (isset($_SESSION["username"])) {
     echo $_SESSION["username"];
 }
