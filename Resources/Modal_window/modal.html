@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal</title>
+    <link rel="stylesheet" href="styles.css" type="text/css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+</head>
+<body>
+    
+    <button id="open-modal-btn">Open modal!</button>
+    <button id="successful-modal-btn">Sikeres művelet!</button>
+    <button id="failed-modal-btn">Sikertelen művelet!</button>
+
+    <div class="modal hidden">
+        <span id="close-modal-btn">&times;</span>
+        <h1 id="modal-message"></h1>
+    </div>
+    <div class="overlay hidden"></div>
+
+    <script src="index.js"></script>
+
+</body>
+</html>

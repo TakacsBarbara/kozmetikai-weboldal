@@ -1,0 +1,86 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    box-sizing: border-box;
+}
+
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 25%;
+    height: 10%;
+    z-index: 2;
+
+    padding: 10px;
+    border: 3px solid black;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0,0,0, 0.3);
+    backdrop-filter: blur(1px);
+    z-index: 1;
+}
+
+
+.hidden {
+    display: none;
+}
+
+.successful-modal-style {
+    background-color: rgb(168, 247, 168);
+    border-color: rgb(2, 61, 2);
+}
+
+.failed-modal-style {
+    background-color: rgb(235, 212, 215);
+    border-color: rgb(61, 9, 2);
+}
+
+/* törlendő ----------------------------------------------------- */
+
+#open-modal-btn {
+    margin: 50px 40px;
+    padding: 30px;
+    background-color: burlywood;
+}
+
+#successful-modal-btn {
+    padding: 30px;
+    margin: 50px 40px;
+    background-color: green;
+}
+
+#failed-modal-btn {
+    padding: 30px;
+    margin: 50px 40px;
+    background-color: red;
+}
+
+/* -------------------------------------------------------------- */
+
+#close-modal-btn {
+    position: absolute;
+    top: 0.2rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    color: #333;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+#modal-message {
+    margin-top: 1rem;
+}
