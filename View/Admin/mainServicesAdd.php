@@ -2,5 +2,5 @@
     include "layouts/page.php";
     
     $page = new Page();
-    $page -> displayContent("mainServicesContent.php");
+    $page -> displayContent("mainServicesAddContent.php");
 ?>

@@ -1,15 +1,8 @@
 <?php
-echo "Hello";
-print_r($_SESSION);
 if (isset($_SESSION["username"])) {
-  echo $_SESSION["username"];
-} else {
-  echo "";
-}
-echo "<br>";
-
 ?>
-<button onclick="location.href = 'http://localhost/PHP/view/Admin/mainServices.php';" id="addMainService">Új szolgáltatás hozzáadása</button>
+
+<button onclick="location.href = 'http://localhost/PHP/view/Admin/mainServicesAdd.php';" id="addMainService">Új szolgáltatás hozzáadása</button>
 <table class="table table-striped">
   <thead>
     <tr>
@@ -62,3 +55,9 @@ echo "<br>";
   </tbody>
 
 </table>
+
+<?php
+} else {
+  header("Location: ./adminLogin.php?loginrequired=1");
+}
+?>
