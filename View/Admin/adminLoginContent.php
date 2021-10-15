@@ -1,5 +1,9 @@
 <?php
 
+if ( isset($_GET['loginrequired']) && $_GET['loginrequired'] == 1 ) {
+    echo "<div id='login-message-container'><p id='required-login-message'>Kérem jelentkezzen be!</p></div>";
+}
+
 if (isset($_SESSION["username"])) {
     echo $_SESSION["username"];
 }
