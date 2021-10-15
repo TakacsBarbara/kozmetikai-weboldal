@@ -1,0 +1,20 @@
+
+
+/* Oldalak levédése és átirányítás a login page-re - hibaüzenet stílusa*/
+#login-message-container{
+    background-color: rgb(255, 232, 232);
+    border: 0.5px solid rgb(231, 9, 9);
+    border-radius: 10px;
+    text-align: center;
+    vertical-align: center;
+    width: 300px;
+    height: 60px;
+    line-height: 60px;
+    margin: 50px auto 70px;
+}
+
+#required-login-message {
+    display: inline-block;
+    color: rgb(231, 9, 9);
+    font-size: 21px;
+}
