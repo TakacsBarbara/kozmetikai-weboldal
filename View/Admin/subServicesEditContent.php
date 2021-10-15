@@ -1,7 +1,7 @@
-<?php  //print_r($_GET["id"]);
+<?php
+if (isset($_SESSION["username"])) {
     
     $sql = "SELECT * FROM szolgaltatas_alkategoria WHERE id=".$_GET['id'];
-    //echo "LEKÉRDEZÉS". $sql;
     $result = $conn->query($sql);
     $row = $result -> fetch_array(MYSQLI_ASSOC);
 
@@ -9,8 +9,6 @@
     $service_id = $row["id"];
     $service_price = $row["ar"];
     $service_duration = $row["idotartam"];
-
-    //print_r($row);
 ?>
 
 <div class="container">
@@ -33,3 +31,9 @@
     </div>
     <div class="col"></div>
 </div>
+
+<?php
+} else {
+  header("Location: ./adminLogin.php?loginrequired=1");
+}
+?>

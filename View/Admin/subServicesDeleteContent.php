@@ -1,14 +1,12 @@
 <?php
+if (isset($_SESSION["username"])) {
     
     $sql = "SELECT * FROM szolgaltatas_alkategoria WHERE id=".$_GET['id'];
     $result = $conn->query($sql);
     $row = $result -> fetch_array(MYSQLI_ASSOC);
-    //print_r($row) ;
 
     $service_name = $row["megnevezes"];
     $service_id = $row["id"];
-    // echo $service_name;
-    // echo $service_id;
 ?>
 
 <div class="container">
@@ -28,3 +26,8 @@
     <div class="col"></div>
 </div>
 
+<?php
+} else {
+  header("Location: ./adminLogin.php?loginrequired=1");
+}
+?>

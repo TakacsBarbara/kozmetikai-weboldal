@@ -1,13 +1,12 @@
 <?php
-$sql = "SELECT * FROM szolgaltatas_fokategoria WHERE id=" . $_GET['id'];
-$result = $conn->query($sql);
-$row = $result->fetch_array(MYSQLI_ASSOC);
-//print_r($row) ;
+if (isset($_SESSION["username"])) {
 
-$main_service_name = $row["szolgaltatas_neve"];
-$main_service_id = $row["id"];
-// echo $service_name;
-// echo $service_id;
+    $sql = "SELECT * FROM szolgaltatas_fokategoria WHERE id=" . $_GET['id'];
+    $result = $conn->query($sql);
+    $row = $result->fetch_array(MYSQLI_ASSOC);
+
+    $main_service_name = $row["szolgaltatas_neve"];
+    $main_service_id = $row["id"];
 ?>
 
 <div class="container">
@@ -34,3 +33,10 @@ $main_service_id = $row["id"];
         </div>
         <div class="col"></div>
     </div>
+</div>
+
+<?php
+} else {
+  header("Location: ./adminLogin.php?loginrequired=1");
+}
+?>
