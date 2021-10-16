@@ -68,6 +68,12 @@ body {
     background-color: red;
 }
 
+#open-confirm-btn {
+    margin: 50px 40px;
+    padding: 30px;
+    background-color: burlywood;
+}
+
 /* -------------------------------------------------------------- */
 
 #close-modal-btn {

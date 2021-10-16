@@ -3,7 +3,7 @@ $(document).ready( () => {
     let modal = $(".modal");
     let overlay = $(".overlay");
     let modalMessage = $("#modal-message");
-
+    
     function showModal() {
         modal.removeClass("hidden");
         overlay.removeClass("hidden");

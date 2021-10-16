@@ -1,6 +1,5 @@
 
 $(document).ready( () => {
-    //alert('hello');
 
     $('.mainServices').on('click',function(){
         let mainServiceID = $(this).children("a").attr('id');
@@ -24,18 +23,13 @@ $(document).ready( () => {
 
 
     $("#login").click( function() {
-        //alert("Hello");
         let username = $("#username").val();
         let password = $("#password").val();
-        //alert(password);
         $.post({
-            //type: "POST",
-            //async: false,
             url: "../../Controller/Admin/ajax/ajax.php",
             data: {username: username, password: password},
             success: function(data) {
                 if (data === "True") {
-                    // $("#loginMessage").html("Sikeres!");
                     window.location.replace("http://localhost/PHP/View/Admin/mainServicesListed.php");
                 } else if (data === "False") {
                     $("#loginMessage").html("Sikertelen bejelentkezés!");
@@ -50,7 +44,7 @@ $(document).ready( () => {
             url: "../../Controller/Admin/ajax/ajax.php",
             data: {savedMainService: savedMainService},
             success: function(data) {
-                $("#result").html(data); 
+                setResultMessage(data);
                 setTimeout(refresh, 3000);
             }
         });
@@ -59,36 +53,74 @@ $(document).ready( () => {
     $('#mainServiceEdit').click( () => {
         let editedMainService = $('#nameOfService').val();
         let editedMainServiceID = $('#serviceID').val();
-        $.post({
-            url: "../../Controller/Admin/ajax/ajax.php",
-            data: {editedMainService: editedMainService, editedMainServiceID: editedMainServiceID},
-            success: function(data) {
-                $("#result").html(data); 
-                setTimeout(refresh, 3000);
+        
+        $.confirm({
+            'title'     : 'Szolgáltatás módosítása',
+            'message'   : 'Biztosan módosítja a szolgáltatást?',
+            'buttons'   : {
+                'Igen'   : {
+                    'class' : 'pink',
+                    'action': function(){
+                        $.post({
+                            url: "../../Controller/Admin/ajax/ajax.php",
+                            data: {editedMainService: editedMainService, editedMainServiceID: editedMainServiceID},
+                            success: function(data) {
+                                setResultMessage(data);
+                                setTimeout(refresh, 3000);
+                            }
+                        });
+                    }
+                },
+                'Nem'    : {
+                    'class' : 'gray'
+                }
             }
         });
     });
     
     $("#mainServiceDelete").click( () => {
         let deletedMainService = $("#nameOfService").val();
-        $.post({
-            url: "../../Controller/Admin/ajax/ajax.php",
-            data: {deletedMainService: deletedMainService},
-            success: function(data) {
-                $("#result").html(data);
-                setTimeout(refresh, 3000);
+
+        $.confirm({
+            'title'     : 'Szolgáltatás törlése',
+            'message'   : 'Biztosan törli a szolgáltatást?',
+            'buttons'   : {
+                'Igen'   : {
+                    'class' : 'pink',
+                    'action': function(){
+                        $.post({
+                            url: "../../Controller/Admin/ajax/ajax.php",
+                            data: {deletedMainService: deletedMainService},
+                            success: function(data) {
+                                setResultMessage(data);
+                                setTimeout(refresh, 3000);
+                            }
+                        });
+                    }
+                },
+                'Nem'    : {
+                    'class' : 'gray'
+                }
             }
         });
     });
-
     
-    $("#subServiceDelete").click( () => {
-        let deletedSubService = $("#nameOfSubService").val();
+    $("#subServiceSave").click( () => {
+        let mainServiceID = $("#mainServiceID").val();
+        let savedSubService = $("#nameOfService").val();
+        let subServicePrice = $("#priceOfService").val();
+        let subServiceDuration = $("#durationOfService").val();
+
         $.post({
             url: "../../Controller/Admin/ajax/ajax.php",
-            data: {deletedSubService: deletedSubService},
+            data: {
+                savedSubService: savedSubService,
+                subServicePrice: subServicePrice,
+                subServiceDuration: subServiceDuration,
+                mainServiceID: mainServiceID
+            },
             success: function(data) {
-                $("#result").html(data);
+                setResultMessage(data);
                 setTimeout(refresh, 3000);
             }
         });
@@ -100,47 +132,74 @@ $(document).ready( () => {
         let editedSubservicePrice = $("#priceOfService").val();
         let editedSubServiceDuration = $("#durationOfService").val();
 
-        //console.log(editedSubservicePrice, editedSubServiceDuration);
-
-        $.post({
-            url: "../../Controller/Admin/ajax/ajax.php",
-            data: {
-                editedSubService: editedSubService, 
-                editedSubServiceID: editedSubServiceID,
-                editedSubservicePrice: editedSubservicePrice,
-                editedSubServiceDuration: editedSubServiceDuration
-            },
-            success: function(data) {
-                $("#result").html(data);
-                setTimeout(refresh, 3000);
+        $.confirm({
+            'title'     : 'Szolgáltatás módosítása',
+            'message'   : 'Biztosan módosítja a szolgáltatást?',
+            'buttons'   : {
+                'Igen'   : {
+                    'class' : 'pink',
+                    'action': function(){
+                        $.post({
+                            url: "../../Controller/Admin/ajax/ajax.php",
+                            data: {
+                                editedSubService: editedSubService, 
+                                editedSubServiceID: editedSubServiceID,
+                                editedSubservicePrice: editedSubservicePrice,
+                                editedSubServiceDuration: editedSubServiceDuration
+                            },
+                            success: function(data) {
+                                setResultMessage(data);
+                                setTimeout(refresh, 3000);
+                            }
+                        });
+                    }
+                },
+                'Nem'    : {
+                    'class' : 'gray'
+                }
             }
         });
     });
 
-    $("#subServiceSave").click( () => {
-        let mainServiceID = $("#mainServiceID").val();
-        let savedSubService = $("#nameOfService").val();
-        let subServicePrice = $("#priceOfService").val();
-        let subServiceDuration = $("#durationOfService").val();
-        //console.log(mainServiceID, savedSubService, subServicePrice, subServiceDuration);
-
-        $.post({
-            url: "../../Controller/Admin/ajax/ajax.php",
-            data: {
-                savedSubService: savedSubService,
-                subServicePrice: subServicePrice,
-                subServiceDuration: subServiceDuration,
-                mainServiceID: mainServiceID
-            },
-            success: function(data) {
-                $("#result").html(data);
-                setTimeout(refresh, 3000);
+    $("#subServiceDelete").click( () => {
+        let deletedSubService = $("#nameOfSubService").val();
+        
+        $.confirm({
+            'title'     : 'Szolgáltatás törlése',
+            'message'   : 'Biztosan törli a szolgáltatást?',
+            'buttons'   : {
+                'Igen'   : {
+                    'class' : 'pink',
+                    'action': function(){
+                        $.post({
+                            url: "../../Controller/Admin/ajax/ajax.php",
+                            data: {deletedSubService: deletedSubService},
+                            success: function(data) {
+                                setResultMessage(data);
+                                setTimeout(refresh, 3000);
+                            }
+                        });
+                    }
+                },
+                'Nem'    : {
+                    'class' : 'gray'
+                }
             }
         });
     });
 
     function refresh(){
         window.location.replace("http://localhost/PHP/View/Admin/mainServicesListed.php");
+    }
+
+    function setResultMessage(data) {
+        if (data == 1) { 
+            $("#result").html("<i class='fas fa-check-circle'></i><p>Sikeres művelet!</p>"); 
+            $("#result").removeClass("alert-danger").addClass("alert-success");
+        } else {
+            $("#result").html("<i class='fas fa-times-circle'></i><p>Sikertelen művelet!</p>"); 
+            $("#result").removeClass("alert-success").addClass("alert-danger");
+        }
     }
 
 });
