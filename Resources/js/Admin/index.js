@@ -22,7 +22,7 @@ $(document).ready( () => {
     });
 
 
-    $("#login").click( function() {
+    $("#login").click( () => {
         let username = $("#username").val();
         let password = $("#password").val();
         $.post({
@@ -33,21 +33,53 @@ $(document).ready( () => {
                     window.location.replace("http://localhost/PHP/View/Admin/mainServicesListed.php");
                 } else if (data === "False") {
                     $("#loginMessage").html("Sikertelen bejelentkezés!");
+                    $("#loginMessage").addClass("alert-danger");
+                    $("#loginMessage").css({"color":"#c70c0c", "padding":"10px 20px", "border-radius":"10px"});
                 }
             }
         });
     });
+
+    $("#pswdChange").click( () => {
+        let actualPassword = $("#act-pswd").val();
+        let newPassword = $("#new-pswd").val();
+        let confirmPassword = $("#conf-pswd").val();
+
+        // let value = (actualPassword != 0) && (newPassword != 0) && (confirmPassword != 0);
+        // console.log(value);
+
+        if ((actualPassword != 0) && (newPassword != 0) && (confirmPassword != 0)) {
+            $.post({
+                url: "../../Controller/Admin/ajax/ajax.php",
+                data: {
+                    actualPassword: actualPassword,
+                    newPassword: newPassword,
+                    confirmPassword: confirmPassword
+                },
+                success: function(data) {
+                    setResultMessage(data);
+                    //setTimeout(refresh, 3000);
+                }
+            });
+        } else {
+            showRequiredInputMessage();
+        }
+    });
     
     $('#mainServiceSave').click( () => {
         let savedMainService = $('#nameOfService').val();
-        $.post({
-            url: "../../Controller/Admin/ajax/ajax.php",
-            data: {savedMainService: savedMainService},
-            success: function(data) {
-                setResultMessage(data);
-                setTimeout(refresh, 3000);
-            }
-        });
+        if (savedMainService) {
+            $.post({
+                url: "../../Controller/Admin/ajax/ajax.php",
+                data: {savedMainService: savedMainService},
+                success: function(data) {
+                    setResultMessage(data);
+                    setTimeout(refresh, 3000);
+                }
+            });
+        } else {
+            showRequiredInputMessage();
+        }
     });
 
     $('#mainServiceEdit').click( () => {
@@ -111,19 +143,23 @@ $(document).ready( () => {
         let subServicePrice = $("#priceOfService").val();
         let subServiceDuration = $("#durationOfService").val();
 
-        $.post({
-            url: "../../Controller/Admin/ajax/ajax.php",
-            data: {
-                savedSubService: savedSubService,
-                subServicePrice: subServicePrice,
-                subServiceDuration: subServiceDuration,
-                mainServiceID: mainServiceID
-            },
-            success: function(data) {
-                setResultMessage(data);
-                setTimeout(refresh, 3000);
-            }
-        });
+        if (savedSubService) {
+            $.post({
+                url: "../../Controller/Admin/ajax/ajax.php",
+                data: {
+                    savedSubService: savedSubService,
+                    subServicePrice: subServicePrice,
+                    subServiceDuration: subServiceDuration,
+                    mainServiceID: mainServiceID
+                },
+                success: function(data) {
+                    setResultMessage(data);
+                    setTimeout(refresh, 3000);
+                }
+            });
+        } else {
+            showRequiredInputMessage();
+        }
     });
 
     $("#subServiceEdit").click( () => {
@@ -192,13 +228,36 @@ $(document).ready( () => {
         window.location.replace("http://localhost/PHP/View/Admin/mainServicesListed.php");
     }
 
+    function setFailedStyle() {
+        $("#result").removeClass("alert-success").addClass("alert-danger");
+        $("#result .fas, #result p").css("color", "#c70c0c");
+        $("#result").css("display", "inline-block");
+    }
+
+    function setSuccessStyle() {
+        $("#result").removeClass("alert-danger").addClass("alert-success");
+        $("#result .fas, #result p").css("color", "#0a9b0f");
+        $("#result").css("display", "inline-block");
+    }
+
+    function showRequiredInputMessage() {
+        $("#result").html("<i class='fas fa-times-circle'></i><p>Mező kitöltése kötelező!</p>"); 
+        setFailedStyle();
+    }
+
     function setResultMessage(data) {
         if (data == 1) { 
-            $("#result").html("<i class='fas fa-check-circle'></i><p>Sikeres művelet!</p>"); 
-            $("#result").removeClass("alert-danger").addClass("alert-success");
-        } else {
-            $("#result").html("<i class='fas fa-times-circle'></i><p>Sikertelen művelet!</p>"); 
-            $("#result").removeClass("alert-success").addClass("alert-danger");
+            $("#result").html("<p><i class='fas fa-check-circle'></i>Sikeres művelet!</p>"); 
+            setSuccessStyle();
+        } else if (data == 0) {
+            $("#result").html("<p><i class='fas fa-times-circle'></i>Sikertelen művelet!</p>"); 
+            setFailedStyle();
+        } else if (data == 2) {
+            $("#result").html("<p>A jelszó sikeresen megváltozott!</p>"); 
+            setSuccessStyle();
+        } else if (data == 3) {
+            $("#result").html("<p>A megadott jelszavak nem egyeznek!</p>"); 
+            setFailedStyle();
         }
     }
 

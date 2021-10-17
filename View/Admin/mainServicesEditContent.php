@@ -10,6 +10,9 @@ if (isset($_SESSION["username"])) {
 ?>
 
 <div class="container">
+    <div class="services-title-container">
+        <h1>Szolgáltatás kategória módosítása</h1>
+    </div>
     <div class="row">
         <div class="col"></div>
         <div class="col-5">
@@ -19,7 +22,7 @@ if (isset($_SESSION["username"])) {
                     <input type="text" class="form-control" id="nameOfService" name="nameOfService" value="<?php echo $service_name ?>">
                     <input type="hidden" id="serviceID" value="<?php echo $service_id ?>">
                 </div>
-                <button type="button" class="btn btn-primary" id="mainServiceEdit">Módosítás</button>
+                <button type="button" class="services-btn" id="mainServiceEdit">Módosítás</button>
             </form>
         <div id="result"></div>
     </div>

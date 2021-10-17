@@ -10,16 +10,19 @@ if (isset($_SESSION["username"])) {
 ?>
 
 <div class="container">
+    <div class="services-title-container">
+        <h1>Szolgáltatás kategória törlése</h1>
+    </div>
     <div class="row">
         <div class="col"></div>
         <div class="col-5">
             <form action="" >
                 <div class="mb-3">
                     <label for="nameOfService" class="form-label">Szolgáltatás neve</label>
-                    <input type="text" class="form-control" id="nameOfService" name="nameOfService" value="<?php echo $service_name ?>">
+                    <input type="text" class="form-control" id="nameOfService" name="nameOfService" value="<?php echo $service_name ?>" readonly>
                     <input type="hidden" id="serviceID" value="<?php echo $service_id ?>">
                 </div>
-                <button type="button" class="btn btn-primary" id="mainServiceDelete">Törlés</button>
+                <button type="button" class="services-btn" id="mainServiceDelete">Törlés</button>
             </form>
         <div id="result"></div>
     </div>
