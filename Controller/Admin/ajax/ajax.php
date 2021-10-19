@@ -3,7 +3,8 @@
 include "../../../Model/Admin/db.php";
 session_start();
 
-function getResultValue($result) {
+function getResultValue($result)
+{
     if ($result === TRUE) {
         echo 1;
     } else {
@@ -27,31 +28,39 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
 }
 
 if (isset($_POST["actualPassword"]) && isset($_POST["newPassword"]) && isset($_POST["confirmPassword"])) {
-    echo "Hello";
+
     $actualPassword = $_POST["actualPassword"];
     $newPassword = $_POST["newPassword"];
     $confirmPassword = $_POST["confirmPassword"];
 
-    echo $actualPassword;
-    echo " " . $newPassword;
-    echo " " . $confirmPassword;
+    // echo $actualPassword;
+    // echo " " . $newPassword;
+    // echo " " . $confirmPassword;
 
     $sql1 = "SELECT * FROM admin WHERE jelszo='$actualPassword'";
     $result1 = $conn->query($sql1);
 
-    echo "<br><br>" . $result1;
+    //echo "<br><br>" ;
+    //echo mysqli_num_rows($result1);
 
-    if ($result === TRUE) {
-        if ($newPassword == $confirmPassword) {
+    if (mysqli_num_rows($result1) > 0) {
+        //echo "Külső";
+        // if ($newPassword == $confirmPassword) {
+            //echo "Belső";
             $sql2 = "UPDATE admin SET jelszo='$newPassword' WHERE jelszo='$actualPassword'";
             $result2 = $conn->query($sql2);
-            $resultValue = getResultValue($result2);
-            if ($resultValue) {
+            //$resultValue = getResultValue2($result2);
+
+            //echo $result2;
+            //echo $resultValue;
+            
+            if ($result2) {
                 echo 2;
             }
-        } else {
-            echo 3;
-        }
+            
+        // } else {
+        //     echo 3;
+        // }
     }
 }
 

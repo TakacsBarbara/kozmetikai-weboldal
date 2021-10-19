@@ -46,21 +46,26 @@ $(document).ready( () => {
         let confirmPassword = $("#conf-pswd").val();
 
         // let value = (actualPassword != 0) && (newPassword != 0) && (confirmPassword != 0);
-        // console.log(value);
+        //console.log(actualPassword);
 
-        if ((actualPassword != 0) && (newPassword != 0) && (confirmPassword != 0)) {
-            $.post({
-                url: "../../Controller/Admin/ajax/ajax.php",
-                data: {
-                    actualPassword: actualPassword,
-                    newPassword: newPassword,
-                    confirmPassword: confirmPassword
-                },
-                success: function(data) {
-                    setResultMessage(data);
-                    //setTimeout(refresh, 3000);
-                }
-            });
+        if ((actualPassword != '') && (newPassword != '') && (confirmPassword != '')) {
+            if (newPassword === confirmPassword) {
+                //console.log("ajax");
+                $.post({
+                    url: "../../Controller/Admin/ajax/ajax.php",
+                    data: {
+                        actualPassword: actualPassword,
+                        newPassword: newPassword,
+                        confirmPassword: confirmPassword
+                    },
+                    success: function(data) {
+                        setResultMessage(data);
+                        //setTimeout(refresh, 3000);
+                    }
+                });
+            } else {
+                setResultMessage(3);
+            }
         } else {
             showRequiredInputMessage();
         }
@@ -246,17 +251,17 @@ $(document).ready( () => {
     }
 
     function setResultMessage(data) {
-        if (data == 1) { 
-            $("#result").html("<p><i class='fas fa-check-circle'></i>Sikeres művelet!</p>"); 
-            setSuccessStyle();
-        } else if (data == 0) {
+        if (data == 0) { 
             $("#result").html("<p><i class='fas fa-times-circle'></i>Sikertelen művelet!</p>"); 
             setFailedStyle();
+        } else if (data == 1) {
+            $("#result").html("<p><i class='fas fa-check-circle'></i>Sikeres művelet!</p>"); 
+            setSuccessStyle();
         } else if (data == 2) {
             $("#result").html("<p>A jelszó sikeresen megváltozott!</p>"); 
             setSuccessStyle();
         } else if (data == 3) {
-            $("#result").html("<p>A megadott jelszavak nem egyeznek!</p>"); 
+            $("#result").html("<p>Az új jelszó nem egyezik!</p>"); 
             setFailedStyle();
         }
     }

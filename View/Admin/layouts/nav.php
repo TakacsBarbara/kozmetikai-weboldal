@@ -34,8 +34,12 @@
                     <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content">
-                    <a class="nav-link-style" href="./changeAdminPassword.php">Jelszó módosítása</a>
-                    <a class="nav-link-style" href="./../../Resources/Session/Admin/logout.php">Kilépés</a>
+                    <a class="nav-link-style" href="./changeAdminPassword.php">
+                    <i class="fas fa-key"></i>
+                    Jelszó módosítása</a>
+                    <a class="nav-link-style" href="./../../Resources/Session/Admin/logout.php">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Kilépés</a>
                 </div>
             </div> 
         </div>
