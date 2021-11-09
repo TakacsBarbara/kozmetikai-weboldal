@@ -37,7 +37,7 @@ if (isset($_SESSION["username"])) {
         $mainservices_ordinal_number = 1;
         while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
         ?>
-          <tr>
+          <tr class="main-service-row">
             <th scope="row"><?php echo $mainservices_ordinal_number ?> </th>
             <td class="mainServices" colspan="4">
               <a id="<?php echo $row['id'] ?>" href="#"><?php echo $row["szolgaltatas_neve"] ?>
@@ -64,7 +64,7 @@ if (isset($_SESSION["username"])) {
               if ($row["id"] == $row_2["foKat_id"]) {
             ?>
               <!-- style="display:none;" a 32. sorban lévő tr style-ja -->
-              <tr class="sc_<?php echo $row['id'] ?>" style="display: none;">
+              <tr class="sc_<?php echo $row['id'] ?> sub-service-row" style="display: none;">
                 <td></td>
                 <td></td>
                 <td> <?php echo $row_2["megnevezes"] ?> </td>

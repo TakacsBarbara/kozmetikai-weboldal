@@ -3,8 +3,7 @@
 include "../../../Model/Admin/db.php";
 session_start();
 
-function getResultValue($result)
-{
+function getResultValue($result) {
     if ($result === TRUE) {
         echo 1;
     } else {
@@ -12,11 +11,37 @@ function getResultValue($result)
     }
 }
 
-if (isset($_POST["username"]) && isset($_POST["password"])) {
+if (isset($_POST["username"]) && isset($_POST["password"]) && isset($_POST["confirmPassword"]) && isset($_POST["reg"])) {
     $username = $_POST["username"];
-    $password = $_POST["password"];
+    $password = md5($_POST["password"]);
+
+    // $sql = "INSERT INTO admin VALUES ('$username', '$password')";
+    // $result = $conn->query($sql);
+    // $row = mysqli_fetch_array($result);
+
+    $sql = "INSERT INTO admin (felhasznalonev, jelszo) VALUES ('$username', '$password')";
+    // $result = $conn->query($sql);
+    $result = $conn->query($sql);
+    // print $result;
+    
+    getResultValue($result);
+
+    // if ($row > 0) {
+    //     $_SESSION["id"] = $row["id"];
+    //     $_SESSION["username"] = $row["felhasznalonev"];
+    //     echo "True";
+    // } else {
+    //     echo "False";
+    // }
+}
+
+if (isset($_POST["username"]) && isset($_POST["password"]) && isset($_POST["login"])) {
+    $username = $_POST["username"];
+    $password = md5($_POST["password"]);
+
     $sql = "SELECT * FROM admin WHERE felhasznalonev='$username' AND jelszo='$password'";
     $result = mysqli_query($conn, $sql);
+
     $row = mysqli_fetch_array($result);
     if ($row > 0) {
         $_SESSION["id"] = $row["id"];
@@ -29,38 +54,19 @@ if (isset($_POST["username"]) && isset($_POST["password"])) {
 
 if (isset($_POST["actualPassword"]) && isset($_POST["newPassword"]) && isset($_POST["confirmPassword"])) {
 
-    $actualPassword = $_POST["actualPassword"];
-    $newPassword = $_POST["newPassword"];
-    $confirmPassword = $_POST["confirmPassword"];
-
-    // echo $actualPassword;
-    // echo " " . $newPassword;
-    // echo " " . $confirmPassword;
-
+    $actualPassword = md5($_POST["actualPassword"]);
+    $newPassword = md5($_POST["newPassword"]);
+    $confirmPassword = md5($_POST["confirmPassword"]);
     $sql1 = "SELECT * FROM admin WHERE jelszo='$actualPassword'";
     $result1 = $conn->query($sql1);
 
-    //echo "<br><br>" ;
-    //echo mysqli_num_rows($result1);
-
     if (mysqli_num_rows($result1) > 0) {
-        //echo "Külső";
-        // if ($newPassword == $confirmPassword) {
-            //echo "Belső";
-            $sql2 = "UPDATE admin SET jelszo='$newPassword' WHERE jelszo='$actualPassword'";
-            $result2 = $conn->query($sql2);
-            //$resultValue = getResultValue2($result2);
+        $sql2 = "UPDATE admin SET jelszo='$newPassword' WHERE jelszo='$actualPassword'";
+        $result2 = $conn->query($sql2);
 
-            //echo $result2;
-            //echo $resultValue;
-            
-            if ($result2) {
-                echo 2;
-            }
-            
-        // } else {
-        //     echo 3;
-        // }
+        if ($result2) {
+            echo 2;
+        }
     }
 }
 

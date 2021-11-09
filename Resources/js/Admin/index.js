@@ -1,10 +1,21 @@
 
 $(document).ready( () => {
 
-    $('.mainServices').on('click',function(){
+    
+    $('.nav-link-style').on('click',function() {
+
+        $.each( $('.nav-link-style'), function() {
+            $(this).removeClass("active");
+        });
+       
+        $(this).addClass("active");
+
+    });
+
+
+    $('.mainServices').on('click',function() {
         let mainServiceID = $(this).children("a").attr('id');
         let arrow = $(this).children("i");
-        console.log(arrow);
         
         let state = $('.sc_'+mainServiceID).attr("style");
         if(state === "display: none;"){
@@ -21,20 +32,50 @@ $(document).ready( () => {
         }
     });
 
+    $("#registration").click( () => {
+        let username = $("#username").val();
+        let password = $("#password").val();
+        let confirmPassword = $("#confirm-password").val();
+
+        console.log(username, password, confirmPassword);
+
+        if (password === confirmPassword) {
+            console.log("Hello");
+            $.post({
+                url: "../../Controller/Admin/ajax/ajax.php",
+                data: {username: username, password: password, confirmPassword: confirmPassword, "reg":"1"},
+                success: function(data) {
+                    if (data == 1) {
+                        console.log("Itt ok");
+                        showSuccessMessage("#regMessage", "Sikeres regisztráció!");
+                        setTimeout(refresh, 3000);
+                        // window.location.replace("http://localhost/PHP/View/Admin/mainServicesListed.php");
+                    } else if (data === "False") {
+                        showErrorMessage("#regMessage", "Sikertelen regisztráció!");
+                    }
+                }
+            });
+        } else {
+            showErrorMessage("#regMessage", "A jelszavak nem egyeznek!");
+            }
+    });
 
     $("#login").click( () => {
         let username = $("#username").val();
         let password = $("#password").val();
         $.post({
             url: "../../Controller/Admin/ajax/ajax.php",
-            data: {username: username, password: password},
+            data: {username: username, password: password, "login":"1"},
             success: function(data) {
                 if (data === "True") {
-                    window.location.replace("http://localhost/PHP/View/Admin/mainServicesListed.php");
+                    refresh();
+                    // window.location.replace("http://localhost/PHP/View/Admin/mainServicesListed.php");
                 } else if (data === "False") {
-                    $("#loginMessage").html("Sikertelen bejelentkezés!");
-                    $("#loginMessage").addClass("alert-danger");
-                    $("#loginMessage").css({"color":"#c70c0c", "padding":"10px 20px", "border-radius":"10px"});
+                    showErrorMessage("#loginMessage", "Sikertelen bejelentkezés!");
+
+                    // $("#loginMessage").html("Sikertelen bejelentkezés!");
+                    // $("#loginMessage").addClass("alert-danger");
+                    // $("#loginMessage").css({"color":"#c70c0c", "padding":"10px 20px", "border-radius":"10px"});
                 }
             }
         });
@@ -264,6 +305,18 @@ $(document).ready( () => {
             $("#result").html("<p>Az új jelszó nem egyezik!</p>"); 
             setFailedStyle();
         }
+    }
+
+    function showErrorMessage(divID, message) {
+        $(divID).html(message);
+        $(divID).addClass("alert-danger");
+        $(divID).css({"color":"#c70c0c", "padding":"10px 20px", "border-radius":"10px"});
+    }
+
+    function showSuccessMessage(divID, message) {
+        $(divID).html(message);
+        $(divID).addClass("alert-success");
+        $(divID).css({"color":"#0a9b0f", "padding":"10px 20px", "border-radius":"10px"});
     }
 
 });

@@ -1,8 +1,3 @@
-<?php
-if ( isset($_GET['loginrequired']) && $_GET['loginrequired'] == 1 ) {
-    echo "<div id='login-message-container'><p id='required-login-message'>Kérem jelentkezzen be!</p></div>";
-}
-?>
 
 <div class="container admin-login-form-style">
     <div class="row">
@@ -19,11 +14,12 @@ if ( isset($_GET['loginrequired']) && $_GET['loginrequired'] == 1 ) {
                         <label for="password" class="form-label">Jelszó</label>
                         <input type="password" class="form-control" id="password" name="password">
                     </div>
-                    <div id="loginMessage"></div>
-                    <button type="button" class="admin-login-btn" id="login">Belépés</button>
-                    <!-- <button type="button" class="admin-reg-btn" id="login">
-                        <a href="./adminRegistration.php">Regisztráció</a>
-                    </button> -->
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Jelszó újra</label>
+                        <input type="password" class="form-control" id="confirm-password" name="confirm-password">
+                    </div>
+                    <div id="regMessage"></div>
+                    <button type="button" class="admin-reg-btn" id="registration">Regisztráció</button>
                 </form>
 
 

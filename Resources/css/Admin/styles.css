@@ -9,9 +9,7 @@
 }
 
 body {
-  background-color: #fff2f26b;
   box-sizing: border-box;
-  padding-bottom: 100px;
 }
 
 .italianno-font-family {
@@ -22,11 +20,9 @@ body {
   background-color: #fff2f26b;
 }
 
-/*nav.php - Navbar stílusa*/
-/* #nav-username {
-    margin-left: 6rem;
-    margin-right: 20px;
-} */
+.container {
+  padding-bottom: 50px;
+}
 
 .fa-sign-out-alt {
   margin-right: 5px;
@@ -47,10 +43,14 @@ body {
   cursor: pointer;
 }
 
-/* .nav-link.active {
-    background-color: #4e344028;
+.nav-link-style:hover .fa-key, .nav-link-style:hover .fa-sign-out-alt {
+  color: #ea8a8a;
+}
+
+.nav-link-style.active {
+    color: #ea8a8a;
     cursor: pointer;
-} */
+}
 
 .dropdown {
   float: left;
@@ -136,6 +136,34 @@ body {
   margin-top: 25px;
 }
 
+.admin-reg-btn {
+  display: inline-block;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  /* -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    background-color: transparent; */
+  border: 1px solid transparent;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  background-color: #ea8a8a;
+  margin-top: 25px;
+}
+
+.admin-reg-btn a {
+  color: #fff;
+  text-decoration: none;
+}
+
 #login-message-container {
   background-color: rgb(255, 241, 241);
   border: 0.5px solid rgb(231, 9, 9);
@@ -180,13 +208,29 @@ body {
 /*mainServicesListedContent.php */
 
 /* Táblázat stílusa */
+
+/* tr:nth-child(even) {background-color: #FFCBCB;} */
+/* 
+.sub-service-row:nth-child(odd) {
+  background-color: #faf2f288;
+}
+
+.main-service-row: {
+  background-color: #faf2f288;
+} */
+
+tr:hover {
+  background-color: rgb(0, 0, 0, 1%);
+}
+
 .table-background {
   background-color: #fff;
 }
 
 .table-container {
   width: 90%;
-  margin: 20px auto 40px;
+  padding-bottom: 50px;
+  margin: 20px auto 0;
 }
 
 .table-header {
@@ -250,18 +294,17 @@ body {
   text-decoration: none;
   vertical-align: middle;
   cursor: pointer;
-  /* border: 1px solid transparent; */
+  border: 1px solid transparent;
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
   border-radius: 0.25rem;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
     border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   background-color: #ea8a8a;
-  /* background-color: #835858; */
 }
 
 .services-btn:hover {
-  background-color: #b43b3b !important;
+  background-color: #c07878 ;
 }
 
 .services-title-container {

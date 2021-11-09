@@ -10,7 +10,9 @@
             }
             include $pageName;
             include "files.php";
-            include "footer.php";
+            if (isset($_SESSION["username"])) {
+                include "footer.php";
+            }
         }
 
     }
