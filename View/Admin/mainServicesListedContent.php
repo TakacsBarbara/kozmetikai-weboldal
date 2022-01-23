@@ -9,7 +9,7 @@ if (isset($_SESSION["username"])) {
     </button>
   </div>
   <div class="table-container">
-    <table class="table table-striped">
+    <table class="table ">
       <colgroup>
         <col style="width: 50px;"> <!--2rem-->
         <col style="width: 270px;"> <!--15rem-->

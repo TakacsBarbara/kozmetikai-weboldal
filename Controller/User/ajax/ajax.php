@@ -3,6 +3,13 @@
 include "../../../Model/User/db.php";
 session_start();
 
+if (isset($_POST["serviceName"])) {
+    $serviceName = $_POST["serviceName"];
+    $result = mysqli_fetch_array($conn->query("SELECT idotartam FROM szolgaltatas_alkategoria WHERE megnevezes='$serviceName'"));
+    
+    echo $result["idotartam"];
+}
+
 if (isset($_POST["categoryValue"])) {
     $category = $_POST["categoryValue"];
     $sql1 = mysqli_fetch_array($conn->query("SELECT id FROM szolgaltatas_fokategoria WHERE szolgaltatas_neve='$category'"));
@@ -21,6 +28,3 @@ if (isset($_POST["categoryValue"])) {
 
     echo $options;
 }
-
-
-?>
