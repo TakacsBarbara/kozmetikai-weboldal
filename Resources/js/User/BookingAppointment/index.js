@@ -12,7 +12,7 @@ $(document).ready( () => {
                 data: {serviceName: serviceName},
                 success: function(data) {
                     countAppointments(data);
-                   // alert(data);
+                //    alert(data);
                     // $("#select-service").html(data);
                 }
             });
@@ -65,60 +65,191 @@ $(document).ready( () => {
     }
 
     function countAppointments(minutes) {
-        let starter = 9;   
-        let finish = 19;
+        
 
         // 2 = 120 + 30 = 150 / 60 = 2 
 
         /*
-            15
+            15  -
             30  -----
             60  -
-            80
-            90
-            100
+            80  -
+            90 -
+            100 -
             120 -
-            150
+            150 -
             180 -
         */
 
-            // let minute = 30;
-            let hours = 0;
-            let mins = 0;
+            let starter = 9;   
+            let finish = 19;
+            
+            // általános
 
-            for (let i = starter; i < finish; i++) {
-                $("#available-hours").append('<button class="btn-time btn-time-outline-secondary btn-time-block shadow-none-time available-hour-time">'+ 
-                hours + ':00</button>');
-
-                hours = parseInt((i * 60 + 90)/60);
-                mins = (i * 60 + 90)%60;
-    
-                $("#available-hours").append('<button class="btn-time btn-time-outline-secondary btn-time-block shadow-none-time available-hour-time">'+ 
-                hours + ':00</button>');
-    
-            }
-
-        /* 30 perces
-
-        for (let i = starter; i <= finish; i++) {
-            hours = parseInt((i * 60 + 30)/60);
-            mins = (i * 60 + 30)%60;
+            let minute = 90;
+            let nextHour = 0;
+            let nextMins = 0;
 
             $("#available-hours").append('<button class="btn-time btn-time-outline-secondary btn-time-block shadow-none-time available-hour-time">'+ 
-            hours + ':00</button>');
+            starter + ':00</button>');
 
-            if (i < finish) {
+            nextHour = parseInt((starter * 60 + minute)/60);
+            nextMins = (starter * 60 + minute)%60;
+
+            while (nextHour<finish) {
+
                 $("#available-hours").append('<button class="btn-time btn-time-outline-secondary btn-time-block shadow-none-time available-hour-time">'+ 
-                hours + ':' + mins + '</button>');
+                nextHour + ':' + (nextMins ? nextMins : '00') + '</button>');
+
+                nextHour = parseInt(((nextHour * 60) + nextMins + minute)/60);
+                nextMins = ((nextHour * 60) + nextMins + minute)%60;
             }
-        } */
+
+            // // 15 perces
+
+            // let minute = 15;
+            // let nextHour = 0;
+            // let nextMins = 0;
+
+            // $("#available-hours").append('<button class="btn-time btn-time-outline-secondary btn-time-block shadow-none-time available-hour-time">'+ 
+            // starter + ':00</button>');
+
+            // nextHour = parseInt((starter * 60 + 15)/60);
+            // nextMins = (starter * 60 + 15)%60;
+
+            // while (nextHour<finish) {
+
+            //     $("#available-hours").append('<button class="btn-time btn-time-outline-secondary btn-time-block shadow-none-time available-hour-time">'+ 
+            //     nextHour + ':' + (nextMins ? nextMins : '00') + '</button>');
+
+            //     nextHour = parseInt(((nextHour * 60) + nextMins + 15)/60);
+            //     nextMins = ((nextHour * 60) + nextMins + 15)%60;
+            // }
+
+            // // 150 perces
+
+            // let minute = 150;
+            // let nextHour = 0;
+            // let nextMins = 0;
+
+            // $("#available-hours").append('<button class="btn-time btn-time-outline-secondary btn-time-block shadow-none-time available-hour-time">'+ 
+            // starter + ':00</button>');
+
+            // nextHour = parseInt((starter * 60 + 150)/60);
+            // nextMins = (starter * 60 + 150)%60;
+
+            // while (nextHour<finish) {
+
+            //     $("#available-hours").append('<button class="btn-time btn-time-outline-secondary btn-time-block shadow-none-time available-hour-time">'+ 
+            //     nextHour + ':' + (nextMins ? nextMins : '00') + '</button>');
+
+            //     nextHour = parseInt(((nextHour * 60) + nextMins + 150)/60);
+            //     nextMins = ((nextHour * 60) + nextMins + 150)%60;
+            // }
+
+            // 100 perces
+
+            // let minute = 100;
+            // let nextHour = 0;
+            // let nextMins = 0;
+
+            // $("#available-hours").append('<button class="btn-time btn-time-outline-secondary btn-time-block shadow-none-time available-hour-time">'+ 
+            // starter + ':00</button>');
+
+            // nextHour = parseInt((starter * 60 + 100)/60);
+            // nextMins = (starter * 60 + 100)%60;
+
+            // while (nextHour<finish) {
+
+            //     $("#available-hours").append('<button class="btn-time btn-time-outline-secondary btn-time-block shadow-none-time available-hour-time">'+ 
+            //     nextHour + ':' + (nextMins ? nextMins : '00') + '</button>');
+
+            //     nextHour = parseInt(((nextHour * 60) + nextMins + 100)/60);
+            //     nextMins = ((nextHour * 60) + nextMins + 100)%60;
+            // }
+
+            // // 80 perces
+
+            // let minute = 80;
+            // let nextHour = 0;
+            // let nextMins = 0;
+
+            // $("#available-hours").append('<button class="btn-time btn-time-outline-secondary btn-time-block shadow-none-time available-hour-time">'+ 
+            // starter + ':00</button>');
+
+            // nextHour = parseInt((starter * 60 + 80)/60);
+            // nextMins = (starter * 60 + 80)%60;
+
+            // while (nextHour<finish) {
+
+            //     $("#available-hours").append('<button class="btn-time btn-time-outline-secondary btn-time-block shadow-none-time available-hour-time">'+ 
+            //     nextHour + ':' + (nextMins ? nextMins : '00') + '</button>');
+
+            //     nextHour = parseInt(((nextHour * 60) + nextMins + 80)/60);
+            //     nextMins = ((nextHour * 60) + nextMins + 80)%60;
+            // }
+
+            // // 90 perces
+
+            // let minute = 90;
+            // let nextHour = 0;
+            // let nextMins = 0;
+
+            // $("#available-hours").append('<button class="btn-time btn-time-outline-secondary btn-time-block shadow-none-time available-hour-time">'+ 
+            // starter + ':00</button>');
+
+            // nextHour = parseInt((starter * 60 + 90)/60);
+            // nextMins = (starter * 60 + 90)%60;
+
+            // while (nextHour<finish) {
+
+            //     $("#available-hours").append('<button class="btn-time btn-time-outline-secondary btn-time-block shadow-none-time available-hour-time">'+ 
+            //     nextHour + ':' + (nextMins ? nextMins : '00') + '</button>');
+
+            //     nextHour = parseInt(((nextHour * 60) + nextMins + 90)/60);
+            //     nextMins = ((nextHour * 60) + nextMins + 90)%60;
+            // }
+
+            // for (let i = starter; i < finish; i++) {
+
+            //     nextHour = parseInt((i * 60 + 90)/60);
+            //     nextMins = (i * 60 + 90)%60;
+    
+            //     $("#available-hours").append('<button class="btn-time btn-time-outline-secondary btn-time-block shadow-none-time available-hour-time">'+ 
+            //     nextHour + ':' + nextMins + '</button>');
+    
+            // }
+
+        // 30 perces
+
+        // for (let i = starter; i <= finish; i++) {
+        //     hours = parseInt((i * 60 + 30)/60);
+        //     mins = (i * 60 + 30)%60;
+
+        //     $("#available-hours").append('<button class="btn-time btn-time-outline-secondary btn-time-block shadow-none-time available-hour-time">'+ 
+        //     hours + ':00</button>');
+
+        //     if (i < finish) {
+        //         $("#available-hours").append('<button class="btn-time btn-time-outline-secondary btn-time-block shadow-none-time available-hour-time">'+ 
+        //         hours + ':' + mins + '</button>');
+        //     }
+        // } 
 
         /*  1 órás
             for (let i = starter; i <= finish; i++) {
                 $("#available-hours").append('<button class="btn-time btn-time-outline-secondary btn-time-block shadow-none-time available-hour-time">'+ i + ':00</button>');
             } 
         */
+
+        //  2 órás
+        // for (let i = starter; i <= finish; i+=2) {
+        //     $("#available-hours").append('<button class="btn-time btn-time-outline-secondary btn-time-block shadow-none-time available-hour-time">'+ i + ':00</button>');
+        // } 
         
+        //  3 órás
+        // for (let i = starter; i <= finish; i+=3) {
+        //     $("#available-hours").append('<button class="btn-time btn-time-outline-secondary btn-time-block shadow-none-time available-hour-time">'+ i + ':00</button>');
+        // } 
 
     }
 });
