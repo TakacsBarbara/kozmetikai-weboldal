@@ -12,8 +12,7 @@ $(document).ready( () => {
                 data: {serviceName: serviceName},
                 success: function(data) {
                     countAppointments(data);
-                //    alert(data);
-                    // $("#select-service").html(data);
+                    alert(data);
                 }
             });
         }
@@ -26,6 +25,10 @@ $(document).ready( () => {
         let index = Number($(this).attr("data-step_index"));
         changeFramePrev(index);
         changeStepStylePrev(index);
+
+        if (index === 2) {
+            $("#available-hours").empty();
+        }
     });
 
     console.log($("#select-category option"));
@@ -81,29 +84,44 @@ $(document).ready( () => {
             180 -
         */
 
-            let starter = 9;   
-            let finish = 19;
-            
+            let starterHour = 9;   
+            let finishHour = 19;
+
             // általános
 
-            let minute = 90;
-            let nextHour = 0;
-            let nextMins = 0;
+            let minute = parseInt(minutes);
+            let appointmentHour = starterHour;
+            let appointmentMin = 0;
 
-            $("#available-hours").append('<button class="btn-time btn-time-outline-secondary btn-time-block shadow-none-time available-hour-time">'+ 
-            starter + ':00</button>');
-
-            nextHour = parseInt((starter * 60 + minute)/60);
-            nextMins = (starter * 60 + minute)%60;
-
-            while (nextHour<finish) {
+            while (appointmentHour<finishHour) {
 
                 $("#available-hours").append('<button class="btn-time btn-time-outline-secondary btn-time-block shadow-none-time available-hour-time">'+ 
-                nextHour + ':' + (nextMins ? nextMins : '00') + '</button>');
+                appointmentHour + ':' + (appointmentMin ? appointmentMin : '00') + '</button>');
 
-                nextHour = parseInt(((nextHour * 60) + nextMins + minute)/60);
-                nextMins = ((nextHour * 60) + nextMins + minute)%60;
+                appointmentHour = parseInt(((appointmentHour * 60) + appointmentMin + minute)/60);
+                appointmentMin = ((appointmentHour * 60) + appointmentMin + minute)%60;
             }
+            
+            // // általános
+
+            // let minute = 90;
+            // let nextHour = 0;
+            // let nextMins = 0;
+
+            // $("#available-hours").append('<button class="btn-time btn-time-outline-secondary btn-time-block shadow-none-time available-hour-time">'+ 
+            // starter + ':00</button>');
+
+            // nextHour = parseInt((starter * 60 + minute)/60);
+            // nextMins = (starter * 60 + minute)%60;
+
+            // while (nextHour<finish) {
+
+            //     $("#available-hours").append('<button class="btn-time btn-time-outline-secondary btn-time-block shadow-none-time available-hour-time">'+ 
+            //     nextHour + ':' + (nextMins ? nextMins : '00') + '</button>');
+
+            //     nextHour = parseInt(((nextHour * 60) + nextMins + minute)/60);
+            //     nextMins = ((nextHour * 60) + nextMins + minute)%60;
+            // }
 
             // // 15 perces
 
