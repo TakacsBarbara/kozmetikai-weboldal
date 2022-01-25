@@ -73,6 +73,10 @@ body {
   padding: 15px 0;
 }
 
+#book-appointment #booking-frame-2 .frame-container {
+  min-height: 450px;
+}
+
 #book-appointment .frame-container .frame-title {
   font-weight: lighter;
   text-align: center;
@@ -214,6 +218,7 @@ body {
   }
 }
 
-#select-category, #select-service{
-    color: #777;
+#select-category,
+#select-service {
+  color: #777;
 }
