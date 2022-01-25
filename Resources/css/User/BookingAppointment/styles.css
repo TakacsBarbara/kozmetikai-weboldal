@@ -108,12 +108,13 @@ body {
   height: 35px;
   width: 35px;
   float: left;
-  background: #ffffff;
+  background: #f1f0f0;
   padding: 8px;
   margin-right: 12px;
   margin-top: 6px;
   border-radius: 0.25rem;
   transition: all 0.2s linear;
+  cursor: default;
 }
 
 #book-appointment .book-step:last-child {
@@ -126,7 +127,7 @@ body {
   text-align: center;
   color: #918f8f;
   transition: all 0.2s linear;
-  cursor: pointer;
+  cursor: default;
 }
 
 #book-appointment .active-step {
@@ -134,7 +135,7 @@ body {
   height: 45px;
   width: 45px;
   float: left;
-  background: #ffffff;
+  background: #f5f4f4;
   padding: 7px;
   margin-right: 13px;
   margin-top: 0;
