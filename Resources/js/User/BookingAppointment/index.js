@@ -12,7 +12,7 @@ $(document).ready( () => {
                 data: {serviceName: serviceName},
                 success: function(data) {
                     countAppointments(data);
-                    alert(data);
+                    //alert(data);
                 }
             });
         }
@@ -93,7 +93,7 @@ $(document).ready( () => {
             let appointmentHour = starterHour;
             let appointmentMin = 0;
 
-            while (appointmentHour<finishHour) {
+            while (appointmentHour < finishHour) {
 
                 $("#available-hours").append('<button class="btn-time btn-time-outline-secondary btn-time-block shadow-none-time available-hour-time">'+ 
                 appointmentHour + ':' + (appointmentMin ? appointmentMin : '00') + '</button>');
