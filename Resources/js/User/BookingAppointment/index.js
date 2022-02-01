@@ -5,7 +5,7 @@ $(document).ready( () => {
 
         if (index === 1) {
 
-            let serviceName = $("#select-service option:selected").text();
+            let serviceName = $.trim($("#select-service option:selected").text());
             $("#service-name-input").attr("value", serviceName);
 
             $.post({
@@ -306,20 +306,6 @@ $("#datepicker").on("change",function(){
     alert(selected_date);
 });
 
-function getAppointment(button) {
-    console.log($(button).html());
+function getAppointment(actualAppointmentButton) {
+    $('#appointment-duration-start-input').attr('value', ($(actualAppointmentButton).html()));
 }
-
-$("#btn_1").on('click', function() {
-    //alert($(this));
-    // $.each( $('.btn-time'), function() {
-    //     console.log($(this).val());
-    // });
-    // alert("működik");
-    // let appointment = $(".available-hour-time").val();
-    // console.log(appointment);
-
-    // $.each( $('.available-hour-time'), function() {
-    //     console.log($(this).val());
-    // });
-});
