@@ -28,3 +28,12 @@ if (isset($_POST["categoryValue"])) {
 
     echo $options;
 }
+
+if (isset($_POST["savedMainService"])) {
+    $savedMainService = $_POST["savedMainService"];
+
+    $sql = "INSERT INTO szolgaltatas_fokategoria (szolgaltatas_neve) VALUES ('$savedMainService')";
+    $result = $conn->query($sql);
+
+    getResultValue($result);
+}

@@ -95,6 +95,7 @@
                                 </div>
 
                                 <div id="available-hours">
+                                    
                                     <!-- <button
                                             class="btn-time btn-time-outline-secondary btn-time-block shadow-none-time available-hour-time selected-hour-time">11:15
                                             am</button>
@@ -259,8 +260,8 @@
                         <button id="book-appointment-submit" type="button" class="btn">
                             Lefoglalom az időpontot
                         </button>
-                        <input type="hidden" name="csrfToken" />
-                        <input type="hidden" name="post_data" />
+                        <input type="hidden" id="service-name-input" name="service-name" value="" />
+                        <input type="hidden" id="appointment-duration-start-input" name="appointment-duration-start-input" value="" />
                     </form>
                 </div>
             </div>

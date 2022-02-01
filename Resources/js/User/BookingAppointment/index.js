@@ -6,6 +6,7 @@ $(document).ready( () => {
         if (index === 1) {
 
             let serviceName = $("#select-service option:selected").text();
+            $("#service-name-input").attr("value", serviceName);
 
             $.post({
                 url: "../../Controller/User/ajax/ajax.php",
@@ -31,7 +32,7 @@ $(document).ready( () => {
         }
     });
 
-    console.log($("#select-category option"));
+    //console.log($("#select-category option"));
 
     $("#select-category").change(function() {
         let categoryValue = $("#select-category").val();
@@ -67,6 +68,32 @@ $(document).ready( () => {
         $("#step-" + (index - 1)).addClass("active-step");
     }
 
+    // let saveAppointmentBtn = document.querySelector('#book-appointment-submit');
+
+    // saveAppointmentBtn.addEventListener('click', function() {
+    //     alert('Hello!');
+    // }
+
+    $('#book-appointment-submit').on('click', function() {
+        let serviceName = $('#service-name-input').val();
+        // $.post({
+        //     url: "../../Controller/User/ajax/ajax.php",
+        //     data: {savedMainService: savedMainService},
+        //     success: function(data) {
+        //         setResultMessage(data);
+        //     }
+        // });
+        alert(serviceName);
+    });
+
+    
+
+    // function saveAppointment() {
+    //     alert("működik");
+    //     let appointment = $(".available-hour-time").val();
+    //     console.log(appointment);
+    // }
+
     function countAppointments(minutes) {
         
 
@@ -92,14 +119,16 @@ $(document).ready( () => {
             let minute = parseInt(minutes);
             let appointmentHour = starterHour;
             let appointmentMin = 0;
+            let btnId = 1;
 
             while (appointmentHour < finishHour) {
 
-                $("#available-hours").append('<button class="btn-time btn-time-outline-secondary btn-time-block shadow-none-time available-hour-time">'+ 
+                $("#available-hours").append('<button id="btn_' + btnId + '" class="btn-time btn-time-outline-secondary btn-time-block shadow-none-time available-hour-time" onClick="getAppointment(this)">'+ 
                 appointmentHour + ':' + (appointmentMin ? appointmentMin : '00') + '</button>');
 
                 appointmentHour = parseInt(((appointmentHour * 60) + appointmentMin + minute)/60);
                 appointmentMin = ((appointmentHour * 60) + appointmentMin + minute)%60;
+                btnId++;
             }
             
             // // általános
@@ -272,12 +301,25 @@ $(document).ready( () => {
     }
 });
 
-// $(".test").click(function() {
-//     console.log("Click");
-//     alert("HEllo");
-// });
-
 $("#datepicker").on("change",function(){
     let selected_date = $(this).val();
     alert(selected_date);
+});
+
+function getAppointment(button) {
+    console.log($(button).html());
+}
+
+$("#btn_1").on('click', function() {
+    //alert($(this));
+    // $.each( $('.btn-time'), function() {
+    //     console.log($(this).val());
+    // });
+    // alert("működik");
+    // let appointment = $(".available-hour-time").val();
+    // console.log(appointment);
+
+    // $.each( $('.available-hour-time'), function() {
+    //     console.log($(this).val());
+    // });
 });
