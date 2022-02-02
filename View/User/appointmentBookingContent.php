@@ -260,8 +260,10 @@
                         <button id="book-appointment-submit" type="button" class="btn">
                             Lefoglalom az időpontot
                         </button>
-                        <input type="hidden" id="service-name-input" name="service-name" value="" />
+                        <input type="hidden" id="service-id-input" name="service-id-input" value="" />
+                        <input type="hidden" id="appointment-date-input" name="appointment-date-input" value="" />
                         <input type="hidden" id="appointment-duration-start-input" name="appointment-duration-start-input" value="" />
+                        <input type="hidden" id="appointment-duration-end-input" name="appointment-duration-end-input" value="" />
                     </form>
                 </div>
             </div>
