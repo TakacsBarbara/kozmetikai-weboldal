@@ -10,6 +10,7 @@
     
     <link href="./../../Resources/css/User/styles.css" rel="stylesheet">
 
+    <link rel="stylesheet" href="./../../Resources/css/jquery.confirm.css">
     <link rel="stylesheet" href="./../../Resources/css/User/BookingAppointment/bootstrap.min.css">
     <link rel="stylesheet" href="./../../Resources/css/User/BookingAppointment/styles.css">
     <link rel="stylesheet" href="./../../Resources/css/User/BookingAppointment/datepicker.css">

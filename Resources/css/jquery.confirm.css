@@ -4,8 +4,8 @@
   position: fixed;
   top: 0;
   left: 0;
-  
-  background-color: rgb(0,0,0, 0.3);
+
+  background-color: rgb(0, 0, 0, 0.3);
   background: -moz-linear-gradient(rgba(17, 17, 17, 0.308));
   backdrop-filter: blur(1px);
 
@@ -13,7 +13,7 @@
 }
 
 #confirmBox {
-  background: url("body_bg.jpg") repeat-x left bottom #fdf9f9;
+  background-color: #fdf9f9;
   width: 460px;
   position: fixed;
   left: 50%;
@@ -29,7 +29,7 @@
 
 #confirmBox h1,
 #confirmBox p {
-  background-color:  #f0eaea;
+  background-color: #f0eaea;
   border-radius: 10px 10px 0 0;
   text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.6);
 }
@@ -81,7 +81,7 @@
 
 #confirmBox .pink {
   background-position: left top;
-  background-color: #EA8A8A;
+  background-color: #ea8a8a;
 }
 #confirmBox .pink span {
   background-position: -195px 0;

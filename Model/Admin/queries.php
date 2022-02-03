@@ -13,7 +13,7 @@
     $row = $result;
     //$row_2 = $result_2;
     //$row_2_t = $result_2->mysqli_fetch_all(MYSQLI_ASSOC);
-    $row_2_t = mysqli_fetch_all ($result_2, MYSQLI_ASSOC);
+    $row_2_t = mysqli_fetch_all($result_2, MYSQLI_ASSOC);
     // $row = $result -> fetch_array(MYSQLI_ASSOC);
 
     //echo "foreach <br>";

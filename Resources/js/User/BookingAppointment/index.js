@@ -19,6 +19,8 @@ $(document).ready( () => {
             });
             
             getSelectedServiceId();
+            getReservedAppointments();
+
         } else if (index === 2) {
             getAppointmentEnd();
         }
@@ -73,20 +75,12 @@ $(document).ready( () => {
         $("#step-" + (index - 1)).addClass("active-step");
     }
 
-    // let saveAppointmentBtn = document.querySelector('#book-appointment-submit');
-
-    // saveAppointmentBtn.addEventListener('click', function() {
-    //     alert('Hello!');
-    // }
-
     $('#book-appointment-submit').on('click', function() {
         let guestId = 13;
         let resServiceId = $("#service-id-input").val();
         let resDate = $("#appointment-date-input").val();
         let resAppointmentStart = $("#appointment-duration-start-input").val();
         let resAppointmentEnd = $('#appointment-duration-end-input').val();
-            
-        //console.log(resAppointmentEnd);
         
         $.post({
             url: "../../Controller/User/ajax/ajax.php",
@@ -99,25 +93,15 @@ $(document).ready( () => {
             },
             success: function(data) {
                 if (data == 1) {
-                    alert('sikerült!');
+                    showDialog('Sikeres időpontfoglalás!');
+                    setTimeout(redirectToUserAppointmentsList, 3000);
                 } else {
-                    console.log(data);
+                    showDialog('Sikertelen időpontfoglalás!');
+                    setTimeout(redirectToAppointmentBooking, 3000);
                 }
-                //setResultMessage(data);
             }
         });
-
-
-        //console.log(reservationServiceId, reservationDate, reservationAppointmentStart, reservationAppointmentEnd);
     });
-
-    
-
-    // function saveAppointment() {
-    //     alert("működik");
-    //     let appointment = $(".available-hour-time").val();
-    //     console.log(appointment);
-    // }
 
     function countAppointments(minutes) {
         
@@ -324,12 +308,86 @@ $(document).ready( () => {
         // } 
 
     }
-});
 
-$("#datepicker").on("change",function(){
-    let selected_date = $(this).val();
-    $("#appointment-date-input").attr("value", selected_date);
-    //alert(selected_date);
+    function getReservedAppointments() {
+        let selectedDay = $("#appointment-date-input").val();
+
+        $.post({
+            url: "../../Controller/User/ajax/ajax.php",
+            data: { selectedDay: selectedDay },
+            success: function(data) {
+                console.log(data);
+                // for (let i = 0; i < data.length; i++) {
+
+                //     console.log(data[i]);
+                // }
+
+                // console.log(JSON.stringify(data));
+            }
+        });
+    }
+
+    $("#datepicker").on("change",function(){
+        let selected_date = $(this).val();
+        $("#appointment-date-input").attr("value", selected_date);
+        //alert(selected_date);
+    });
+
+    function getSelectedServiceId() {
+        let selectedServiceName = $.trim($("#select-service option:selected").text());
+
+        $.post({
+            url: "../../Controller/User/ajax/ajax.php",
+            data: {selectedServiceName: selectedServiceName},
+            success: function(data) {
+                $("#service-id-input").attr("value", data);
+            }
+        });
+    }
+
+    function getAppointmentEnd() {
+        let reservationServiceId = $("#service-id-input").val();
+        let reservationAppointmentStart = $("#appointment-duration-start-input").val();
+
+        let hour = parseInt(reservationAppointmentStart.substring(0,2));
+
+        let min = parseInt(reservationAppointmentStart.substring(3,5));
+
+        $.post({
+        url: "../../Controller/User/ajax/ajax.php",
+        data: {reservationServiceId: reservationServiceId},
+            success: function(data) {
+                calculateEndAppointment(data);            }
+        });
+            
+        function calculateEndAppointment(duration) {
+            let appointmentEnd = hour*60 + min + parseInt(duration);
+
+            hour = parseInt(appointmentEnd / 60);
+            min = appointmentEnd % 60;
+            $('#appointment-duration-end-input').attr('value', (hour + ":" + min));
+        }
+    }
+
+    function showDialog(message) {
+        $.confirm({
+            message: message,
+            'buttons'   : {
+                'OK'   : {
+                    'class' : 'pink'
+                }
+            }
+        });
+    }
+
+    function redirectToUserAppointmentsList(){
+        window.location.replace("http://localhost/PHP/View/User/userAppointmentsList.php");
+    }
+
+    function redirectToAppointmentBooking(){
+        window.location.replace("http://localhost/PHP/View/User/appointmentBooking.php");
+    }
+
 });
 
 function getAppointment(actualAppointmentButton) {
@@ -338,40 +396,4 @@ function getAppointment(actualAppointmentButton) {
     });
     $(actualAppointmentButton).addClass('selected-hour-time');
     $('#appointment-duration-start-input').attr('value', ($(actualAppointmentButton).html()));
-}
-
-function getSelectedServiceId() {
-    let selectedServiceName = $.trim($("#select-service option:selected").text());
-
-    $.post({
-        url: "../../Controller/User/ajax/ajax.php",
-        data: {selectedServiceName: selectedServiceName},
-        success: function(data) {
-            $("#service-id-input").attr("value", data);
-        }
-    });
-}
-
-function getAppointmentEnd() {
-    let reservationServiceId = $("#service-id-input").val();
-    let reservationAppointmentStart = $("#appointment-duration-start-input").val();
-
-    let hour = parseInt(reservationAppointmentStart.substring(0,2));
-
-    let min = parseInt(reservationAppointmentStart.substring(3,5));
-
-    $.post({
-    url: "../../Controller/User/ajax/ajax.php",
-    data: {reservationServiceId: reservationServiceId},
-        success: function(data) {
-            calculateEndAppointment(data);            }
-    });
-        
-    function calculateEndAppointment(duration) {
-        let appointmentEnd = hour*60 + min + parseInt(duration);
-
-        hour = parseInt(appointmentEnd / 60);
-        min = appointmentEnd % 60;
-        $('#appointment-duration-end-input').attr('value', (hour + ":" + min));
-    }
 }

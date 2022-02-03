@@ -58,6 +58,23 @@ if (isset($_POST["resServiceId"]) && isset($_POST["resDate"]) && isset($_POST["r
     getResultValue($result);
 }
 
+if (isset($_POST["selectedDay"])) {
+    $selectedDay = $_POST["selectedDay"];
+    $result = $conn->query("SELECT * FROM idopontfoglalas WHERE idopont_datuma='$selectedDay'");
+
+    $row = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+    foreach ($row as $row_number) {
+        foreach ($row_number as $key => $value) {
+            print_r($key . " " . $value);
+            echo "<br>";
+            echo $value;
+        }
+    }
+
+    echo $array;
+}
+
 function getResultValue($result)
 {
     if ($result === TRUE) {

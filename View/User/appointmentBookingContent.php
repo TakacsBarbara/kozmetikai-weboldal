@@ -266,6 +266,8 @@
                         <input type="hidden" id="appointment-duration-end-input" name="appointment-duration-end-input" value="" />
                     </form>
                 </div>
+                <div id="dialog-success" title="Dialog Title" hidden="hidden"></div>
+                <div id="dialog-fail" title="Dialog Title" hidden="hidden"></div>
             </div>
 
         </div>
