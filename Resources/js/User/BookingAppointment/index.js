@@ -4,22 +4,38 @@ $(document).ready( () => {
         let index = Number($(this).attr("data-step_index"));
 
         if (index === 1) {
+            let duration, reservedAppointments = [];
 
             let actualDate = $("#datepicker").datepicker( 'getDate' );
             $("#appointment-date-input").attr("value", ($.datepicker.formatDate("yy-mm-dd", actualDate)));
 
             let serviceName = $.trim($("#select-service option:selected").text());
-        
             $.post({
                 url: "../../Controller/User/ajax/ajax.php",
                 data: {serviceName: serviceName},
                 success: function(data) {
-                    countAppointments(data);
+                    duration = data;
+                }
+            });
+
+
+            // változók értékei async await !!!
+
+
+            let selectedDay = $("#appointment-date-input").val();
+            $.post({
+                url: "../../Controller/User/ajax/ajax.php",
+                data: { selectedDay: selectedDay },
+                success: function(data) {
+                    data = JSON.parse(data);
+                    reservedAppointments = data;
+                    // console.log(data[0]["idopont_kezdete"]);
                 }
             });
             
+            console.log(duration, reservedAppointments);
             getSelectedServiceId();
-            getReservedAppointments();
+            //getReservedAppointments();
 
         } else if (index === 2) {
             getAppointmentEnd();
@@ -307,24 +323,6 @@ $(document).ready( () => {
         //     $("#available-hours").append('<button class="btn-time btn-time-outline-secondary btn-time-block shadow-none-time available-hour-time">'+ i + ':00</button>');
         // } 
 
-    }
-
-    function getReservedAppointments() {
-        let selectedDay = $("#appointment-date-input").val();
-
-        $.post({
-            url: "../../Controller/User/ajax/ajax.php",
-            data: { selectedDay: selectedDay },
-            success: function(data) {
-                console.log(data);
-                // for (let i = 0; i < data.length; i++) {
-
-                //     console.log(data[i]);
-                // }
-
-                // console.log(JSON.stringify(data));
-            }
-        });
     }
 
     $("#datepicker").on("change",function(){
