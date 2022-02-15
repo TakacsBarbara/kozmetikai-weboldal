@@ -4,36 +4,59 @@ $(document).ready( () => {
         let index = Number($(this).attr("data-step_index"));
 
         if (index === 1) {
-            let duration, reservedAppointments = [];
+            var duration, reservedAppointments = [];
 
             let actualDate = $("#datepicker").datepicker( 'getDate' );
             $("#appointment-date-input").attr("value", ($.datepicker.formatDate("yy-mm-dd", actualDate)));
 
             let serviceName = $.trim($("#select-service option:selected").text());
-            $.post({
+            $.ajax({
+                type: "POST",
                 url: "../../Controller/User/ajax/ajax.php",
-                data: {serviceName: serviceName},
-                success: function(data) {
-                    duration = data;
-                }
-            });
-
-
-            // változók értékei async await !!!
-
-
-            let selectedDay = $("#appointment-date-input").val();
-            $.post({
-                url: "../../Controller/User/ajax/ajax.php",
-                data: { selectedDay: selectedDay },
-                success: function(data) {
+                data: {serviceName: serviceName}
+            }).then(function(data) {
+                duration = data;
+            }).then(function() {
+                let selectedDay = $("#appointment-date-input").val();
+                return $.ajax({
+                    type: "POST",
+                    url: "../../Controller/User/ajax/ajax.php",
+                    data: { selectedDay: selectedDay }
+                }).then(function(data) {
                     data = JSON.parse(data);
                     reservedAppointments = data;
-                    // console.log(data[0]["idopont_kezdete"]);
-                }
-            });
+                });
+            }).then(function() {
+                console.log(duration, reservedAppointments);
+                console.log("Függvényhívás ide.");
+                countAppointments(duration, reservedAppointments);
+            });           
+
+            // let serviceName = $.trim($("#select-service option:selected").text());
+            // $.post({
+            //     url: "../../Controller/User/ajax/ajax.php",
+            //     data: {serviceName: serviceName},
+            //     success: function(data) {
+            //         duration = data;
+            //     }
+            // });
+
+
+            // // változók értékei async await !!!
+
+
+            // let selectedDay = $("#appointment-date-input").val();
+            // $.post({
+            //     url: "../../Controller/User/ajax/ajax.php",
+            //     data: { selectedDay: selectedDay },
+            //     success: function(data) {
+            //         data = JSON.parse(data);
+            //         reservedAppointments = data;
+            //         // console.log(data[0]["idopont_kezdete"]);
+            //     }
+            // });
             
-            console.log(duration, reservedAppointments);
+            
             getSelectedServiceId();
             //getReservedAppointments();
 
@@ -119,8 +142,12 @@ $(document).ready( () => {
         });
     });
 
-    function countAppointments(minutes) {
-        
+    function countAppointments(minutes, reservedAppointments) {
+        console.log(minutes);
+        console.log(reservedAppointments);
+        console.log(reservedAppointments[0]["idopont_kezdete"]);
+        console.log(reservedAppointments[3]["idopont_vege"]);
+
 
         // 2 = 120 + 30 = 150 / 60 = 2 
 

@@ -72,7 +72,7 @@ if (isset($_POST["selectedDay"])) {
     //     }
     // }
 
-    $row["time"] = "20";
+    //$row["time"] = "20";
 
 
     $array = json_encode($row);
