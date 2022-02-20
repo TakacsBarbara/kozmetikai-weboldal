@@ -1,6 +1,6 @@
 
 $(function() {
-    $( "#datepicker" ).datepicker({ firstDay: 1 });
+    $("#datepicker").datepicker({firstDay: 1});
     $("#datepicker").datepicker("option", "minDate", 0);
     $.datepicker.setDefaults({dateFormat: 'yy-mm-dd'});
 });

@@ -1,15 +1,9 @@
 $(document).ready( () => {
 
-    $(".button-next").click(function() {
-        let index = Number($(this).attr("data-step_index"));
+    function listReservedAppointments() {
+        var duration, reservedAppointments = [];
 
-        if (index === 1) {
-            var duration, reservedAppointments = [];
-
-            let actualDate = $("#datepicker").datepicker( 'getDate' );
-            $("#appointment-date-input").attr("value", ($.datepicker.formatDate("yy-mm-dd", actualDate)));
-
-            let serviceName = $.trim($("#select-service option:selected").text());
+        let serviceName = $.trim($("#select-service option:selected").text());
             $.ajax({
                 type: "POST",
                 url: "../../Controller/User/ajax/ajax.php",
@@ -29,11 +23,26 @@ $(document).ready( () => {
             }).then(function() {
                 countAppointments(duration, reservedAppointments);
             }); 
+    }
+
+    $(".button-next").click(function() {
+        let index = Number($(this).attr("data-step_index"));
+
+        if (index === 1) {
+
+            let actualDate = $("#datepicker").datepicker( 'getDate' );
+            $("#appointment-date-input").attr("value", ($.datepicker.formatDate("yy-mm-dd", actualDate)));
+
+            if (actualDate.getDay() != 0) {
+                listReservedAppointments();
+            } else {
+                $("#available-hours").html("<p class='no-appointment-message'>Nincs elérhető időpont!</p>");
+            }
 
             getSelectedServiceId();
 
         } else if (index === 2) {
-            getAppointmentEnd();
+            getSelectedAppointmentEnd();
         }
 
         changeFrameNext(index);
@@ -111,19 +120,39 @@ $(document).ready( () => {
         });
     });
 
-    function checkReservedAppointments(possibleAppointment, reservedAppointments) {
-        const starterPossible = possibleAppointment.substring(0,2);
-        const endPossible = possibleAppointment.substring(3,5);
-        console.log(starterPossible, endPossible);
+    function calculateAppointmentEnd(possibleAppointmentStart, minute) {
+        let hour = parseInt(possibleAppointmentStart.substring(0,2));
+        let mins = parseInt(possibleAppointmentStart.substring(3,5));
+
+        let possibleAppointmentEndHour = (parseInt((hour * 60 + mins + minute) / 60));
+        let possibleAppointmentEndMins = (hour * 60 + mins + minute) % 60;
+
+        possibleAppointmentEndHour = possibleAppointmentEndHour < 10 ? ('0' + possibleAppointmentEndHour) : possibleAppointmentEndHour;
+        possibleAppointmentEndMins = possibleAppointmentEndMins ? possibleAppointmentEndMins : "00";
+
+        return possibleAppointmentEndHour + ':' + possibleAppointmentEndMins;
+    }
+
+    function checkReservedAppointments(possibleAppointmentStart, possibleAppointmentEnd, minute, reservedAppointments) {
+
+
 
         let starterReserved, endReserved = '';
         for (let i = 0; i < reservedAppointments.length; ++i) {
             starterReserved = (reservedAppointments[i]["idopont_kezdete"]).substring(0,5);
             endReserved = (reservedAppointments[i]["idopont_vege"]).substring(0,5);
 
-            console.log(starterReserved, endReserved);
-            
+            if (
+                (possibleAppointmentStart >= starterReserved && possibleAppointmentEnd <= endReserved) || 
+                (possibleAppointmentStart >= starterReserved && possibleAppointmentStart < endReserved) || 
+                (possibleAppointmentEnd > starterReserved && possibleAppointmentEnd <= endReserved) || 
+                (possibleAppointmentStart <= starterReserved) && (possibleAppointmentEnd > endReserved)) {
+                    possibleAppointmentStart = endReserved;
+                    possibleAppointmentEnd = calculateAppointmentEnd(possibleAppointmentStart, minute);
+                    //return possibleAppointmentStart;
+            }            
         }
+        return possibleAppointmentStart;
     }
 
     function countAppointments(minutes, reservedAppointments) {
@@ -150,30 +179,58 @@ $(document).ready( () => {
             const starterHour = 9;   
             const finishHour = 19;
 
-            // általános
-
             const minute = parseInt(minutes);
             let appointmentHour = starterHour;
             let appointmentMin = 0;
+            let possibleAppointmentEndHour, possibleAppointmentEndMins = 0;
+            var possibleAppointmentStart, possibleAppointmentEnd = "";
             let btnId = 1;
 
-            let firstAppointmentEndHour = parseInt((starterHour*60+minute)/60);
-            let firstAppointmentEndMins = (starterHour*60+minute)%60;
-            let firstAppEnd = firstAppointmentEndHour + ':' + firstAppointmentEndMins;
-            console.log(firstAppEnd);
+            do {
+                possibleAppointmentStart = (appointmentHour < 10 ? ('0' + appointmentHour) : appointmentHour) + ':' + (appointmentMin ? appointmentMin : '00');
+                possibleAppointmentEndHour = parseInt((appointmentHour * 60 + appointmentMin + minute) / 60);
+                possibleAppointmentEndMins = (appointmentHour * 60 + appointmentMin + minute) % 60;
+                possibleAppointmentEnd = (possibleAppointmentEndHour < 10 ? ('0' + possibleAppointmentEndHour) : possibleAppointmentEndHour) + ':' + (possibleAppointmentEndMins ? possibleAppointmentEndMins : "00");
             
-            let possibleAppointment = (starterHour < 10 ? ('0' + starterHour) : starterHour) + ':' + (appointmentMin ? appointmentMin : '00');
-            checkReservedAppointments(possibleAppointment, reservedAppointments);
+                possibleAppointmentStart = checkReservedAppointments(possibleAppointmentStart, possibleAppointmentEnd, minute, reservedAppointments);
+                appointmentHour = parseInt(possibleAppointmentStart.substring(0,2));
+                appointmentMin = parseInt(possibleAppointmentStart.substring(3,5));
 
-            while (appointmentHour < finishHour) {
-
-                $("#available-hours").append('<button id="btn_' + btnId + '" class="btn-time btn-time-outline-secondary btn-time-block shadow-none-time available-hour-time" onClick="getAppointment(this)">'+ 
+                $("#available-hours").append('<button id="btn_' + btnId + '" class="btn-time btn-time-outline-secondary btn-time-block shadow-none-time available-hour-time" onClick="getSelectedAppointment(this)">'+ 
                 appointmentHour + ':' + (appointmentMin ? appointmentMin : '00') + '</button>');
 
-                appointmentHour = parseInt(((appointmentHour * 60) + appointmentMin + minute)/60);
-                appointmentMin = ((appointmentHour * 60) + appointmentMin + minute)%60;
+                appointmentHour = parseInt(((appointmentHour * 60) + appointmentMin + minute) / 60);
+                appointmentMin = ((appointmentHour * 60) + appointmentMin + minute) % 60;
                 btnId++;
-            }
+            } while (appointmentHour < finishHour);
+
+            // const starterHour = 9;   
+            // const finishHour = 19;
+
+            // // általános
+
+            // const minute = parseInt(minutes);
+            // let appointmentHour = starterHour;
+            // let appointmentMin = 0;
+            // let btnId = 1;
+
+            // let possibleAppointmentEndHour = parseInt((starterHour*60+minute)/60);
+            // let possibleAppointmentEndMins = (starterHour*60+minute)%60;
+            // var possibleAppointmentEnd = (possibleAppointmentEndHour < 10 ? ('0' + possibleAppointmentEndHour) : possibleAppointmentEndHour) + ':' + (possibleAppointmentEndMins ? possibleAppointmentEndMins : "00");
+            // //console.log(possibleAppointmentEnd);
+            
+            // var possibleAppointmentStart = (starterHour < 10 ? ('0' + starterHour) : starterHour) + ':' + (appointmentMin ? appointmentMin : '00');
+            // checkReservedAppointments(possibleAppointmentStart, possibleAppointmentEnd, reservedAppointments);
+
+            // while (appointmentHour < finishHour) {
+
+            //     $("#available-hours").append('<button id="btn_' + btnId + '" class="btn-time btn-time-outline-secondary btn-time-block shadow-none-time available-hour-time" onClick="getSelectedAppointment(this)">'+ 
+            //     appointmentHour + ':' + (appointmentMin ? appointmentMin : '00') + '</button>');
+
+            //     appointmentHour = parseInt(((appointmentHour * 60) + appointmentMin + minute)/60);
+            //     appointmentMin = ((appointmentHour * 60) + appointmentMin + minute)%60;
+            //     btnId++;
+            // }
             
             // // általános
 
@@ -341,13 +398,18 @@ $(document).ready( () => {
         // for (let i = starter; i <= finish; i+=3) {
         //     $("#available-hours").append('<button class="btn-time btn-time-outline-secondary btn-time-block shadow-none-time available-hour-time">'+ i + ':00</button>');
         // } 
-
     }
 
     $("#datepicker").on("change",function(){
         let selected_date = $(this).val();
-        $("#appointment-date-input").attr("value", selected_date);
-        //alert(selected_date);
+        if (new Date(selected_date).getDay() != 0) {
+            $("#appointment-date-input").attr("value", selected_date);
+            $("#available-hours").empty();
+            listReservedAppointments();
+        } else {
+            $("#available-hours").empty();
+            $("#available-hours").html("<p class='no-appointment-message'>Nincs elérhető időpont!</p>");
+        }
     });
 
     function getSelectedServiceId() {
@@ -362,9 +424,10 @@ $(document).ready( () => {
         });
     }
 
-    function getAppointmentEnd() {
+    function getSelectedAppointmentEnd() {
         let reservationServiceId = $("#service-id-input").val();
-        let reservationAppointmentStart = ($("#appointment-duration-start-input").val() > "10:00" ? ('0' + $("#appointment-duration-start-input").val()) : $("#appointment-duration-start-input").val());
+        let lengthOfResAppointmentStart = ($("#appointment-duration-start-input").val()).length;
+        let reservationAppointmentStart = (lengthOfResAppointmentStart == 4 ? ('0' + $("#appointment-duration-start-input").val()) : $("#appointment-duration-start-input").val());
 
         let hour = parseInt(reservationAppointmentStart.substring(0,2));
         let min = parseInt(reservationAppointmentStart.substring(3,5));
@@ -373,16 +436,11 @@ $(document).ready( () => {
         url: "../../Controller/User/ajax/ajax.php",
         data: {reservationServiceId: reservationServiceId},
             success: function(data) {
-                calculateEndAppointment(data);            }
+                let appointmentEnd = hour*60 + min + parseInt(data);
+                hour = parseInt(appointmentEnd / 60);
+                min = appointmentEnd % 60;
+                $('#appointment-duration-end-input').attr('value', (hour + ":" + (min ? min : "00")));           }
         });
-            
-        function calculateEndAppointment(duration) {
-            let appointmentEnd = hour*60 + min + parseInt(duration);
-
-            hour = parseInt(appointmentEnd / 60);
-            min = appointmentEnd % 60;
-            $('#appointment-duration-end-input').attr('value', (hour + ":" + (min ? min : "00")));
-        }
     }
 
     function showDialog(message) {
@@ -406,7 +464,7 @@ $(document).ready( () => {
 
 });
 
-function getAppointment(actualAppointmentButton) {
+function getSelectedAppointment(actualAppointmentButton) {
     $.each( $('.btn-time'), function() {
         $(this).removeClass('selected-hour-time');
     });

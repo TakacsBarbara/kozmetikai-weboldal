@@ -223,3 +223,7 @@ body {
 #select-service {
   color: #777;
 }
+
+.no-appointment-message {
+  color: #a19f9f;
+}

@@ -64,22 +64,21 @@ if (isset($_POST["selectedDay"])) {
 
     $row = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
-    // foreach ($row as $row_number) {
-    //     foreach ($row_number as $key => $value) {
-    //         print_r($key . " " . $value);
-    //         //echo "<br>";
-    //         //echo $value;
-    //     }
-    // }
-
-    //$row["time"] = "20";
-
-
     $array = json_encode($row);
-
-    // echo 1;
     print_r($array);
-    // echo $array;
+}
+
+if (isset($_POST["reservedServiceId"])) {
+    $reservedServiceId = $_POST["reservedServiceId"];
+
+    $sql = "DELETE FROM idopontfoglalas WHERE id='$reservedServiceId'";
+    $result = $conn->query($sql);
+
+    if ($result == TRUE) {
+        echo 1;
+    } else {
+        echo 0;
+    }
 }
 
 function getResultValue($result)
