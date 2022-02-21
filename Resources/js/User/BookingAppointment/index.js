@@ -40,8 +40,10 @@ $(document).ready( () => {
             }
 
             getSelectedServiceId();
-
+            $(".booking-service-container #res-service-name").html("Szolgáltatás: " + $.trim($("#select-service option:selected").text()));
+            
         } else if (index === 2) {
+            getSelectedServicePrice();
             getSelectedAppointmentEnd();
         }
 
@@ -424,6 +426,18 @@ $(document).ready( () => {
         });
     }
 
+    function getSelectedServicePrice() {
+        let selectedServiceId = $("#service-id-input").val();
+
+        $.post({
+            url: "../../Controller/User/ajax/ajax.php",
+            data: {selectedServiceId: selectedServiceId},
+            success: function(data) {
+                $(".booking-service-container #res-service-price").html("Ár: " + data + " Ft");
+            }
+        });
+    }
+
     function getSelectedAppointmentEnd() {
         let reservationServiceId = $("#service-id-input").val();
         let lengthOfResAppointmentStart = ($("#appointment-duration-start-input").val()).length;
@@ -470,4 +484,5 @@ function getSelectedAppointment(actualAppointmentButton) {
     });
     $(actualAppointmentButton).addClass('selected-hour-time');
     $('#appointment-duration-start-input').attr('value', ($(actualAppointmentButton).html()));
+    $(".booking-service-container #res-appointment-date").html("Időpont: " + $("#appointment-date-input").val() + " " + $('#appointment-duration-start-input').val());
 }

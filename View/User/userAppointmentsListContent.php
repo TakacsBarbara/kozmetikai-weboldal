@@ -75,9 +75,5 @@
 
     </div>
 </div>
-<!-- <div id="reservations-list-modal" class="modal-user hidden">
-    <h4 id="modal-message"></h4>
-</div>
-<div class="overlay-user hidden"></div> -->
 
 <a href="./appointmentBooking.php">Vissza</a>

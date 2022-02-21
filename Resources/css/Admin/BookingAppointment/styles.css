@@ -1,0 +1,35 @@
+root {
+  display: block;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-color: #f5f8fa;
+}
+
+#main {
+  min-height: 100%;
+}
+
+.row {
+  margin-top: 10px;
+}
+
+.appointment-management-container {
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+}
+
+.appointment-management-container .container {
+  width: 85%;
+  margin: 0 auto;
+}

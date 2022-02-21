@@ -12,11 +12,11 @@
                     <div id="step-2" class="book-step" title="Időpontok">
                         <strong>2</strong>
                     </div>
-                    <div id="step-3" class="book-step" title="Adatok kitöltése">
+                    <!-- <div id="step-3" class="book-step" title="Adatok kitöltése">
                         <strong>3</strong>
-                    </div>
-                    <div id="step-4" class="book-step" title="Foglalás megerősítése">
-                        <strong>4</strong>
+                    </div> -->
+                    <div id="step-3" class="book-step" title="Foglalás megerősítése">
+                        <strong>3</strong>
                     </div>
                 </div>
             </div>
@@ -94,39 +94,7 @@
                                     <span id="select-appointment">Szabad időpontok</span>
                                 </div>
 
-                                <div id="available-hours">
-
-                                    <!-- <button
-                                            class="btn-time btn-time-outline-secondary btn-time-block shadow-none-time available-hour-time selected-hour-time">11:15
-                                            am</button>
-                                        <button
-                                            class="btn-time btn-time-outline-secondary btn-time-block shadow-none-time available-hour-time">12:15
-                                            am</button>
-                                        <button
-                                            class="btn-time btn-time-outline-secondary btn-time-block shadow-none-time available-hour-time">13:15
-                                            am</button>
-                                        <button
-                                            class="btn-time btn-time-outline-secondary btn-time-block shadow-none-time available-hour-time">14:15
-                                            am</button>
-                                        <button
-                                            class="btn-time btn-time-outline-secondary btn-time-block shadow-none-time available-hour-time">13:15
-                                            am</button>
-                                        <button
-                                            class="btn-time btn-time-outline-secondary btn-time-block shadow-none-time available-hour-time">14:15
-                                            am</button>
-                                        <button
-                                            class="btn-time btn-time-outline-secondary btn-time-block shadow-none-time available-hour-time">13:15
-                                            am</button>
-                                        <button
-                                            class="btn-time btn-time-outline-secondary btn-time-block shadow-none-time available-hour-time">14:15
-                                            am</button>
-                                        <button
-                                            class="btn-time btn-time-outline-secondary btn-time-block shadow-none-time available-hour-time">13:15
-                                            am</button>
-                                        <button
-                                            class="btn-time btn-time-outline-secondary btn-time-block shadow-none-time available-hour-time">14:15
-                                            am</button> -->
-                                </div>
+                                <div id="available-hours"></div>
                             </div>
                         </div>
                     </div>
@@ -147,7 +115,7 @@
 
             <!-- ENTER CUSTOMER DATA -->
 
-            <div id="booking-frame-3" class="booking-frame" style="display:none;">
+            <!-- <div id="booking-frame-3" class="booking-frame" style="display:none;">
                 <div class="frame-container">
 
                     <h2 class="frame-title">Személyes adatok</h2>
@@ -224,11 +192,11 @@
                         <i class="fas fa-chevron-right ml-2"></i>
                     </button>
                 </div>
-            </div>
+            </div> -->
 
             <!-- APPOINTMENT DATA CONFIRMATION -->
 
-            <div id="booking-frame-4" class="booking-frame" style="display:none;">
+            <div id="booking-frame-3" class="booking-frame" style="display:none;">
                 <div class="frame-container">
                     <h2 class="frame-title">Foglalás megerősítése</h2>
                     <div class="row frame-content">
@@ -238,21 +206,21 @@
                     <div class="row frame-content">
                         <div class="col-12 col-md-6 booking-service-container">
                             <h4>Szolgáltatás és időpont</h4>
-                            <p>Szolgáltatás: </p>
-                            <p>Időpont: </p>
-                            <p>Ár: </p>
+                            <p id="res-service-name"></p>
+                            <p id="res-appointment-date"></p>
+                            <p id="res-service-price"></p>
                         </div>
                         <div class="col-12 col-md-6 booking-service-container">
                             <h4>Személyes adatok</h4>
-                            <p>Név: </p>
-                            <p>Email: </p>
-                            <p>Telefonszám: </p>
+                            <p id="user-name">Név: </p>
+                            <p id="user-email">Email: </p>
+                            <p id="user-phone">Telefonszám: </p>
                         </div>
                     </div>
                 </div>
 
                 <div class="command-buttons">
-                    <button type="button" id="button-back-4" class="btn button-back btn-previous-light" data-step_index="4">
+                    <button type="button" id="button-back-3" class="btn button-back btn-previous-light" data-step_index="3">
                         <i class="fas fa-chevron-left mr-2"></i>
                         Vissza
                     </button>

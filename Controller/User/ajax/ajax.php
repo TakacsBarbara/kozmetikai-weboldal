@@ -81,6 +81,19 @@ if (isset($_POST["reservedServiceId"])) {
     }
 }
 
+if (isset($_POST["selectedServiceId"])) {
+    $selectedServiceId = $_POST["selectedServiceId"];
+
+    $sql = "SELECT ar FROM szolgaltatas_alkategoria WHERE id='$selectedServiceId'";
+    $result = $conn->query($sql);
+
+    $row = mysqli_fetch_array($result);
+    if ($row > 0) {
+        echo $row["ar"];
+    }
+    // print_r($row);
+}
+
 function getResultValue($result)
 {
     if ($result === TRUE) {

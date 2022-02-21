@@ -4,11 +4,10 @@
 } */
 
 .calendar {
-  position: absolute;
-  width: auto;
-  left: 10%;
-  margin: 30px 10px 0px 0px;
+  display: inline-block;
+  width: 300px;
   padding: 5 5px;
+  margin: 20px 40px 0 30px;
   background: #fffdfe;
   border-radius: 4px;
   overflow: hidden;
@@ -137,41 +136,12 @@
 }
 
 .ui-datepicker-unselectable .ui-state-default:hover {
+  background: none !important;
+}
+
+tr:hover {
   background: none;
 }
-
-/*////////////////////////////////////////////////////////*/
-/* 
-.ui-state-default {
-    display: block;
-    text-decoration: none;
-    color: #a19f9f;
-    line-height: 40px;
-    font-size: 12px;
-}
-
-.ui-state-default:hover {
-    background: #ea8a8acc;
-    color: #ffffff;
-    border-radius: 20px;
-    text-decoration: none;
-}
- .ui-state-highlight {
-     color: #ea8a8a;
-     font-weight: bold;
-     font-size: 1.15rem;
- }
-
-.ui-state-active {
-    background: #ea8a8acc;
-    color: #ffffff;
-    border-radius: 20px;
-}
-
-.ui-datepicker-unselectable .ui-state-default {
-    color: #eee;
-    border: 2px solid gray;
-} */
 
 .wizard-frame #select-time-new {
   max-width: 200px;

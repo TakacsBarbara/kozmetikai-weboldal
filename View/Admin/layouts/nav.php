@@ -8,36 +8,39 @@
                 <li class="nav-item">
                     <a class="nav-link-style" href="mainServicesListed.php">Szolgáltatások</a>
                 </li>
-                <li class=" dropdown-appointments nav-item">
-                    <!-- <div class="dropdown"> -->
-                        <button class="dropbtn">Időpontfoglalás</button>
+                <li class="nav-item">
+                    <a class="nav-link-style" href="manageAppointmentBooking.php">Időpontfoglalás</a>
+                </li>
+                <!-- <li class=" dropdown-appointments nav-item"> -->
+                <!-- <div class="dropdown"> -->
+                <!-- <button class="dropbtn">Időpontfoglalás</button>
                         <div class="dropdown-content-appointments">
                             <a class="nav-link-style-drop" href="createAppointments.php">Időpontok rögzítése</a>
                             <a class="nav-link-style-drop" href="manageAppointments.php">Foglalások kezelése</a>
-                        </div>
-                    <!-- </div> -->
-                    <!-- <a class="nav-link-style" href="#">Időpontfoglalás</a> -->
-                </li>
-                
-                <li class="nav-item">
+                        </div> -->
+                <!-- </div> -->
+                <!-- <a class="nav-link-style" href="#">Időpontfoglalás</a> -->
+                <!-- </li> -->
+
+                <!-- <li class="nav-item">
                     <a class="nav-link-style" href="#">Blog</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link-style" href="#">Vélemények jóváhagyása</a>
-                </li>
+                </li> -->
             </ul>
-            
+
             <div class="dropdown">
                 <button class="dropbtn">
                     <span id="nav-username">
-                    <i class="far fa-user"></i>
-                    <?php
-                    if (isset($_SESSION["username"])) {
-                        echo $_SESSION["username"];
-                    } else {
-                        echo "";
-                    }
-                    ?>
+                        <i class="far fa-user"></i>
+                        <?php
+                        if (isset($_SESSION["username"])) {
+                            echo $_SESSION["username"];
+                        } else {
+                            echo "";
+                        }
+                        ?>
                     </span>
                     <i class="fa fa-caret-down"></i>
                 </button>
@@ -55,7 +58,7 @@
                         Kilépés
                     </a>
                 </div>
-            </div> 
+            </div>
         </div>
     </div>
 </nav>

@@ -9,3 +9,18 @@ szolgaltatas_alkategoria.megnevezes, szolgaltatas_alkategoria.ar, szolgaltatas_a
  WHERE idopontfoglalas.vendeg_id=13";
 
 $reservations = $conn->query($sql);
+
+$sql_1 =
+    "SELECT idopontfoglalas.idopont_datuma, idopontfoglalas.idopont_kezdete, szolgaltatas_alkategoria.megnevezes, szolgaltatas_alkategoria.ar,
+    vendegek.vezeteknev, vendegek.keresztnev, vendegek.email, vendegek.tel_szam
+    FROM idopontfoglalas
+    JOIN szolgaltatas_alkategoria
+    ON szolgaltatas_alkategoria.id = idopontfoglalas.szAlkat_id
+    WHERE idopontfoglalas.vendeg_id=13
+    JOIN vendegek
+    ON vendegek.id = idopontfoglalas.vendeg_id
+    WHERE idopontfoglalas.vendeg_id=13";
+
+$reservationDatas = $conn->query($sql_1);
+
+echo ($reservationDatas);
