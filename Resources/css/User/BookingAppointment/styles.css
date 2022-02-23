@@ -55,7 +55,8 @@ body {
   width: 140px;
 }
 
-#book-appointment #book-appointment-form #book-appointment-submit {
+#book-appointment #book-appointment-form #book-appointment-submit,
+#book-appointment #book-appointment-form #book-appointment-change {
   background-color: #ea8a8a;
   color: #ffffff;
   width: 100%;
@@ -226,4 +227,18 @@ body {
 
 .no-appointment-message {
   color: #a19f9f;
+}
+
+.red-border {
+  border: 2px solid rgba(245, 2, 2, 0.89);
+}
+
+.gray-border {
+  border: 1px solid #ced4da;
+}
+
+.available-hours-red-border {
+  border: 2px solid red;
+  padding: 15px;
+  border-radius: 5px;
 }

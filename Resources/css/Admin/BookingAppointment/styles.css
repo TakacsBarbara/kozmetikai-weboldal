@@ -23,13 +23,18 @@ body {
   margin-top: 10px;
 }
 
-.appointment-management-container {
-  width: 100%;
-  display: inline-block;
+.appointment-management-container .am-container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.appointment-management-container .datepicker-container {
+  padding-top: 100px;
   text-align: center;
 }
 
-.appointment-management-container .container {
-  width: 85%;
-  margin: 0 auto;
+.reserved-appointments-table-container .table-container {
+  width: 100%;
+  padding: 0;
+  margin: 20px auto 0;
 }

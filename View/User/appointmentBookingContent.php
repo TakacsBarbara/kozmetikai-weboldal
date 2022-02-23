@@ -1,3 +1,31 @@
+<?php
+// $_SESSION["username"] = "Barbi";
+// if (isset($_SESSION["username"])) {
+if (isset($_GET['id'])) {
+    $sqlResApp = "SELECT szAlkat_id FROM idopontfoglalas WHERE id=" . $_GET['id'];
+    $resultResApp = $conn->query($sqlResApp);
+    $rowResApp = $resultResApp->fetch_array(MYSQLI_ASSOC);
+
+    $subserviceId = $rowResApp["szAlkat_id"];
+
+    $sqlSub = "SELECT * FROM szolgaltatas_alkategoria WHERE id=" . $subserviceId;
+    $resultSub = $conn->query($sqlSub);
+    $rowSub = $resultSub->fetch_array(MYSQLI_ASSOC);
+
+    $subserviceName = $rowSub["megnevezes"];
+    $mainserviceId = $rowSub["foKat_id"];
+
+    $sqlMain = "SELECT szolgaltatas_neve FROM szolgaltatas_fokategoria WHERE id=" . $mainserviceId;
+    $resultMain = $conn->query($sqlMain);
+    $rowMain = $resultMain->fetch_array(MYSQLI_ASSOC);
+
+    $mainserviceName = $rowMain["szolgaltatas_neve"];
+} else {
+    $mainserviceName = null;
+}
+// }
+?>
+
 <div id="main" class="container">
     <div class="row wrapper">
         <div id="book-appointment" class="col-12 col-lg-10 col-xl-8">
@@ -41,7 +69,11 @@
                                     $result = $conn->query($sql);
                                     while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
                                         foreach ($row as $key => $value) {
-                                            echo '<option value="' . $value . '">' . $value . '</option>';
+                                            if ($mainserviceName == $value) {
+                                                echo '<option value="' . $value . '" selected>' . $value . '</option>';
+                                            } else {
+                                                echo '<option value="' . $value . '">' . $value . '</option>';
+                                            }
                                         }
                                     }
                                     ?>
@@ -55,7 +87,21 @@
 
                                 <select id="select-service" class="form-control">
                                     <?php
+                                    if (isset($_GET['id'])) {
 
+                                        $sql = "SELECT megnevezes FROM szolgaltatas_alkategoria WHERE foKat_id=" . $mainserviceId;
+                                        $result = $conn->query($sql);
+
+                                        while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
+                                            foreach ($row as $key => $value) {
+                                                if ($subserviceName == $value) {
+                                                    echo '<option value="' . $value . '" selected>' . $value . '</option>';
+                                                } else {
+                                                    echo '<option value="' . $value . '">' . $value . '</option>';
+                                                }
+                                            }
+                                        }
+                                    }
 
                                     ?>
                                 </select>
@@ -225,9 +271,16 @@
                         Vissza
                     </button>
                     <form id="book-appointment-form" style="display:inline-block" method="post">
-                        <button id="book-appointment-submit" type="button" class="btn">
-                            Lefoglalom az időpontot
-                        </button>
+                        <?php
+                        if (isset($_GET['id'])) {
+                        ?> <button id="book-appointment-change" type="button" class="btn">Módosítom az időpontot</button>
+                            <input type="hidden" id="changed-reserved-appointment-id-input" name="changed-appointment-id-input" value="<?php echo $_GET['id']?>">
+                        <?php
+                        } else {
+                        ?> <button id="book-appointment-submit" type="button" class="btn">Lefoglalom az időpontot</button>
+                        <?php
+                        }
+                        ?>
                         <input type="hidden" id="service-id-input" name="service-id-input" value="" />
                         <input type="hidden" id="appointment-date-input" name="appointment-date-input" value="" />
                         <input type="hidden" id="appointment-duration-start-input" name="appointment-duration-start-input" value="" />

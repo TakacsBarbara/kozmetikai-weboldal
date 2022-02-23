@@ -58,6 +58,23 @@ if (isset($_POST["resServiceId"]) && isset($_POST["resDate"]) && isset($_POST["r
     getResultValue($result);
 }
 
+if (isset($_POST["reservedAppointmentIdToChange"]) && isset($_POST["newResServiceId"]) && isset($_POST["newResDate"]) && isset($_POST["newResAppointmentStart"]) && isset($_POST["newResAppointmentEnd"]) && isset($_POST["guestId"])) {
+
+    $reservedAppointmentIdToChange = $_POST["reservedAppointmentIdToChange"];
+    $newResServiceId = $_POST["newResServiceId"];
+    $newResDate = $_POST["newResDate"];
+    $newResAppointmentStart = $_POST["newResAppointmentStart"];
+    $newResAppointmentEnd = $_POST["newResAppointmentEnd"];
+    $guestId = $_POST["guestId"];
+
+    $sql = "UPDATE idopontfoglalas
+            SET jovahagyva=0, idopont_datuma='$newResDate', idopont_kezdete='$newResAppointmentStart', idopont_vege='$newResAppointmentEnd', vendeg_id='$guestId', szAlkat_id='$newResServiceId'
+            WHERE id='$reservedAppointmentIdToChange'";
+    $result = $conn->query($sql);
+
+    getResultValue($result);
+}
+
 if (isset($_POST["selectedDay"])) {
     $selectedDay = $_POST["selectedDay"];
     $result = $conn->query("SELECT idopont_kezdete, idopont_vege FROM idopontfoglalas WHERE idopont_datuma='$selectedDay'");

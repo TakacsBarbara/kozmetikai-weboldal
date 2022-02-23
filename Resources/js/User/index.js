@@ -1,5 +1,5 @@
 $('.reserved-appointment-delete').on("click", function() {
-    let reservedServiceId = $(this).val(); 
+    let reservedServiceId = $(this).attr("id");
 
     $.confirm({
         'title'     : 'Foglalás törlése',
@@ -39,26 +39,3 @@ function showModal(message, style) {
 function refreshReservationList(){
     window.location.replace("http://localhost/PHP/View/User/userAppointmentsList.php");
 }
-
-// $.confirm({
-//     'title'     : 'Szolgáltatás módosítása',
-//     'message'   : 'Biztosan módosítja a szolgáltatást?',
-//     'buttons'   : {
-//         'Igen'   : {
-//             'class' : 'pink',
-//             'action': function(){
-//                 $.post({
-//                     url: "../../Controller/Admin/ajax/ajax.php",
-//                     data: {editedMainService: editedMainService, editedMainServiceID: editedMainServiceID},
-//                     success: function(data) {
-//                         setResultMessage(data);
-//                         setTimeout(refresh, 3000);
-//                     }
-//                 });
-//             }
-//         },
-//         'Nem'    : {
-//             'class' : 'gray'
-//         }
-//     }
-// });

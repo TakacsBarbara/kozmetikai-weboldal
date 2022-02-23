@@ -29,26 +29,38 @@ $(document).ready( () => {
         let index = Number($(this).attr("data-step_index"));
 
         if (index === 1) {
+            if ($.trim($("#select-service option:selected").text())) {
+                console.log($.trim($("#select-service option:selected").text()));
+    
+                let actualDate = $("#datepicker").datepicker( 'getDate' );
+                $("#appointment-date-input").attr("value", ($.datepicker.formatDate("yy-mm-dd", actualDate)));
+    
+                if (actualDate.getDay() != 0) {
+                    listReservedAppointments();
+                } else {
+                    $("#available-hours").html("<p class='no-appointment-message'>Nincs elérhető időpont!</p>");
+                }
+    
+                getSelectedServiceId();
+                $(".booking-service-container #res-service-name").html("Szolgáltatás: " + $.trim($("#select-service option:selected").text()));
 
-            let actualDate = $("#datepicker").datepicker( 'getDate' );
-            $("#appointment-date-input").attr("value", ($.datepicker.formatDate("yy-mm-dd", actualDate)));
-
-            if (actualDate.getDay() != 0) {
-                listReservedAppointments();
+                changeFrameNext(index);
+                changeStepStyleNext(index);
             } else {
-                $("#available-hours").html("<p class='no-appointment-message'>Nincs elérhető időpont!</p>");
+                $("#select-category").addClass("red-border");
             }
-
-            getSelectedServiceId();
-            $(".booking-service-container #res-service-name").html("Szolgáltatás: " + $.trim($("#select-service option:selected").text()));
             
         } else if (index === 2) {
-            getSelectedServicePrice();
-            getSelectedAppointmentEnd();
-        }
+            if ($("#appointment-duration-start-input").val()) {
+                getSelectedServicePrice();
+                getSelectedAppointmentEnd();
 
-        changeFrameNext(index);
-        changeStepStyleNext(index);
+                changeFrameNext(index);
+                changeStepStyleNext(index);
+            } else {
+                $("#available-hours").addClass("available-hours-red-border");
+            }
+        }
     });
 
     $(".button-back").click(function() {
@@ -62,13 +74,13 @@ $(document).ready( () => {
     });
 
     $("#select-category").change(function() {
+        $("#select-category").removeClass("red-border").addClass("gray-border");
         let categoryValue = $("#select-category").val();
         
         $.post({
             url: "../../Controller/User/ajax/ajax.php",
             data: {categoryValue: categoryValue},
             success: function(data) {
-                // console.log(data);
                 $("#select-service").html(data);
             }
         });
@@ -122,6 +134,36 @@ $(document).ready( () => {
         });
     });
 
+    $('#book-appointment-change').on('click', function() {
+        let guestId = 13;
+        let newResServiceId = $("#service-id-input").val();
+        let newResDate = $("#appointment-date-input").val();
+        let newResAppointmentStart = $("#appointment-duration-start-input").val();
+        let newResAppointmentEnd = $("#appointment-duration-end-input").val();
+        let reservedAppointmentIdToChange = $("#changed-reserved-appointment-id-input").val();
+        
+        $.post({
+            url: "../../Controller/User/ajax/ajax.php",
+            data: {
+                newResServiceId: newResServiceId,
+                newResDate: newResDate,
+                newResAppointmentStart: newResAppointmentStart,
+                newResAppointmentEnd: newResAppointmentEnd,
+                reservedAppointmentIdToChange: reservedAppointmentIdToChange,
+                guestId: guestId
+            },
+            success: function(data) {
+                if (data == 1) {
+                    showDialog('Sikeres időpontmódosítás!');
+                    setTimeout(redirectToUserAppointmentsList, 3000);
+                } else {
+                    showDialog('Sikertelen időpontmódosítás!');
+                    setTimeout(redirectToAppointmentBooking, 3000);
+                }
+            }
+        });
+    });
+
     function calculateAppointmentEnd(possibleAppointmentStart, minute) {
         let hour = parseInt(possibleAppointmentStart.substring(0,2));
         let mins = parseInt(possibleAppointmentStart.substring(3,5));
@@ -137,8 +179,6 @@ $(document).ready( () => {
 
     function checkReservedAppointments(possibleAppointmentStart, possibleAppointmentEnd, minute, reservedAppointments) {
 
-
-
         let starterReserved, endReserved = '';
         for (let i = 0; i < reservedAppointments.length; ++i) {
             starterReserved = (reservedAppointments[i]["idopont_kezdete"]).substring(0,5);
@@ -151,19 +191,12 @@ $(document).ready( () => {
                 (possibleAppointmentStart <= starterReserved) && (possibleAppointmentEnd > endReserved)) {
                     possibleAppointmentStart = endReserved;
                     possibleAppointmentEnd = calculateAppointmentEnd(possibleAppointmentStart, minute);
-                    //return possibleAppointmentStart;
             }            
         }
         return possibleAppointmentStart;
     }
 
     function countAppointments(minutes, reservedAppointments) {
-        // console.log(minutes);
-        // console.log(reservedAppointments);
-        // console.log(reservedAppointments[0]["idopont_kezdete"]);
-        // console.log(reservedAppointments[3]["idopont_vege"]);
-
-
         // 2 = 120 + 30 = 150 / 60 = 2 
 
         /*
@@ -479,6 +512,7 @@ $(document).ready( () => {
 });
 
 function getSelectedAppointment(actualAppointmentButton) {
+    $("#available-hours").removeClass("available-hours-red-border");
     $.each( $('.btn-time'), function() {
         $(this).removeClass('selected-hour-time');
     });

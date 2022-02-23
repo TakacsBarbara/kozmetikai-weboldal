@@ -8,18 +8,12 @@
         <table class="table ">
             <colgroup>
                 <col style="width: 40px;">
-                <!--2rem-->
                 <col style="width: 250px;">
-                <!--20rem-->
                 <col style="width: 90px;">
-                <!--7rem-->
                 <col style="width: 90px;">
-                <!--7rem-->
                 <col style="width: 140px;">
-                <!--9.5rem-->
                 <col style="width: 130px;">
-                <!--7rem-->
-                <col style="width: 140px;"> <!-- 4rem -->
+                <col style="width: 140px;">
             </colgroup>
             <thead>
                 <tr>
@@ -60,8 +54,10 @@
                             <?php echo $reservation["jovahagyva"] ? "Lefoglalva" : "Jóváhagyásra vár" ?>
                         </td>
                         <td class="td-content-center">
-                            <button type="button" class="btn-change reserved-appointment-change" value="<?php echo $reservation["id"] ?>">Módosítás</button>
-                            <button type="button" class="btn-delete reserved-appointment-delete" value="<?php echo $reservation["id"] ?>">Törlés</button>
+                            <button type="button" id="<?php echo $reservation["id"] ?>" class="btn-change reserved-appointment-change">
+                                <a id="change-btn-ref" href="./appointmentBooking.php?id=<?php echo $reservation["id"] ?>">Módosítás</a>
+                            </button>
+                            <button type="button" id="<?php echo $reservation["id"] ?>" class="btn-delete reserved-appointment-delete">Törlés</button>
                         </td>
                     </tr>
                     </tr>
@@ -74,6 +70,5 @@
         </table>
 
     </div>
+    <a href="./appointmentBooking.php" id="new-appointment-btn">Új időpontot foglalok</a>
 </div>
-
-<a href="./appointmentBooking.php">Vissza</a>

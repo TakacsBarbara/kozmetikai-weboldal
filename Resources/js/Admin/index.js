@@ -270,10 +270,6 @@ $(document).ready( () => {
         });
     });
 
-    $(".appointment-management-container #booking-datepicker").select(function() {
-        console.log("Hello");
-    })
-
     function refresh(){
         window.location.replace("http://localhost/PHP/View/Admin/mainServicesListed.php");
     }

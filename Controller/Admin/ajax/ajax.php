@@ -3,7 +3,8 @@
 include "../../../Model/Admin/db.php";
 session_start();
 
-function getResultValue($result) {
+function getResultValue($result)
+{
     if ($result === TRUE) {
         echo 1;
     } else {
@@ -23,7 +24,7 @@ if (isset($_POST["username"]) && isset($_POST["password"]) && isset($_POST["conf
     // $result = $conn->query($sql);
     $result = $conn->query($sql);
     // print $result;
-    
+
     getResultValue($result);
 
     // if ($row > 0) {
@@ -133,4 +134,30 @@ if (isset($_POST["deletedSubService"])) {
     $result = $conn->query($sql);
 
     getResultValue($result);
+}
+
+if (isset($_POST["actualDate"])) {
+    $actualDate = $_POST["actualDate"];
+
+    $sql =
+        "SELECT idopontfoglalas.id, idopontfoglalas.idopont_datuma, idopontfoglalas.idopont_kezdete, idopontfoglalas.idopont_vege, idopontfoglalas.jovahagyva, szolgaltatas_alkategoria.megnevezes,
+    vendegek.vezeteknev, vendegek.keresztnev
+    FROM idopontfoglalas
+    JOIN szolgaltatas_alkategoria
+    ON szolgaltatas_alkategoria.id = idopontfoglalas.szAlkat_id
+    JOIN vendegek
+    ON vendegek.id = idopontfoglalas.vendeg_id
+    WHERE idopontfoglalas.idopont_datuma ='" . $actualDate . "'";
+
+    $reservationDatas = $conn->query($sql);
+
+    // foreach ($reservationDatas as $row => $value) {
+    //     print_r($value);
+    // }
+    // print_r($reservationDatas);
+
+    $row = mysqli_fetch_all($reservationDatas, MYSQLI_ASSOC);
+
+    $array = json_encode($row);
+    print_r($array);
 }

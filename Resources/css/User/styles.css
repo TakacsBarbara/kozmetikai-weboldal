@@ -85,3 +85,28 @@ body {
 .hidden {
   display: none;
 }
+
+#change-btn-ref {
+  text-decoration: none;
+  color: #fff;
+}
+
+#change-btn-ref:hover {
+  text-decoration: none;
+  color: #fff;
+}
+
+#new-appointment-btn {
+  text-decoration: none;
+  color: #fff;
+  background-color: #ea8a8a;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+#new-appointment-btn:hover {
+  text-decoration: none;
+  color: #fff;
+  background-color: #cf7c7c;
+
+}
