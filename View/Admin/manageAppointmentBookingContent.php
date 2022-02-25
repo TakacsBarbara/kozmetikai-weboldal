@@ -11,7 +11,7 @@ if (isset($_SESSION["username"])) {
           <div class="reserved-appointments-table-container">
             <h2>Lefoglalt időpontok listája</h2>
             <div class="table-container">
-              <table class="table ">
+              <table class="table">
                 <colgroup>
                   <col style="width: 40px;">
                   <col style="width: 200px;">

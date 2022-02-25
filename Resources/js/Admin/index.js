@@ -49,7 +49,6 @@ $(document).ready( () => {
                         console.log("Itt ok");
                         showSuccessMessage("#regMessage", "Sikeres regisztráció!");
                         setTimeout(refresh, 3000);
-                        // window.location.replace("http://localhost/PHP/View/Admin/mainServicesListed.php");
                     } else if (data === "False") {
                         showErrorMessage("#regMessage", "Sikertelen regisztráció!");
                     }

@@ -63,6 +63,11 @@ body {
   margin-right: 0;
 }
 
+#book-appointment #book-appointment-form #book-appointment-submit:hover,
+#book-appointment #book-appointment-form #book-appointment-change:hover {
+  background-color: #ce7777;
+}
+
 #book-appointment .booking-frame {
   height: auto;
   padding: 15px;

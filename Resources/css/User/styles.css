@@ -60,26 +60,26 @@ body {
 .btn-change,
 .btn-delete {
   border: none;
-  border-radius: 5%;
+  border-radius: 5px;
   color: #fff;
   font-size: 14px;
-  padding: 3px;
+  padding: 3px 5px;
 }
 
 .btn-change {
-  background-color: rgb(255, 145, 0);
+  background-color: #ea8a8a;
 }
 
 .btn-change:hover {
-  background-color: rgb(216, 131, 3);
+  background-color: #ce7777;
 }
 
 .btn-delete {
-  background-color: rgb(219, 30, 5);
+  background-color: #4e3440;
 }
 
 .btn-delete:hover {
-  background-color: rgb(185, 25, 4);
+  background-color: #36242d;
 }
 
 .hidden {
@@ -108,5 +108,4 @@ body {
   text-decoration: none;
   color: #fff;
   background-color: #cf7c7c;
-
 }

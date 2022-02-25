@@ -150,14 +150,16 @@ if (isset($_POST["actualDate"])) {
     WHERE idopontfoglalas.idopont_datuma ='" . $actualDate . "'";
 
     $reservationDatas = $conn->query($sql);
-
-    // foreach ($reservationDatas as $row => $value) {
-    //     print_r($value);
-    // }
-    // print_r($reservationDatas);
-
     $row = mysqli_fetch_all($reservationDatas, MYSQLI_ASSOC);
-
     $array = json_encode($row);
     print_r($array);
+}
+
+if (isset($_POST["confirmedAppointmentId"])) {
+    $confirmedAppointmentId = $_POST["confirmedAppointmentId"];
+
+    $sql = "UPDATE idopontfoglalas SET jovahagyva=1 WHERE id='$confirmedAppointmentId'";
+    $result = $conn->query($sql);
+
+    getResultValue($result);
 }

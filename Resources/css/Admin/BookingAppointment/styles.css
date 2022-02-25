@@ -28,6 +28,10 @@ body {
   margin: 0 auto;
 }
 
+.appointment-management-container .am-container tbody tr:hover {
+  background-color: transparent;
+}
+
 .appointment-management-container .datepicker-container {
   padding-top: 100px;
   text-align: center;
@@ -37,4 +41,40 @@ body {
   width: 100%;
   padding: 0;
   margin: 20px auto 0;
+}
+
+.reserved-appointments-table-container .reserved-appointment-confirm {
+  background-color: #ea8a8a;
+  border: none;
+  border-radius: 5px;
+  color: #ffffff;
+  font-size: 0.9em;
+  padding: 5px;
+}
+
+.reserved-appointments-table-container .reserved-appointment-delete {
+  border: 1px solid rgba(190, 190, 190, 0.781);
+  border-radius: 5px;
+  font-size: 0.9em;
+  padding: 5px;
+}
+
+.reserved-appointments-table-container .reserved-appointment-confirm:hover {
+  background-color: #ce7777;
+}
+
+.reserved-appointments-table-container .reserved-appointment-reject:hover {
+  background-color: rgb(255, 253, 253);
+}
+
+.confirmed-appointment {
+  background-color: rgba(242, 253, 242, 0.925);
+}
+
+.rejected-appointment {
+  background-color: rgba(255, 241, 241, 0.945);
+}
+
+.not-comfired-appointment {
+  background-color: rgba(253, 248, 239, 0.945);
 }

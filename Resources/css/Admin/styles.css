@@ -58,7 +58,7 @@ body {
   cursor: pointer;
 }
 
-.nav-link-style-drop:hover .fas{
+.nav-link-style-drop:hover .fas {
   color: #ea8a8a;
 }
 
@@ -67,8 +67,8 @@ body {
 } */
 
 .nav-link-style.active {
-    color: #ea8a8a;
-    cursor: pointer;
+  color: #ea8a8a;
+  cursor: pointer;
 }
 
 .dropdown {
@@ -79,10 +79,11 @@ body {
 
 .dropdown-appointments {
   float: left;
-  overflow: hidden; 
+  overflow: hidden;
 }
 
-.dropdown .dropbtn, .dropdown-appointments .dropbtn {
+.dropdown .dropbtn,
+.dropdown-appointments .dropbtn {
   color: #4e3440;
   font-size: 1.1rem;
   font-weight: 700;
@@ -94,12 +95,14 @@ body {
   margin: 0;
 }
 
-.dropdown:hover .dropbtn, .dropdown-appointments:hover .dropbtn {
+.dropdown:hover .dropbtn,
+.dropdown-appointments:hover .dropbtn {
   color: #ea8a8a;
   cursor: pointer;
 }
 
-.dropdown-content, .dropdown-content-appointments {
+.dropdown-content,
+.dropdown-content-appointments {
   display: none;
   position: fixed;
   background-color: #f9f9f9;
@@ -118,8 +121,10 @@ body {
   left: 500px;
 }
 
-.dropdown-content a, .dropdown-content button,
-.dropdown-content-appointments a, .dropdown-content-appointments button  {
+.dropdown-content a,
+.dropdown-content button,
+.dropdown-content-appointments a,
+.dropdown-content-appointments button {
   float: none;
   color: #4e3440;
   padding: 6px 16px;
@@ -128,7 +133,8 @@ body {
   text-align: left;
 }
 
-.dropdown:hover .dropdown-content, .dropdown-appointments:hover .dropdown-content-appointments {
+.dropdown:hover .dropdown-content,
+.dropdown-appointments:hover .dropdown-content-appointments {
   display: inline-block;
 }
 
@@ -251,7 +257,7 @@ body {
   background-color: #faf2f288;
 } */
 
-tbody tr:hover {
+#listed-mainservices-table-container tbody tr:hover {
   background-color: rgba(0, 0, 0, 0.144);
 }
 
@@ -336,7 +342,7 @@ tbody tr:hover {
 }
 
 .services-btn:hover {
-  background-color: #c07878 ;
+  background-color: #c07878;
 }
 
 .services-title-container {
