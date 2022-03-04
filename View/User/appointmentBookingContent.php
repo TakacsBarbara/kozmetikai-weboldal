@@ -159,87 +159,6 @@ if (isset($_GET['id'])) {
                 </div>
             </div>
 
-            <!-- ENTER CUSTOMER DATA -->
-
-            <!-- <div id="booking-frame-3" class="booking-frame" style="display:none;">
-                <div class="frame-container">
-
-                    <h2 class="frame-title">Személyes adatok</h2>
-
-                    <div class="row frame-content">
-                        <div class="col-12 col-md-6">
-                            <div class="form-group">
-                                <label for="last-name" class="control-label">
-                                    Vezetéknév
-                                    <span class="text-danger">*</span>
-                                </label>
-                                <input type="text" id="last-name" class="required form-control" maxlength="120" />
-                            </div>
-                            <div class="form-group">
-                                <label for="first-name" class="control-label">
-                                    Keresztnév
-                                    <span class="text-danger">*</span>
-                                </label>
-                                <input type="text" id="first-name" class="required form-control" maxlength="100" />
-                            </div>
-                            <div class="form-group">
-                                <label for="email" class="control-label">
-                                    Email
-                                    <span class="text-danger">*</span>
-                                </label>
-                                <input type="text" id="email" class="required form-control" maxlength="120" />
-                            </div>
-                            <div class="form-group">
-                                <label for="phone-number" class="control-label">
-                                    Telefonszám
-                                    <span class="text-danger">*</span>
-                                </label>
-                                <input type="text" id="phone-number" maxlength="60" class="required form-control" />
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-md-6">
-                            <div class="form-group">
-                                <label for="city" class="control-label">
-                                    Város
-                                </label>
-                                <input type="text" id="city" class="form-control" maxlength="120" />
-                            </div>
-                            <div class="form-group">
-                                <label for="zip-code" class="control-label">
-                                    Irányítószám
-                                </label>
-                                <input type="text" id="zip-code" class="form-control" maxlength="120" />
-                            </div>
-                            <div class="form-group">
-                                <label for="address" class="control-label">
-                                    Utca, házszám
-                                </label>
-                                <input type="text" id="address" class="form-control" maxlength="120" />
-                            </div>
-                            <div class="form-group">
-                                <label for="notes" class="control-label">
-                                    Megjegyzés
-                                </label>
-                                <textarea id="notes" maxlength="500" class="form-control" rows="1"></textarea>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="command-buttons">
-                    <button type="button" id="button-back-3" class="btn button-back btn-previous-light" data-step_index="3">
-                        <i class="fas fa-chevron-left mr-2"></i>
-                        Vissza
-                    </button>
-                    <button type="button" id="button-next-3" class="btn button-next btn-dark" data-step_index="3">
-
-                        Tovább
-                        <i class="fas fa-chevron-right ml-2"></i>
-                    </button>
-                </div>
-            </div> -->
-
             <!-- APPOINTMENT DATA CONFIRMATION -->
 
             <div id="booking-frame-3" class="booking-frame" style="display:none;">
@@ -274,7 +193,7 @@ if (isset($_GET['id'])) {
                         <?php
                         if (isset($_GET['id'])) {
                         ?> <button id="book-appointment-change" type="button" class="btn">Módosítom az időpontot</button>
-                            <input type="hidden" id="changed-reserved-appointment-id-input" name="changed-appointment-id-input" value="<?php echo $_GET['id']?>">
+                            <input type="hidden" id="changed-reserved-appointment-id-input" name="changed-appointment-id-input" value="<?php echo $_GET['id'] ?>">
                         <?php
                         } else {
                         ?> <button id="book-appointment-submit" type="button" class="btn">Lefoglalom az időpontot</button>

@@ -3,6 +3,34 @@
 include "../../../Model/User/db.php";
 session_start();
 
+if (
+    isset($_POST["lastName"]) && isset($_POST["firstName"]) && isset($_POST["birthDate"]) && isset($_POST["email"]) &&
+    isset($_POST["phone"]) && isset($_POST["password"]) && isset($_POST["confirmPassword"])
+) {
+    $lastName = $_POST["lastName"];
+    $firstName = $_POST["firstName"];
+    $birthDate = $_POST["birthDate"];
+    $email = $_POST["email"];
+    $phone = $_POST["phone"];
+    $password = md5($_POST["password"]);
+    $allergy = $_POST["allergy"];
+    $drugAllergy = $_POST["drugAllergy"];
+
+    $sql = "INSERT INTO vendegek (vezeteknev, keresztnev, szuletesi_datum, email, jelszo, tel_szam, allergia, gyogyszer) 
+            VALUES ('$lastName', '$firstName', '$birthDate', '$email', '$password', '$phone', '$allergy', '$drugAllergy')";
+    $result = $conn->query($sql);
+
+    getResultValue($result);
+
+    // if ($row > 0) {
+    //     $_SESSION["id"] = $row["id"];
+    //     $_SESSION["username"] = $row["felhasznalonev"];
+    //     echo "True";
+    // } else {
+    //     echo "False";
+    // }
+}
+
 if (isset($_POST["serviceName"])) {
     $serviceName = $_POST["serviceName"];
     $result = mysqli_fetch_array($conn->query("SELECT idotartam FROM szolgaltatas_alkategoria WHERE megnevezes='$serviceName'"));

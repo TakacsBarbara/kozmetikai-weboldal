@@ -40,13 +40,11 @@ $(document).ready( () => {
         console.log(username, password, confirmPassword);
 
         if (password === confirmPassword) {
-            console.log("Hello");
             $.post({
                 url: "../../Controller/Admin/ajax/ajax.php",
                 data: {username: username, password: password, confirmPassword: confirmPassword, "reg":"1"},
                 success: function(data) {
                     if (data == 1) {
-                        console.log("Itt ok");
                         showSuccessMessage("#regMessage", "Sikeres regisztráció!");
                         setTimeout(refresh, 3000);
                     } else if (data === "False") {
@@ -56,7 +54,7 @@ $(document).ready( () => {
             });
         } else {
             showErrorMessage("#regMessage", "A jelszavak nem egyeznek!");
-            }
+        }
     });
 
     $("#login").click( () => {

@@ -109,3 +109,37 @@ body {
   color: #fff;
   background-color: #cf7c7c;
 }
+
+#user-registration-btn {
+  background-color: #ea8a8a;
+  border: none;
+  border-radius: 5px;
+  color: #ffffff;
+  font-size: 18px;
+  max-width: 120px;
+  padding: 8px;
+  margin: 10px auto 0;
+}
+
+#user-registration-btn:hover {
+  background-color: #ce7777;
+}
+
+.red-border {
+  border: 1px solid rgba(245, 2, 2, 0.89);
+}
+
+.registration .regMessageContainer {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.registration #regMessage {
+  text-align: center;
+  max-width: 70%;
+  margin: 0 auto;
+}
+
+.registration .reg-btn-container {
+  text-align: center;
+}
