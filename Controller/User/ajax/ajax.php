@@ -21,14 +21,37 @@ if (
     $result = $conn->query($sql);
 
     getResultValue($result);
+}
 
-    // if ($row > 0) {
-    //     $_SESSION["id"] = $row["id"];
-    //     $_SESSION["username"] = $row["felhasznalonev"];
-    //     echo "True";
-    // } else {
-    //     echo "False";
-    // }
+if (isset($_POST["email"]) && isset($_POST["password"]) && isset($_POST["login"])) {
+    $email = $_POST["email"];
+    $password = md5($_POST["password"]);
+
+    $sql = "SELECT * FROM vendegek WHERE email='$email' AND jelszo='$password'";
+    $result = mysqli_query($conn, $sql);
+
+    $row = mysqli_fetch_array($result);
+    if ($row > 0) {
+        $_SESSION["userId"] = $row["id"];
+        $_SESSION["fullname"] = $row["vezeteknev"] . " " . $row["keresztnev"];
+        $_SESSION["email"] = $row["email"];
+        $_SESSION["phone"] = $row["tel_szam"];
+        echo "True";
+    } else {
+        echo "False";
+    }
+}
+
+if (isset($_POST["emailAddress"]) && isset($_POST["newPassword"]) && isset($_POST["forgotPassword"])) {
+    $email = $_POST["emailAddress"];
+    $password = md5($_POST["newPassword"]);
+
+    $sql = "UPDATE vendegek
+            SET jelszo='$password'
+            WHERE email='$email'";
+    $result = $conn->query($sql);
+
+    getResultValue($result);
 }
 
 if (isset($_POST["serviceName"])) {
@@ -71,13 +94,13 @@ if (isset($_POST["reservationServiceId"])) {
     echo $result["idotartam"];
 }
 
-if (isset($_POST["resServiceId"]) && isset($_POST["resDate"]) && isset($_POST["resAppointmentStart"]) && isset($_POST["resAppointmentEnd"]) && isset($_POST["guestId"])) {
+if (isset($_POST["resServiceId"]) && isset($_POST["resDate"]) && isset($_POST["resAppointmentStart"]) && isset($_POST["resAppointmentEnd"])) {
 
     $resServiceId = $_POST["resServiceId"];
     $resDate = $_POST["resDate"];
     $resAppointmentStart = $_POST["resAppointmentStart"];
     $resAppointmentEnd = $_POST["resAppointmentEnd"];
-    $guestId = $_POST["guestId"];
+    $guestId = $_SESSION["userId"];
 
     $sql = "INSERT INTO idopontfoglalas (jovahagyva, idopont_datuma, idopont_kezdete, idopont_vege, vendeg_id, szAlkat_id)
             VALUES ('0', '$resDate', '$resAppointmentStart', '$resAppointmentEnd', '$guestId', '$resServiceId')";
@@ -86,14 +109,14 @@ if (isset($_POST["resServiceId"]) && isset($_POST["resDate"]) && isset($_POST["r
     getResultValue($result);
 }
 
-if (isset($_POST["reservedAppointmentIdToChange"]) && isset($_POST["newResServiceId"]) && isset($_POST["newResDate"]) && isset($_POST["newResAppointmentStart"]) && isset($_POST["newResAppointmentEnd"]) && isset($_POST["guestId"])) {
+if (isset($_POST["reservedAppointmentIdToChange"]) && isset($_POST["newResServiceId"]) && isset($_POST["newResDate"]) && isset($_POST["newResAppointmentStart"]) && isset($_POST["newResAppointmentEnd"])) {
 
     $reservedAppointmentIdToChange = $_POST["reservedAppointmentIdToChange"];
     $newResServiceId = $_POST["newResServiceId"];
     $newResDate = $_POST["newResDate"];
     $newResAppointmentStart = $_POST["newResAppointmentStart"];
     $newResAppointmentEnd = $_POST["newResAppointmentEnd"];
-    $guestId = $_POST["guestId"];
+    $guestId = $_SESSION["userId"];
 
     $sql = "UPDATE idopontfoglalas
             SET jovahagyva=0, idopont_datuma='$newResDate', idopont_kezdete='$newResAppointmentStart', idopont_vege='$newResAppointmentEnd', vendeg_id='$guestId', szAlkat_id='$newResServiceId'

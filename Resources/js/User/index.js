@@ -13,7 +13,6 @@ $('.reserved-appointment-delete').on("click", function() {
                         data: {reservedServiceId: reservedServiceId},
                         success: function(data) {
                             if (data == 1) {
-                                console.log("Sikeres");
                                 showModal("A törlés sikeres volt!", "successful-modal-style");
                             } else {
                                 showModal("A törlés nem sikerült!", "failed-modal-style");
@@ -82,6 +81,54 @@ $("#user-registration-btn").click( () => {
     }
 });
 
+$("#user-login").click( () => {
+    let email = $("#email-address").val();
+    let password = $("#password").val();
+    $.post({
+        url: "../../Controller/User/ajax/ajax.php",
+        data: {email: email, password: password, "login":"1"},
+        success: function(data) {
+            if (data === "True") {
+                directToHomePage();
+            } else if (data === "False") {
+                showErrorMessage("#loginMessage", "Sikertelen bejelentkezés!");
+            }
+        }
+    });
+});
+
+$("#user-forgotpswd-btn").click( () => {
+    const emailAddress = $("#forgotpswd-email").val();
+    const newPassword = generateNewPassword();
+
+    $.post({
+        url: "../../Controller/User/ajax/ajax.php",
+        data: {emailAddress: emailAddress, newPassword: newPassword, "forgotPassword":"1"},
+        success: function(data) {
+            if (data == 1) {
+                 // email küldése
+                showSuccessMessage("#forgotPasswordMessage", "A jelszót elküldtük a megadott email címre!")
+                $("#user-forgotpswd-btn").css("display", "none");
+            } else if (data === "False") {
+                showErrorMessage("#loginMessage", "Jelszó küldés sikertelen!");
+            }
+        }
+    });
+});
+
+function generateNewPassword() {
+    var chars = "0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    var passwordLength = 12;
+    var password = "";
+
+    for (var i = 0; i <= passwordLength; i++) {
+        var randomNumber = Math.floor(Math.random() * chars.length);
+        password += chars.substring(randomNumber, randomNumber +1);
+    }
+
+    return password;
+}
+
 function checkInputValue(condition, element) {
     if (condition) {
         $(element).addClass("red-border");
@@ -113,4 +160,8 @@ function showSuccessMessage(divID, message) {
 
 function refreshReservationList(){
     window.location.replace("http://localhost/PHP/View/User/userAppointmentsList.php");
+}
+
+function directToHomePage(){
+    window.location.replace("http://localhost/PHP/View/User/homePage.php");
 }

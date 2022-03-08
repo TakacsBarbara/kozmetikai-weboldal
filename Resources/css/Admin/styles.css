@@ -358,3 +358,26 @@ body {
 .services-form-label-style {
   margin-top: 15px;
 }
+
+.modal-user {
+  border-radius: 3px;
+  font-family: "Poiret One", cursive;
+  margin: 30px auto 10px;
+  padding: 5px 20px;
+  text-align: center;
+  width: 100%;
+}
+
+.successful-modal-style {
+  background-color: rgb(217, 247, 217);
+  color: rgb(2, 61, 2);
+}
+
+.failed-modal-style {
+  background-color: rgb(238, 226, 228);
+  color: rgb(114, 15, 2);
+}
+
+.hidden {
+  display: none;
+}

@@ -23,17 +23,8 @@ if (isset($_POST["username"]) && isset($_POST["password"]) && isset($_POST["conf
     $sql = "INSERT INTO admin (felhasznalonev, jelszo) VALUES ('$username', '$password')";
     // $result = $conn->query($sql);
     $result = $conn->query($sql);
-    // print $result;
 
     getResultValue($result);
-
-    // if ($row > 0) {
-    //     $_SESSION["id"] = $row["id"];
-    //     $_SESSION["username"] = $row["felhasznalonev"];
-    //     echo "True";
-    // } else {
-    //     echo "False";
-    // }
 }
 
 if (isset($_POST["username"]) && isset($_POST["password"]) && isset($_POST["login"])) {
@@ -159,6 +150,15 @@ if (isset($_POST["confirmedAppointmentId"])) {
     $confirmedAppointmentId = $_POST["confirmedAppointmentId"];
 
     $sql = "UPDATE idopontfoglalas SET jovahagyva=1 WHERE id='$confirmedAppointmentId'";
+    $result = $conn->query($sql);
+
+    getResultValue($result);
+}
+
+if (isset($_POST["rejectedAppointmentId"])) {
+    $rejectedAppointmentId = $_POST["rejectedAppointmentId"];
+
+    $sql = "UPDATE idopontfoglalas SET jovahagyva=2 WHERE id='$rejectedAppointmentId'";
     $result = $conn->query($sql);
 
     getResultValue($result);

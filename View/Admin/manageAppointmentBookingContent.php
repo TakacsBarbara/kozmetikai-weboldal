@@ -11,6 +11,9 @@ if (isset($_SESSION["username"])) {
           <div class="reserved-appointments-table-container">
             <h2>Lefoglalt időpontok listája</h2>
             <div class="table-container">
+              <div id="reservations-list-modal" class="modal-user hidden">
+                <h4 id="modal-message"></h4>
+              </div>
               <table class="table">
                 <colgroup>
                   <col style="width: 40px;">

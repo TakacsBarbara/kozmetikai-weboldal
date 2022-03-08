@@ -10,6 +10,62 @@ $(document).ready( () => {
         getReservedAppointmentsData(selectedDate);
     });
 
+    $("body").on("click", ".btn-status-ok", function() {
+        const confirmedAppointmentId = $(this).val();
+
+        $.post({
+            url: "../../Controller/Admin/ajax/ajax.php",
+            data: {confirmedAppointmentId: confirmedAppointmentId},
+            success: function(data) {
+                if (data == 1) {
+                    $(".reserved-appointments-table-container tbody").empty();
+                    let selectedDate = $.datepicker.formatDate("yy-mm-dd", $("#datepicker").datepicker('getDate'));
+                    $(".reserved-appointments-table-container tbody").empty();
+                    getReservedAppointmentsData(selectedDate);
+                    showModal("Jóváhagyás sikeres!", "successful-modal-style");
+                } else {
+                    showModal("Jóváhagyás sikertelen!", "failed-modal-style");
+                }
+                setTimeout(closeModal, 3000);
+            }
+        });
+    });
+
+    $("body").on("click", ".btn-status-reject", function() {
+        const rejectedAppointmentId = $(this).val();
+
+        $.confirm({
+            'title'     : 'Foglalás lemondása',
+            'message'   : 'Biztosan lemondja az időpontot?',
+            'buttons'   : {
+                'Igen'   : {
+                    'class' : 'pink',
+                    'action': function(){
+                        $.post({
+                            url: "../../Controller/Admin/ajax/ajax.php",
+                            data: {rejectedAppointmentId: rejectedAppointmentId},
+                            success: function(data) {
+                                if (data == 1) {
+                                    $(".reserved-appointments-table-container tbody").empty();
+                                    let selectedDate = $.datepicker.formatDate("yy-mm-dd", $("#datepicker").datepicker('getDate'));
+                                    $(".reserved-appointments-table-container tbody").empty();
+                                    getReservedAppointmentsData(selectedDate);
+                                    showModal("Időpont lemondása sikeres!", "successful-modal-style");
+                                } else {
+                                    showModal("Időpont lemondása sikertelen!", "failed-modal-style");
+                                }
+                                setTimeout(closeModal, 5000);
+                            }
+                        });
+                    }
+                },
+                'Nem'    : {
+                    'class' : 'gray'
+                }
+            }
+        });
+    });
+
     function getReservedAppointmentsData(date) {
         $.post({
             url: "../../Controller/Admin/ajax/ajax.php",
@@ -32,7 +88,7 @@ $(document).ready( () => {
             let confirmationstatus = bookedUserAppointments[i]["jovahagyva"] == 0 ? "Jóváhagyásra vár" : "Jóváhagyva";
 
             tableBody.append(
-                `<tr id="tr_` + bookedUserAppointments[i]["id"] + `" class="`+ (bookedUserAppointments[i]["jovahagyva"] == 0 ? "not-comfired-appointment" : "") +`">
+                `<tr id="tr_` + bookedUserAppointments[i]["id"] + `" class="`+ (bookedUserAppointments[i]["jovahagyva"] == 0 ? "not-comfired-appointment" : "") + `" style="display:`+ (bookedUserAppointments[i]["jovahagyva"] == 2 ? "none" : "") +`;">
                     <td>` + (i+1) + `</td>
                     <td>` + bookedUserAppointments[i]["vezeteknev"] + " " + bookedUserAppointments[i]["keresztnev"] + `</td>
                     <td class="td-content-center">` + bookedUserAppointments[i]["megnevezes"] + `</td>
@@ -48,23 +104,15 @@ $(document).ready( () => {
         }
     }
 
-    $("body").on("click", ".btn-status-ok", function() {
-        const confirmedAppointmentId = $(this).val();
+    function showModal(message, style) {
+        $("#reservations-list-modal").removeClass("hidden");
+        $("#reservations-list-modal #modal-message").text(message);
+        $("#reservations-list-modal").addClass(style);
+    }
 
-        $.post({
-            url: "../../Controller/Admin/ajax/ajax.php",
-            data: {confirmedAppointmentId: confirmedAppointmentId},
-            success: function(data) {
-                if (data == 1) {
-                    $(".reserved-appointments-table-container tbody").empty();
-                    let selectedDate = $.datepicker.formatDate("yy-mm-dd", $("#datepicker").datepicker('getDate'));
-                    $(".reserved-appointments-table-container tbody").empty();
-                    getReservedAppointmentsData(selectedDate);
-                    
-                }
-            }
-        });
-    });
+    function closeModal() {
+        $("#reservations-list-modal").addClass("hidden");
+    }
 
 });
 

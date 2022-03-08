@@ -135,7 +135,6 @@ $(document).ready( () => {
     });
 
     $('#book-appointment-change').on('click', function() {
-        let guestId = 13;
         let newResServiceId = $("#service-id-input").val();
         let newResDate = $("#appointment-date-input").val();
         let newResAppointmentStart = $("#appointment-duration-start-input").val();
@@ -150,7 +149,6 @@ $(document).ready( () => {
                 newResAppointmentStart: newResAppointmentStart,
                 newResAppointmentEnd: newResAppointmentEnd,
                 reservedAppointmentIdToChange: reservedAppointmentIdToChange,
-                guestId: guestId
             },
             success: function(data) {
                 if (data == 1) {
