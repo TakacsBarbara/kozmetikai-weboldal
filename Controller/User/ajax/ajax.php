@@ -1,6 +1,7 @@
 <?php
 
 include "../../../Model/User/db.php";
+include "./../../Email/mail.php";
 session_start();
 
 if (
@@ -40,18 +41,6 @@ if (isset($_POST["email"]) && isset($_POST["password"]) && isset($_POST["login"]
     } else {
         echo "False";
     }
-}
-
-if (isset($_POST["emailAddress"]) && isset($_POST["newPassword"]) && isset($_POST["forgotPassword"])) {
-    $email = $_POST["emailAddress"];
-    $password = md5($_POST["newPassword"]);
-
-    $sql = "UPDATE vendegek
-            SET jelszo='$password'
-            WHERE email='$email'";
-    $result = $conn->query($sql);
-
-    getResultValue($result);
 }
 
 if (isset($_POST["serviceName"])) {
@@ -161,6 +150,53 @@ if (isset($_POST["selectedServiceId"])) {
     }
     // print_r($row);
 }
+
+if (isset($_POST['password']) && isset($_POST['reset_link_token']) && isset($_POST['email'])) {
+    $emailId = $_POST['email'];
+    $token = $_POST['reset_link_token'];
+    $password = md5($_POST['password']);
+    $query = mysqli_query($conn, "SELECT * FROM `vendegek` WHERE `reset_link_token`='" . $token . "' and `email`='" . $emailId . "'");
+    $row = mysqli_num_rows($query);
+
+    if ($row) {
+        mysqli_query($conn, "UPDATE vendegek SET  jelszo='" . $password . "', reset_link_token='" . NULL . "' ,exp_date='" . NULL . "' WHERE email='" . $emailId . "'");
+        echo 1;
+    } else {
+        echo 0;
+    }
+}
+
+// if (isset($_POST['password-reset-token']) && isset($_POST['email'])) {
+
+//     $emailId = $_POST['email'];
+//     $result = mysqli_query($conn, "SELECT * FROM vendegek WHERE email='" . $emailId . "'");
+//     $row = mysqli_fetch_array($result);
+
+//     if ($row) {
+
+//         $token = md5($emailId) . rand(10, 9999);
+
+//         $expFormat = mktime(date("H"), date("i"), date("s"), date("m"), date("d") + 1, date("Y"));
+
+//         $expDate = date("Y-m-d H:i:s", $expFormat);
+
+//         $update = mysqli_query($conn, "UPDATE vendegek SET reset_link_token='" . $token . "', exp_date='" . $expDate . "' WHERE email='" . $emailId . "'");
+
+//         $link = "<a href=' http://localhost/PHP/View/User/resetUserPassword.php?key=" . $emailId . "&token=" . $token . "'>Kattintson ide új jelszó beállításához</a>";
+
+//         $mail->AddAddress($row["email"], $row["vezeteknev"] . ' ' . $row["keresztnev"]);
+//         $mail->Subject  =  'Lashes and More - Új jelszó beállítása';
+//         $mail->Body    = 'Új jelszó beállítása: ' . $link . '';
+
+//         if ($mail->Send()) {
+//             echo 1;
+//         } else {
+//             echo 2;
+//         }
+//     } else {
+//         echo 0;
+//     }
+// }
 
 function getResultValue($result)
 {

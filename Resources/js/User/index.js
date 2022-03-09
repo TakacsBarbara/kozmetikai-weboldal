@@ -84,6 +84,8 @@ $("#user-registration-btn").click( () => {
 $("#user-login").click( () => {
     let email = $("#email-address").val();
     let password = $("#password").val();
+
+    console.log(email, password);
     $.post({
         url: "../../Controller/User/ajax/ajax.php",
         data: {email: email, password: password, "login":"1"},
@@ -97,37 +99,46 @@ $("#user-login").click( () => {
     });
 });
 
-$("#user-forgotpswd-btn").click( () => {
-    const emailAddress = $("#forgotpswd-email").val();
-    const newPassword = generateNewPassword();
+$("#user-forgot-pswd-btn").click( () => {
+    let newPassword = $("#new-password").val();
+    let confirmPassword = $("#new-cpassword").val();
+    let linkToken = $("#reset_link_token").val(); 
+    let userEmail = $("#reset-password-email").val(); 
 
-    $.post({
-        url: "../../Controller/User/ajax/ajax.php",
-        data: {emailAddress: emailAddress, newPassword: newPassword, "forgotPassword":"1"},
-        success: function(data) {
-            if (data == 1) {
-                 // email küldése
-                showSuccessMessage("#forgotPasswordMessage", "A jelszót elküldtük a megadott email címre!")
-                $("#user-forgotpswd-btn").css("display", "none");
-            } else if (data === "False") {
-                showErrorMessage("#loginMessage", "Jelszó küldés sikertelen!");
+    console.log(newPassword, confirmPassword, linkToken, userEmail);
+    
+    if (newPassword === confirmPassword) {
+        $.post({
+            url: "../../Controller/User/ajax/ajax.php",
+            data: {password: newPassword, reset_link_token: linkToken, email: userEmail },
+            success: function(data) {
+                if (data == 1) {
+                    showSuccessMessage("#resultMessage", "A jelszó megváltozott")
+                    $("#user-forgotpswd-btn").css("display", "none");
+                    setTimeout(directToUserLoginPage, 3000);
+                } else if (data == 0) {
+                    showErrorMessage("#resultMessage", "Jelszó megváltoztatása nem sikerült");
+                }
             }
-        }
-    });
+        });
+    } else {
+        showErrorMessage("#resultMessage", "A megadott jelszavak nem egyeznek!");
+    }
+    
 });
 
-function generateNewPassword() {
-    var chars = "0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    var passwordLength = 12;
-    var password = "";
+// function generateNewPassword() {
+//     var chars = "0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+//     var passwordLength = 12;
+//     var password = "";
 
-    for (var i = 0; i <= passwordLength; i++) {
-        var randomNumber = Math.floor(Math.random() * chars.length);
-        password += chars.substring(randomNumber, randomNumber +1);
-    }
+//     for (var i = 0; i <= passwordLength; i++) {
+//         var randomNumber = Math.floor(Math.random() * chars.length);
+//         password += chars.substring(randomNumber, randomNumber +1);
+//     }
 
-    return password;
-}
+//     return password;
+// }
 
 function checkInputValue(condition, element) {
     if (condition) {
@@ -144,14 +155,12 @@ function showModal(message, style) {
 }
 
 function showErrorMessage(divID, message) {
-    $(".regMessageContainer").removeClass("hidden");
     $(divID).html(message);
     $(divID).addClass("alert-danger");
     $(divID).css({"color":"#c70c0c", "padding":"10px 20px", "border-radius":"10px"});
 }
 
 function showSuccessMessage(divID, message) {
-    $(".regMessageContainer").removeClass("hidden");
     $(divID).html(message);
     $(divID).removeClass("alert-danger");
     $(divID).addClass("alert-success");
@@ -164,4 +173,8 @@ function refreshReservationList(){
 
 function directToHomePage(){
     window.location.replace("http://localhost/PHP/View/User/homePage.php");
+}
+
+function directToUserLoginPage(){
+    window.location.replace("http://localhost/PHP/View/User/userLogin.php");
 }

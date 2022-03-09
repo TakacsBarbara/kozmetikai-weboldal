@@ -215,7 +215,6 @@ body {
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
     border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   background-color: #ea8a8a;
-  margin-top: 25px;
 }
 
 .user-forgot-pswd-btn:hover {
@@ -230,4 +229,9 @@ body {
   text-align: center;
   margin: 20px auto 0;
   width: 350px;
+}
+
+#resultMessage {
+  margin: 10px 0;
+  text-align: center;
 }
