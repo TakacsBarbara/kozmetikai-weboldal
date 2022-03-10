@@ -1,6 +1,8 @@
 <?php
 
 include "../../../Model/Admin/db.php";
+include "./../../Email/mail.php";
+
 session_start();
 
 function getResultValue($result)
@@ -149,17 +151,67 @@ if (isset($_POST["actualDate"])) {
 if (isset($_POST["confirmedAppointmentId"])) {
     $confirmedAppointmentId = $_POST["confirmedAppointmentId"];
 
+    $appointment = mysqli_fetch_array($conn->query("SELECT * FROM idopontfoglalas WHERE id='$confirmedAppointmentId'"));
+
+    $guestId = $appointment["vendeg_id"];
+    $guest = mysqli_fetch_array($conn->query("SELECT * FROM vendegek WHERE id='$guestId'"));
+    $guestEmail = $guest["email"];
+    $guestName = $guest["vezeteknev"] . " " . $guest["keresztnev"];
+
+    $service = mysqli_fetch_array($conn->query("SELECT megnevezes FROM szolgaltatas_alkategoria WHERE id='$confirmedAppointmentId'"));
+
+    $timestamp = strtotime($appointment["idopont_datuma"]);
+    $appointmentDate = date("Y.m.d.", $timestamp);
+    $appointmentStart = substr($appointment["idopont_kezdete"], 0, -3);
+    $appointmentEnd = substr($appointment["idopont_vege"], 0, -3);
+
+    $link = "<a href='http://localhost/PHP/View/User/appointmentBooking.php'>időpontfoglalás</a>";
+    $message = "Kedves " . $guest["keresztnev"] . "!<br><br>Az általad lefoglalt időpontot (" . $appointmentDate . " " . $appointmentStart . " - " . $appointmentEnd . ") jóváhagytam.<br><br>Szeretettel várlak!<br><br>Üdvözlettel,<br>Hegyi Judit";
+    $mail->AddAddress($guestEmail, $guestName);
+    $mail->Subject  =  'Jóváhagyott időpont';
+    $mail->Body    = $message;
+
     $sql = "UPDATE idopontfoglalas SET jovahagyva=1 WHERE id='$confirmedAppointmentId'";
     $result = $conn->query($sql);
 
-    getResultValue($result);
+    if ($result === TRUE) {
+        $mail->Send();
+        echo 1;
+    } else {
+        echo 0;
+    }
 }
 
 if (isset($_POST["rejectedAppointmentId"])) {
     $rejectedAppointmentId = $_POST["rejectedAppointmentId"];
 
+    $appointment = mysqli_fetch_array($conn->query("SELECT * FROM idopontfoglalas WHERE id='$rejectedAppointmentId'"));
+
+    $guestId = $appointment["vendeg_id"];
+    $guest = mysqli_fetch_array($conn->query("SELECT * FROM vendegek WHERE id='$guestId'"));
+    $guestEmail = $guest["email"];
+    $guestName = $guest["vezeteknev"] . " " . $guest["keresztnev"];
+
+    $service = mysqli_fetch_array($conn->query("SELECT megnevezes FROM szolgaltatas_alkategoria WHERE id='$rejectedAppointmentId'"));
+
+    $timestamp = strtotime($appointment["idopont_datuma"]);
+    $appointmentDate = date("Y.m.d.", $timestamp);
+    $appointmentStart = substr($appointment["idopont_kezdete"], 0, -3);
+    $appointmentEnd = substr($appointment["idopont_vege"], 0, -3);
+
+    $link = "<a href='http://localhost/PHP/View/User/appointmentBooking.php'>időpontfoglalás</a>";
+    $message = "Kedves " . $guest["keresztnev"] . "!<br><br>Sajnálattal értesítelek, hogy az általad lefoglalt időpontban (" . $appointmentDate . " " . $appointmentStart . " - " . $appointmentEnd . ") nem tudlak fogadni.<br><br>Amennyiben szerenél új időpontot foglalni, az alábbi linken tudod megtenni: " . $link . "<br><br>Köszönöm megértésed!<br><br>Üdvözlettel,<br>Hegyi Judit";
+    $mail->AddAddress($guestEmail, $guestName);
+    $mail->Subject  =  'Lemondott időpont';
+    $mail->Body    = $message;
+
     $sql = "UPDATE idopontfoglalas SET jovahagyva=2 WHERE id='$rejectedAppointmentId'";
     $result = $conn->query($sql);
 
-    getResultValue($result);
+    if ($result === TRUE) {
+        $mail->Send();
+        echo 1;
+    } else {
+        echo 0;
+    }
 }

@@ -31,7 +31,7 @@ if (isset($_POST['password-reset-token']) && $_POST['email']) {
 
         $update = mysqli_query($conn, "UPDATE vendegek SET reset_link_token='" . $token . "', exp_date='" . $expDate . "' WHERE email='" . $emailId . "'");
 
-        $link = "<a href=' http://localhost/PHP/View/User/resetUserPassword.php?key=" . $emailId . "&token=" . $token . "'>jelszó beállítása</a>";
+        $link = "<a href='http://localhost/PHP/View/User/resetUserPassword.php?key=" . $emailId . "&token=" . $token . "'>jelszó beállítása</a>";
 
         $message = "Kedves " . $row["keresztnev"] . "!<br><br>Az alábbi linkre kattintva tudod beállítani új jelszavad: " . $link . "<br><br>Üdvözlettel,<br>Hegyi Judit";
         $mail->AddAddress($row["email"], $row["vezeteknev"] . ' ' . $row["keresztnev"]);

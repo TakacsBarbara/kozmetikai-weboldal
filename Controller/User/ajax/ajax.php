@@ -95,7 +95,21 @@ if (isset($_POST["resServiceId"]) && isset($_POST["resDate"]) && isset($_POST["r
             VALUES ('0', '$resDate', '$resAppointmentStart', '$resAppointmentEnd', '$guestId', '$resServiceId')";
     $result = $conn->query($sql);
 
-    getResultValue($result);
+    if ($result === TRUE) {
+
+        $timestamp = strtotime($resDate);
+        $resDate = date("Y.m.d.", $timestamp);
+
+        $message = "<p>A lefoglalt új időpont: " . $resDate . " " . $resAppointmentStart . " - " . $resAppointmentEnd . "</p>";
+        $mail->AddAddress('takacs.barby27@gmail.com', 'Takács Barbara');
+        $mail->Subject  =  'Időpontfoglalás - Rendszerüzenet';
+        $mail->Body    = $message;
+        $mail->Send();
+
+        echo 1;
+    } else {
+        echo 0;
+    }
 }
 
 if (isset($_POST["reservedAppointmentIdToChange"]) && isset($_POST["newResServiceId"]) && isset($_POST["newResDate"]) && isset($_POST["newResAppointmentStart"]) && isset($_POST["newResAppointmentEnd"])) {
@@ -112,7 +126,25 @@ if (isset($_POST["reservedAppointmentIdToChange"]) && isset($_POST["newResServic
             WHERE id='$reservedAppointmentIdToChange'";
     $result = $conn->query($sql);
 
-    getResultValue($result);
+    if ($result === TRUE) {
+        $guest = mysqli_fetch_array($conn->query("SELECT * FROM vendegek WHERE id='$guestId'"));
+        $service = mysqli_fetch_array($conn->query("SELECT megnevezes FROM szolgaltatas_alkategoria WHERE id='$newResServiceId'"));
+
+        $timestamp = strtotime($newResDate);
+        $newDate = date("Y.m.d.", $timestamp);
+
+        $message = "<h3>Időpontmódosítás!</h3><p>" . $guest["vezeteknev"] . " " . $guest["keresztnev"] .
+            " módosította korábban lefoglalt időpontját.</p><br>Az új időpont: " . $newDate . " " . $newResAppointmentStart . " - " . $newResAppointmentEnd .
+            "<br>Lefoglalt szolgáltatás: " . $service["megnevezes"] . "<br><br>Vendég elerhetőségei:<br>Email cím: " . $guest["email"] . "<br>Telefonszám: " . $guest["tel_szam"];
+        $mail->AddAddress('takacs.barby27@gmail.com', 'Takács Barbara');
+        $mail->Subject  =  'Időpontmódosítás - Rendszerüzenet';
+        $mail->Body    = $message;
+        $mail->Send();
+
+        echo 1;
+    } else {
+        echo 0;
+    }
 }
 
 if (isset($_POST["selectedDay"])) {
@@ -128,10 +160,27 @@ if (isset($_POST["selectedDay"])) {
 if (isset($_POST["reservedServiceId"])) {
     $reservedServiceId = $_POST["reservedServiceId"];
 
+    $appointment = mysqli_fetch_array($conn->query("SELECT * FROM idopontfoglalas WHERE id='$reservedServiceId'"));
+
+    $guestId = $appointment["vendeg_id"];
+    $guest = mysqli_fetch_array($conn->query("SELECT * FROM vendegek WHERE id='$guestId'"));
+
+    $timestamp = strtotime($appointment["idopont_datuma"]);
+    $appointmentDate = date("Y.m.d.", $timestamp);
+    $appointmentStart = substr($appointment["idopont_kezdete"], 0, -3);
+    $appointmentEnd = substr($appointment["idopont_vege"], 0, -3);
+
+    $message = "<h3>Lemondott időpont!</h3><p>" . $guest["vezeteknev"] . " " . $guest["keresztnev"] .
+        " lemondta korábban lefoglalt időpontját ( " . $appointmentDate . " " . $appointmentStart . " - " . $appointmentEnd . " ).</p>Vendég elerhetőségei:<br>Email cím: " . $guest["email"] . "<br>Telefonszám: " . $guest["tel_szam"];
+    $mail->AddAddress('takacs.barby27@gmail.com', 'Takács Barbara');
+    $mail->Subject  =  'Lemondott időpont - Rendszerüzenet';
+    $mail->Body    = $message;
+
     $sql = "DELETE FROM idopontfoglalas WHERE id='$reservedServiceId'";
     $result = $conn->query($sql);
 
     if ($result == TRUE) {
+        $mail->Send();
         echo 1;
     } else {
         echo 0;
@@ -165,38 +214,6 @@ if (isset($_POST['password']) && isset($_POST['reset_link_token']) && isset($_PO
         echo 0;
     }
 }
-
-// if (isset($_POST['password-reset-token']) && isset($_POST['email'])) {
-
-//     $emailId = $_POST['email'];
-//     $result = mysqli_query($conn, "SELECT * FROM vendegek WHERE email='" . $emailId . "'");
-//     $row = mysqli_fetch_array($result);
-
-//     if ($row) {
-
-//         $token = md5($emailId) . rand(10, 9999);
-
-//         $expFormat = mktime(date("H"), date("i"), date("s"), date("m"), date("d") + 1, date("Y"));
-
-//         $expDate = date("Y-m-d H:i:s", $expFormat);
-
-//         $update = mysqli_query($conn, "UPDATE vendegek SET reset_link_token='" . $token . "', exp_date='" . $expDate . "' WHERE email='" . $emailId . "'");
-
-//         $link = "<a href=' http://localhost/PHP/View/User/resetUserPassword.php?key=" . $emailId . "&token=" . $token . "'>Kattintson ide új jelszó beállításához</a>";
-
-//         $mail->AddAddress($row["email"], $row["vezeteknev"] . ' ' . $row["keresztnev"]);
-//         $mail->Subject  =  'Lashes and More - Új jelszó beállítása';
-//         $mail->Body    = 'Új jelszó beállítása: ' . $link . '';
-
-//         if ($mail->Send()) {
-//             echo 1;
-//         } else {
-//             echo 2;
-//         }
-//     } else {
-//         echo 0;
-//     }
-// }
 
 function getResultValue($result)
 {
