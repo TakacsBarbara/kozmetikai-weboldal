@@ -20,10 +20,6 @@ body {
   background-color: #ffffff;
 }
 
-.container {
-  padding-bottom: 50px;
-}
-
 .fa-sign-out-alt {
   margin-right: 5px;
   padding-right: 5px;
@@ -51,11 +47,13 @@ body {
 .nav-link-style:hover {
   color: #ea8a8a;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .nav-link-style-drop:hover {
   color: #ea8a8a;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .nav-link-style-drop:hover .fas {
@@ -72,9 +70,9 @@ body {
 }
 
 .dropdown {
-  float: left;
-  overflow: hidden;
-  margin-left: 14rem;
+  /* float: left;
+  overflow: hidden; */
+  margin-left: auto;
 }
 
 .dropdown-appointments {
@@ -89,7 +87,7 @@ body {
   font-weight: 700;
   border: none;
   outline: none;
-  padding: 14px 16px;
+  padding: 14px 0;
   background-color: inherit;
   font-family: inherit;
   margin: 0;
@@ -99,6 +97,10 @@ body {
 .dropdown-appointments:hover .dropbtn {
   color: #ea8a8a;
   cursor: pointer;
+}
+
+.navbar {
+  box-shadow: 0 2px 4px 0 rgb(0 0 0 / 10%);
 }
 
 .dropdown-content,
@@ -111,9 +113,97 @@ body {
   z-index: 1;
 }
 
-.dropdown-content {
-  top: 70px;
-  right: 10px;
+#logo-img-circle {
+  max-width: 100%;
+  height: auto;
+}
+
+.form-title {
+  text-align: center;
+  margin: 20px 0;
+}
+
+@media screen and (min-width: 769px) {
+  .navbar-mobile {
+    display: none;
+  }
+
+  .navbar-nav {
+    flex-direction: row !important;
+  }
+
+  .dropdown-content {
+    top: 70px;
+    right: 30px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .img-container,
+  #logo-img-circle {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 426px) {
+  .img-container {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #nav-menu-icon {
+    margin-left: auto;
+    cursor: pointer;
+  }
+
+  .nav-link-style,
+  .nav-link-style-drop {
+    line-height: inherit;
+    margin: 0;
+  }
+
+  .navbar-brand {
+    width: 80%;
+  }
+
+  .navbar-brand img {
+    max-width: 80%;
+    height: auto;
+  }
+
+  .navbar-desktop {
+    display: none;
+  }
+
+  .topnav a {
+    display: none;
+  }
+
+  .topnav.responsive {
+    padding-top: 20px;
+    position: relative;
+    width: 100%;
+  }
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    border-top: rgb(0 0 0 / 10%) solid 0.5px;
+    float: none;
+    display: block;
+    padding: 5px;
+    text-align: center;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 991px) {
+  .collapse {
+    display: flex !important;
+    flex-basis: auto !important;
+  }
 }
 
 .dropdown-content-appointments {
@@ -144,7 +234,7 @@ body {
 }
 
 .admin-login-form-style {
-  margin: 110px auto;
+  margin: 0 auto;
 }
 
 .admin-login-form {

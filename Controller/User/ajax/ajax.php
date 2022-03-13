@@ -215,6 +215,25 @@ if (isset($_POST['password']) && isset($_POST['reset_link_token']) && isset($_PO
     }
 }
 
+if (isset($_POST["userName"]) && isset($_POST["email"]) && isset($_POST["phone"]) && isset($_POST["message"])) {
+    $userName = $_POST["userName"];
+    $email = $_POST["email"];
+    $phone = $_POST["phone"];
+    $message = $_POST["message"];
+
+    $content = "<h3>Új üzenete érkezett</h3><p>Üzenet feladója: " . $userName . "<br>Email cím: " . $email .
+        "<br>Telefonszám: " . $phone . "<br><br>Üzenet:<br>" . $message;
+    $mail->AddAddress('takacs.barby27@gmail.com', 'Takács Barbara');
+    $mail->Subject  =  'Új üzenet';
+    $mail->Body    = $content;
+
+    if ($mail->Send()) {
+        echo 1;
+    } else {
+        echo 0;
+    }
+}
+
 function getResultValue($result)
 {
     if ($result === TRUE) {

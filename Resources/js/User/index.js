@@ -42,8 +42,6 @@ $("#user-registration-btn").click( () => {
 
     let emailOk = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email);
 
-    console.log(emailOk);
-
     checkInputValue(lastName.length < 2, "#last-name");
     checkInputValue(firstName.length < 2, "#first-name");
     checkInputValue(birthDate.length == 0, "#birth-date");
@@ -69,7 +67,6 @@ $("#user-registration-btn").click( () => {
             },
             success: function(data) {
                 if (data == 1) {
-                    console.log("Itt ok");
                     showSuccessMessage("#regMessage", "Sikeres regisztráció!");
                 } else if (data === "False") {
                     showErrorMessage("#regMessage", "Sikertelen regisztráció!");
@@ -85,7 +82,6 @@ $("#user-login").click( () => {
     let email = $("#email-address").val();
     let password = $("#password").val();
 
-    console.log(email, password);
     $.post({
         url: "../../Controller/User/ajax/ajax.php",
         data: {email: email, password: password, "login":"1"},
@@ -125,6 +121,43 @@ $("#user-forgot-pswd-btn").click( () => {
         showErrorMessage("#resultMessage", "A megadott jelszavak nem egyeznek!");
     }
     
+});
+
+$("#user-send-msg-btn").click( () => {
+    let userName = $("#user-msg-name").val();
+    let email = $("#user-email-address").val();
+    let phone = $("#user-phone").val();
+    let message = $("#user-msg").val();
+
+    let emailOk = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email);
+
+    checkInputValue(userName.length < 5, "#user-msg-name");
+    checkInputValue(!emailOk, "#user-email-address");
+    checkInputValue(!phone.length, "#user-phone");
+    checkInputValue(message.length < 10, "#user-msg");
+
+
+    if (userName.length >= 5 && message.length >= 10 && emailOk == 1 && phone.length > 0) {
+        $.post({
+            url: "../../Controller/User/ajax/ajax.php",
+            data: {
+                userName: userName,
+                email: email,
+                phone: phone, 
+                message: message
+            },
+            success: function(data) {
+                if (data == 1) {
+                    showSuccessMessage("#resultMessage", "Üzenet elküldve!");
+                    setTimeout(directToHomePage, 3000);
+                } else if (data === "False") {
+                    showErrorMessage("#resultMessage", "Üzenet küldése sikertelen!");
+                }
+            }
+        });
+    } else if (password != confirmPassword){
+        showErrorMessage("#regMessage", "A jelszavak nem egyeznek!");
+    }
 });
 
 // function generateNewPassword() {

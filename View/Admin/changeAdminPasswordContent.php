@@ -10,7 +10,7 @@ if (isset($_SESSION["username"])) {
         </div>
         <div class="row">
             <div class="col"></div>
-            <div class="col-5">
+            <div class="col-xs-12 col-sm-12 col-md-7 col-lg-5">
                 <form action="">
                     <div class="mb-3">
                         <label for="act-pswd" class="form-label services-form-label-style">Aktuális jelszó*</label>

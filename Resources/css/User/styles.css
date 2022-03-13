@@ -195,7 +195,8 @@ body {
   margin-top: 25px;
 }
 
-.user-forgot-pswd-btn {
+.user-forgot-pswd-btn,
+#user-send-msg-btn {
   display: inline-block;
   font-weight: 600;
   line-height: 1.5;
@@ -217,7 +218,8 @@ body {
   background-color: #ea8a8a;
 }
 
-.user-forgot-pswd-btn:hover {
+.user-forgot-pswd-btn:hover,
+#user-send-msg-btn:hover {
   background-color: #cf7c7c;
 }
 
@@ -233,5 +235,9 @@ body {
 
 #resultMessage {
   margin: 10px 0;
+  text-align: center;
+}
+
+#user-send-msg-btn-container {
   text-align: center;
 }
