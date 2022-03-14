@@ -99,14 +99,15 @@ $("#user-forgot-pswd-btn").click( () => {
     let newPassword = $("#new-password").val();
     let confirmPassword = $("#new-cpassword").val();
     let linkToken = $("#reset_link_token").val(); 
-    let userEmail = $("#reset-password-email").val(); 
+    // let userEmail = $("#reset-password-email").val(); 
 
-    console.log(newPassword, confirmPassword, linkToken, userEmail);
+    // console.log(newPassword, confirmPassword, linkToken, userEmail);
     
     if (newPassword === confirmPassword) {
         $.post({
             url: "../../Controller/User/ajax/ajax.php",
-            data: {password: newPassword, reset_link_token: linkToken, email: userEmail },
+            // data: {password: newPassword, reset_link_token: linkToken, email: userEmail },
+            data: {password: newPassword, reset_link_token: linkToken},
             success: function(data) {
                 if (data == 1) {
                     showSuccessMessage("#resultMessage", "A jelszó megváltozott")

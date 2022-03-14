@@ -200,15 +200,18 @@ if (isset($_POST["selectedServiceId"])) {
     // print_r($row);
 }
 
-if (isset($_POST['password']) && isset($_POST['reset_link_token']) && isset($_POST['email'])) {
-    $emailId = $_POST['email'];
+if (isset($_POST['password']) && isset($_POST['reset_link_token'])) {
+    // if (isset($_POST['password']) && isset($_POST['reset_link_token']) && isset($_POST['email'])) {
+    // $emailId = $_POST['email'];
     $token = $_POST['reset_link_token'];
     $password = md5($_POST['password']);
-    $query = mysqli_query($conn, "SELECT * FROM `vendegek` WHERE `reset_link_token`='" . $token . "' and `email`='" . $emailId . "'");
+    $query = mysqli_query($conn, "SELECT * FROM `vendegek` WHERE `reset_link_token`='" . $token . "'");
+    // $query = mysqli_query($conn, "SELECT * FROM `vendegek` WHERE `reset_link_token`='" . $token . "' and `email`='" . $emailId . "'");
     $row = mysqli_num_rows($query);
 
     if ($row) {
-        mysqli_query($conn, "UPDATE vendegek SET  jelszo='" . $password . "', reset_link_token='" . NULL . "' ,exp_date='" . NULL . "' WHERE email='" . $emailId . "'");
+        // mysqli_query($conn, "UPDATE vendegek SET  jelszo='" . $password . "', reset_link_token='" . NULL . "' ,exp_date='" . NULL . "' WHERE email='" . $emailId . "'");
+        mysqli_query($conn, "UPDATE vendegek SET  jelszo='" . $password . "', reset_link_token='" . NULL . "' ,exp_date='" . NULL . "' WHERE reset_link_token='" . $token . "'");
         echo 1;
     } else {
         echo 0;
