@@ -7,7 +7,7 @@ if ( isset($_GET['loginrequired']) && $_GET['loginrequired'] == 1 ) {
 <div class="container admin-login-form-style">
     <div class="row">
         <div class="col-6">
-            <img src="./../../Resources/img/Logo_kör_500px_1.png" alt="logo-img-circle" width="350px">
+            <img src="./../../Resources/img/Logo_kör.png" alt="logo-img-circle" width="350px">
         </div>
         <div class="col-5 admin-login-form">
             <form method="POST" action="">
