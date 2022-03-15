@@ -1,6 +1,5 @@
-<?php 
-    include "layouts/page.php";
-    
-    $page = new Page();
-    $page -> displayContent("changeAdminPasswordContent.php");
-?>
+<?php
+include "layouts/page.php";
+
+$page = new Page();
+$page->displayContent("changeAdminPasswordContent.php");

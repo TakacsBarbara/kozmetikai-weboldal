@@ -161,6 +161,35 @@ $("#user-send-msg-btn").click( () => {
     }
 });
 
+$("#pswdChange").click( () => {
+    let actualPassword = $("#act-pswd").val();
+    let newPassword = $("#new-pswd").val();
+    let confirmPassword = $("#conf-pswd").val();
+
+    if ((actualPassword != '') && (newPassword != '') && (confirmPassword != '')) {
+        if (newPassword === confirmPassword) {
+            $.post({
+                url: "../../Controller/User/ajax/ajax.php",
+                data: {
+                    actualPassword: actualPassword,
+                    newPassword: newPassword,
+                    confirmPassword: confirmPassword
+                },
+                success: function(data) {
+                    setResultMessage(data);
+                    if (data == 2) {
+                        setTimeout(directToHomePage, 3000);
+                    }
+                }
+            });
+        } else {
+            setResultMessage(3);
+        }
+    } else {
+        showRequiredInputMessage();
+    }
+});
+
 // function generateNewPassword() {
 //     var chars = "0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 //     var passwordLength = 12;
@@ -173,6 +202,27 @@ $("#user-send-msg-btn").click( () => {
 
 //     return password;
 // }
+
+function showRequiredInputMessage() {
+    $("#result").html("<i class='fas fa-times-circle'></i><p>Mező kitöltése kötelező!</p>"); 
+    setFailedStyle();
+}
+
+function setResultMessage(data) {
+    if (data == 0) { 
+        $("#result").html("<p><i class='fas fa-times-circle'></i>Sikertelen művelet!</p>"); 
+        setFailedStyle();
+    } else if (data == 1) {
+        $("#result").html("<p><i class='fas fa-check-circle'></i>Sikeres művelet!</p>"); 
+        setSuccessStyle();
+    } else if (data == 2) {
+        $("#result").html("<p>A jelszó sikeresen megváltozott!</p>"); 
+        setSuccessStyle();
+    } else if (data == 3) {
+        $("#result").html("<p>Az új jelszó nem egyezik!</p>"); 
+        setFailedStyle();
+    }
+}
 
 function checkInputValue(condition, element) {
     if (condition) {

@@ -59,7 +59,7 @@
             <nav class="navbar sticky-top navbar-light navbar-expand-lg">
                 <div class="container-fluid navbar-logo">
                     <a class="navbar-brand" href="homePage.php">
-                        <img src="../../Resources/img/Logo_kör.png" alt="logo-image" class="d-inline-block align-text-top">
+                        <img src="../../Resources/img/logo-200.png" alt="logo-image" class="d-inline-block align-text-top">
                     </a>
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <div>

@@ -237,6 +237,20 @@ if (isset($_POST["userName"]) && isset($_POST["email"]) && isset($_POST["phone"]
     }
 }
 
+if (isset($_POST["actualPassword"]) && isset($_POST["newPassword"]) && isset($_POST["confirmPassword"])) {
+
+    $actualPassword = md5($_POST["actualPassword"]);
+    $newPassword = md5($_POST["newPassword"]);
+    $userId = $_SESSION["userId"];
+
+    $sql = "UPDATE vendegek SET jelszo='$newPassword' WHERE id='$userId' and jelszo='$actualPassword'";
+    $result = $conn->query($sql);
+
+    if ($result) {
+        echo 2;
+    }
+}
+
 function getResultValue($result)
 {
     if ($result === TRUE) {
