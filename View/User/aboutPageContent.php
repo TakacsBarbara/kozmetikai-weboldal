@@ -51,13 +51,17 @@
               <section class="about-section-13">
                 <span>Szeretettel várlak a Vendégkörömbe,</span>
               </section>
-            </div>
+              <div class="about-sign">
+                <span>Hegyi Judit</span>
+              </div>
+              <!-- <div class="decor-box">
+                <div class="decor-1"></div>
+                <div class="decor-2"></div>
+                <div class="decor-3"></div>
+              </div>
+            </div> -->
           </section>
         </div>
-        <div class="about-sign">
-          <span>Hegyi Judit</span>
-        </div>
-        <div class=""></div>footer
 
       </div>
     </div>
