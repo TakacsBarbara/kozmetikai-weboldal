@@ -255,23 +255,29 @@ body {
   text-align: center;
 }
 
-/******************* navbar-style*******************/
+/******************* navbar-style *******************/
+
+.navbar-desktop-logo-container {
+  padding-right: 0 !important;
+}
+
+.navbar-desktop-logo-container .container-fluid,
+.navbar-desktop-logo-container #navbar-brand {
+  padding: 0;
+}
 
 .nav-link-style {
   color: #4e3440;
-  font-size: 1.1rem;
-  font-weight: 700;
-  margin: 0.5rem 1rem;
+  font-size: 1rem;
+  margin: 0.5rem 0.3rem;
   text-decoration: none;
   cursor: pointer;
-  line-height: 55px;
 }
 
 .nav-link-style-drop {
   color: #4e3440;
-  font-size: 1.1rem;
-  font-weight: 700;
-  margin: 0.5rem 1rem;
+  font-size: 1rem;
+  margin: 0.5rem 0.3rem;
   text-decoration: none;
   cursor: pointer;
 }
@@ -316,14 +322,13 @@ body {
   /* .dropdown-appointments .dropbtn { */
   color: #ea8a8a;
   float: right;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 800;
   border: none;
   outline: none;
   background-color: inherit;
   font-family: inherit;
   margin: 0;
-  padding-right: 10px;
 }
 
 .dropdown:hover .dropbtn,
@@ -334,7 +339,7 @@ body {
 
 .dropbtn i {
   color: #ea8a8a;
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
 .navbar {
@@ -362,68 +367,38 @@ body {
   margin: 20px 0;
 }
 
-@media screen and (min-width: 769px) {
-  .navbar-mobile {
-    display: none;
+/*********************** Mobil, egészen 949px-ig ***************************/
+
+.navbar-social-icons {
+  text-align: center;
+}
+
+.navbar-social-icons a {
+  margin-right: 5px;
+}
+
+.navbar-social-icons a:hover {
+  text-decoration: none;
+}
+
+.navbar-mobile .container-fluid {
+  padding: 0 !important;
+}
+
+.sign-in-mobile:hover i,
+.sign-in-mobile:hover span {
+  color: #ea8a8a;
+}
+
+/******************************************************************************/
+
+@media screen and (max-width: 391px) {
+  .navbar-mobile .navbar-brand {
+    max-width: 85%;
   }
 
-  .navbar-nav {
-    flex-direction: row !important;
-  }
-
-  .dropdown-content {
-    top: 75px;
-    right: 15px;
-    z-index: 2000;
-  }
-
-  .navbar-social-icons a {
-    float: right;
-    margin: 0 5px;
-  }
-
-  .navbar-social-icons {
-    padding-right: 20px;
-  }
-
-  .navbar-social-icons a:hover {
-    text-decoration: none;
-  }
-
-  .sign-in {
-    float: right;
-    padding-right: 10px;
-  }
-
-  .sign-in a,
-  .sign-in a:hover {
-    color: #36242d;
-    text-decoration: none;
-    font-size: 1.2rem;
-  }
-
-  .sign-in i {
-    font-size: 1.2rem;
-  }
-
-  .navbar-logo {
-    text-align: center;
-  }
-
-  .navbar-logo a {
-    max-width: 200px;
-    margin: 0 auto;
-  }
-
-  .navbar-logo img {
-    /* max-width: 20%; */
-    max-width: 200px;
-    height: auto;
-    margin-top: -90px;
-  }
-
-  #navbarNav {
-    padding-left: 30px;
+  .navbar-mobile .navbar-brand img {
+    max-width: 110%;
   }
 }
 
@@ -440,7 +415,7 @@ body {
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 949px) {
   #nav-menu-icon {
     margin-left: auto;
     cursor: pointer;
@@ -452,13 +427,8 @@ body {
     margin: 0;
   }
 
-  .navbar-brand {
-    width: 80%;
-  }
-
-  .navbar-brand img {
-    max-width: 80%;
-    height: auto;
+  #navbar-brand .navbar-brand {
+    margin: 0;
   }
 
   .navbar-desktop {
@@ -486,12 +456,136 @@ body {
     padding: 5px;
     text-align: center;
   }
+
+  .nav-link-style.dropbtn i,
+  .nav-link-style.dropbtn span {
+    font-size: 1.2rem;
+    cursor: default;
+  }
+
+  .nav-link-style.dropbtn #nav-item-profile {
+    color: #ea8a8a;
+  }
 }
 
 @media (min-width: 769px) and (max-width: 991px) {
   .collapse {
     display: flex !important;
     flex-basis: auto !important;
+  }
+}
+
+@media screen and (min-width: 950px) {
+  /* @media screen and (min-width: 769px) { */
+  .navbar-mobile {
+    display: none;
+  }
+
+  .navbar-nav {
+    flex-direction: row !important;
+  }
+
+  .sticky-nav {
+    position: fixed !important;
+    right: 0;
+  }
+
+  .dropdown-content {
+    top: 55px;
+    right: 15px;
+    z-index: 2000;
+  }
+
+  .navbar-social-icons a {
+    display: block;
+  }
+
+  .navbar-social-icons {
+    display: inline-block;
+    padding: 20px 10px;
+    width: 60px;
+    height: 180px;
+    border-radius: 0 10px 10px 0;
+    position: fixed;
+    top: 35%;
+    right: 5px;
+  }
+
+  .navbar-social-icons i {
+    font-size: 150%;
+    margin-top: 10px;
+  }
+
+  .sign-in {
+    float: right;
+    padding-right: 10px;
+  }
+
+  .sign-in a,
+  .sign-in a:hover {
+    color: #36242d;
+    text-decoration: none;
+    font-size: 1.2rem;
+  }
+
+  .sign-in i {
+    font-size: 1.2rem;
+  }
+
+  .navbar-logo {
+    text-align: center;
+  }
+
+  .navbar-logo a {
+    max-width: 250px;
+  }
+
+  .navbar-logo img {
+    max-width: 100%;
+    height: auto;
+    margin-top: -10px;
+  }
+
+  .navbar .navbar-user-account {
+    margin-left: auto;
+  }
+
+  #navbar,
+  #navbar .navbar {
+    width: 100% !important;
+  }
+}
+
+@media screen and (min-width: 1700px) {
+  .nav-link-style {
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 55px;
+    margin: 0.5rem 1rem;
+  }
+
+  .nav-link-style-drop {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0.5rem 1rem;
+  }
+
+  .navbar-social-icons i {
+    font-size: 200%;
+    margin-top: 15px;
+  }
+
+  .dropdown .dropbtn {
+    font-size: 1.1rem;
+    padding-right: 10px;
+  }
+
+  .dropbtn i {
+    font-size: 1.1rem;
+  }
+
+  .dropdown-content {
+    top: 70px;
   }
 }
 
@@ -516,4 +610,66 @@ body {
 .dropdown-appointments:hover .dropdown-content-appointments {
   display: inline-block;
 }
-/***************************************************/
+
+/********************* User new password *********************/
+.new-password-title-container {
+  padding: 30px 0 0;
+  text-align: center;
+}
+
+.new-password-form-label-style {
+  margin-top: 15px;
+}
+
+.new-password-btn {
+  display: inline-block;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  border: 1px solid transparent;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  background-color: #ea8a8a;
+}
+
+.new-user-password small {
+  color: black;
+}
+
+#result {
+  border-radius: 10px;
+  display: none;
+  line-height: 20px;
+  margin: 20px auto 10px;
+  padding: 15px 25px;
+  width: 370px;
+}
+
+#result p i {
+  font-size: 25px;
+  margin-right: 17px;
+}
+
+#result p {
+  display: inline-block;
+  font-size: 20px;
+  width: 250px;
+  margin-bottom: 0;
+}
+
+/************************************************************/
+
+/******************************Page content********************************/
+
+.page-content-container {
+  margin: 0 auto;
+}
+
+/**************************************************************/

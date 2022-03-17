@@ -167,23 +167,28 @@ $("#pswdChange").click( () => {
     let confirmPassword = $("#conf-pswd").val();
 
     if ((actualPassword != '') && (newPassword != '') && (confirmPassword != '')) {
-        if (newPassword === confirmPassword) {
-            $.post({
-                url: "../../Controller/User/ajax/ajax.php",
-                data: {
-                    actualPassword: actualPassword,
-                    newPassword: newPassword,
-                    confirmPassword: confirmPassword
-                },
-                success: function(data) {
-                    setResultMessage(data);
-                    if (data == 2) {
-                        setTimeout(directToHomePage, 3000);
+        if (newPassword.length >= 8) {
+            if (newPassword === confirmPassword) {
+                $.post({
+                    url: "../../Controller/User/ajax/ajax.php",
+                    data: {
+                        actualPassword: actualPassword,
+                        newPassword: newPassword,
+                        confirmPassword: confirmPassword
+                    },
+                    success: function(data) {
+                        console.log(data);
+                        setResultMessage(data);
+                        if (data == 2) {
+                            setTimeout(directToHomePage, 3000);
+                        }
                     }
-                }
-            });
+                });
+            } else {
+                setResultMessage(3);
+            }
         } else {
-            setResultMessage(3);
+            setResultMessage(5);
         }
     } else {
         showRequiredInputMessage();
@@ -221,6 +226,12 @@ function setResultMessage(data) {
     } else if (data == 3) {
         $("#result").html("<p>Az új jelszó nem egyezik!</p>"); 
         setFailedStyle();
+    } else if (data == 4) {
+        $("#result").html("<p>Az aktuális jelszó helytelen!</p>"); 
+        setFailedStyle();
+    } else if (data == 5) {
+        $("#result").html("<p>Az új jelszónak legalább 8 karakter hosszúnak kell lennie!</p>"); 
+        setFailedStyle();
     }
 }
 
@@ -249,6 +260,18 @@ function showSuccessMessage(divID, message) {
     $(divID).removeClass("alert-danger");
     $(divID).addClass("alert-success");
     $(divID).css({"color":"#0a9b0f", "padding":"10px 20px", "border-radius":"10px"});
+}
+
+function setFailedStyle() {
+    $("#result").removeClass("alert-success").addClass("alert-danger");
+    $("#result .fas, #result p").css("color", "#c70c0c");
+    $("#result").css("display", "inline-block");
+}
+
+function setSuccessStyle() {
+    $("#result").removeClass("alert-danger").addClass("alert-success");
+    $("#result .fas, #result p").css("color", "#0a9b0f");
+    $("#result").css("display", "inline-block");
 }
 
 function refreshReservationList(){

@@ -440,8 +440,9 @@ body {
   text-align: center;
 }
 
-.new-service-title-container {
-  padding: 30px 0 25px;
+.new-service-title-container,
+.new-password-title-container {
+  padding: 30px 0 0;
   text-align: center;
 }
 

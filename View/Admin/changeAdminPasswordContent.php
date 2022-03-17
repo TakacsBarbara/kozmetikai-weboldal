@@ -4,7 +4,7 @@ if (isset($_SESSION["username"])) {
 
 <div class="form">
     <div class="container">
-        <div class="new-service-title-container">
+        <div class="new-password-title-container">
             <h1>Jelszó módosítása</h1>
             <div id="result"></div>
         </div>

@@ -152,8 +152,16 @@ body {
   margin-right: 30px;
 }
 
+#book-appointment #available-hours button {
+  font-weight: 600;
+}
+
 #book-appointment #available-hours .available-hour {
   margin-bottom: 10px;
+}
+
+#book-appointment .booking-service-container p {
+  color: rgb(170, 170, 170);
 }
 
 #book-appointment #appointment-details p,
@@ -162,10 +170,15 @@ body {
   line-height: 28px;
 }
 
+#book-appointment #select-category,
+#book-appointment #select-service {
+  font-weight: 600;
+}
+
 #book-appointment #booking-frame-1 label {
   color: rgb(68, 67, 67);
   font-size: 19px;
-  font-weight: 400;
+  font-weight: 500;
   margin-bottom: 12px;
   margin-top: 20px;
 }
@@ -186,6 +199,14 @@ body {
   font-size: 1.5rem;
   font-weight: 300;
   color: #666;
+}
+
+#book-appointment .fa-chevron-right {
+  color: #ffffff;
+}
+
+#book-appointment .fa-chevron-left {
+  color: inherit;
 }
 
 @media (min-width: 768px) {

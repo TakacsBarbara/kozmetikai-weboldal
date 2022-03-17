@@ -243,11 +243,17 @@ if (isset($_POST["actualPassword"]) && isset($_POST["newPassword"]) && isset($_P
     $newPassword = md5($_POST["newPassword"]);
     $userId = $_SESSION["userId"];
 
-    $sql = "UPDATE vendegek SET jelszo='$newPassword' WHERE id='$userId' and jelszo='$actualPassword'";
-    $result = $conn->query($sql);
+    $user = mysqli_fetch_array($conn->query("SELECT * FROM vendegek WHERE id='$userId'"));
 
-    if ($result) {
-        echo 2;
+    if ($user["jelszo"] == $actualPassword) {
+        $sql = "UPDATE vendegek SET jelszo='$newPassword' WHERE id='$userId'";
+        $result = $conn->query($sql);
+
+        if ($result) {
+            echo 2;
+        }
+    } else {
+        echo 4;
     }
 }
 
