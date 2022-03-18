@@ -9,7 +9,7 @@ function showResultMessage($class, $color, $message)
     echo ('<div class="container user-forgot-password-style">
                 <div class="row">
                     <div class="col-3"></div>
-                    <div class="col-6 ' . $class . '" style="color:' . $color . '; padding:0 20px; border-radius:10px;height: 100px; text-align: center; line-height: 100px; font-size: 32px; font-family: Poiret One, cursive;">' . $message . '</div>
+                    <div class="col-12 col-md-6 ' . $class . '" style="color:' . $color . '; padding:0 20px; border-radius:10px;height: 100px; text-align: center; line-height: 100px; font-size: 1.2rem; font-family: Poiret One, cursive;">' . $message . '</div>
                     <div class="col-3"></div>
                 </div>
             </div>');

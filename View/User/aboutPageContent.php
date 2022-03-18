@@ -32,7 +32,7 @@
                   <img src="./../../Resources/img/kozmetika_verseny.png" alt="Kozmetikai verseny">
                 </div>
                 <section class="about-section-6">
-                  <span>2019. júliusában megalapítottam az én saját vállalkozásomat, majd októberben úgy éreztem, hogy tovább kell lépnem az alapoktól. Hosszas keresgélés, mérlegelés után kötöttem ki Lami Ildikó volume tanfolyamán, ahol megismertem a volume fanokkal való munkát. Rengeteg hasznos tudást sikerült szereznem, számomra új technikát ismerhettem meg.</span>
+                  <span>2019. júliusában megalapítottam az én saját vállalkozásomat Mosonmagyaróváron, majd októberben úgy éreztem, hogy tovább kell lépnem az alapoktól. Hosszas keresgélés, mérlegelés után kötöttem ki Lami Ildikó volume tanfolyamán, ahol megismertem a volume fanokkal való munkát. Rengeteg hasznos tudást sikerült szereznem, számomra új technikát ismerhettem meg.</span>
                 </section>
                 <section class="about-section-7">
                   <span>Sok-sok gyakorlás után 2020 februárjában részt vettem egy 7 napos online webinaron (Lash Marafon), ami aztán megadta a kellő löketet és többletinformációt, márciustól kezdve én is építek 3-4D Soft Volume szempillákat. Emellett persze elérhető a Classic és Duplázott szett is szalonomban.</span>

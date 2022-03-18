@@ -102,24 +102,29 @@ $("#user-forgot-pswd-btn").click( () => {
     // let userEmail = $("#reset-password-email").val(); 
 
     // console.log(newPassword, confirmPassword, linkToken, userEmail);
+    console.log(newPassword, newPassword.length);
     
-    if (newPassword === confirmPassword) {
-        $.post({
-            url: "../../Controller/User/ajax/ajax.php",
-            // data: {password: newPassword, reset_link_token: linkToken, email: userEmail },
-            data: {password: newPassword, reset_link_token: linkToken},
-            success: function(data) {
-                if (data == 1) {
-                    showSuccessMessage("#resultMessage", "A jelszó megváltozott")
-                    $("#user-forgotpswd-btn").css("display", "none");
-                    setTimeout(directToUserLoginPage, 3000);
-                } else if (data == 0) {
-                    showErrorMessage("#resultMessage", "Jelszó megváltoztatása nem sikerült");
+    if (newPassword.length >= 8) {
+        if (newPassword === confirmPassword) {
+            $.post({
+                url: "../../Controller/User/ajax/ajax.php",
+                // data: {password: newPassword, reset_link_token: linkToken, email: userEmail },
+                data: {password: newPassword, reset_link_token: linkToken},
+                success: function(data) {
+                    if (data == 1) {
+                        showSuccessMessage("#resultMessage", "A jelszó megváltozott")
+                        $("#user-forgotpswd-btn").css("display", "none");
+                        setTimeout(directToUserLoginPage, 3000);
+                    } else if (data == 0) {
+                        showErrorMessage("#resultMessage", "Jelszó megváltoztatása nem sikerült");
+                    }
                 }
-            }
-        });
+            });
+        } else {
+            showErrorMessage("#resultMessage", "A megadott jelszavak nem egyeznek!");
+        }
     } else {
-        showErrorMessage("#resultMessage", "A megadott jelszavak nem egyeznek!");
+        showErrorMessage("#resultMessage", "A jelszónak legalább 8 karakternek kell lennie!");
     }
     
 });

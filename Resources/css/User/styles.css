@@ -159,7 +159,6 @@ body {
 
 #login-message-container {
   background-color: rgb(255, 241, 241);
-  border: 0.5px solid rgb(231, 9, 9);
   border-radius: 10px;
   text-align: center;
   vertical-align: center;
@@ -180,7 +179,6 @@ body {
   margin: 0 auto;
 }
 
-.user-login-form,
 .user-forgot-password-form {
   padding-top: 50px;
 }
@@ -225,6 +223,16 @@ body {
     border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   background-color: #ea8a8a;
   margin-top: 25px;
+}
+
+.user-reg-btn a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.user-reg-btn a:hover {
+  text-decoration: none;
+  color: #ffffff;
 }
 
 .user-forgot-pswd-btn,
@@ -544,11 +552,11 @@ body {
   .sign-in a:hover {
     color: #36242d;
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 
   .sign-in i {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 
   .navbar-logo {
@@ -696,7 +704,7 @@ body {
   margin: 0 auto;
 }
 
-/**************************** About Page, Appointment Booking Page **********************************/
+/**************************** About Page, Appointment Booking Page, Blog posts **********************************/
 
 .appointment-booking-description {
   margin: 0 auto 40px;
@@ -722,14 +730,16 @@ body {
 
 .about-title,
 .appointment-booking-title,
-.sign-in-title {
+.sign-in-title,
+.blog-title {
   text-align: center;
   margin-bottom: 40px;
 }
 
 .about-title h1,
 .appointment-booking-title h1,
-.sign-in-title {
+.sign-in-title h1,
+.blog-title h1 {
   margin: 30px 0 0;
 }
 
@@ -782,6 +792,104 @@ body {
   font-size: 2rem;
 }
 
+.blog-picture {
+  text-align: center;
+}
+
+.blog-picture img {
+  max-width: 80%;
+  height: auto;
+}
+
+#fake-eyelashes-img {
+  max-width: 70%;
+}
+
+.blog-section-content {
+  width: 95%;
+  margin: 40px auto;
+}
+
+.blog-section-content section {
+  margin-bottom: 10px;
+}
+
+.blog-section-content section li {
+  margin-bottom: 20px;
+}
+
+.blog-section-content h2 {
+  margin: 30px auto 25px;
+}
+
+.blog-section-content .blog-section-picture {
+  text-align: center;
+}
+
+.blog-section-content .blog-section-picture img {
+  width: 70%;
+  margin: 30px auto;
+}
+
+.blog-contact {
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.blog-contact p {
+  font-size: 1.2rem;
+}
+
+.blog-contact button {
+  font-weight: 600;
+  line-height: 1.5;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  border: 1px solid transparent;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  background-color: #ea8a8a;
+  margin-top: 25px;
+}
+
+.blog-contact button:hover {
+  background-color: #ce7777;
+}
+
+.blog-contact button a {
+  font-weight: 600;
+  line-height: 1.5;
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .blog-picture img {
+    max-width: 50%;
+  }
+
+  .blog-section-content {
+    width: 75%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .blog-picture img {
+    max-width: 40%;
+  }
+
+  .blog-section-content {
+    width: 65%;
+  }
+}
+
 .decor-box {
   height: 18px;
 }
@@ -807,7 +915,8 @@ body {
 @media screen and (min-width: 768px) {
   .about-title h1,
   .appointment-booking-title h1,
-  .sign-in-title h1 {
+  .sign-in-title h1,
+  .blog-title h1 {
     margin: 30px 0 60px;
   }
 
@@ -823,8 +932,9 @@ body {
 @media screen and (min-width: 950px) {
   .about-title h1,
   .appointment-booking-title h1,
-  .sign-in-title h1 {
-    margin: -30px 0 60px;
+  .sign-in-title h1,
+  .blog-title h1 {
+    margin: -25px 0 60px;
   }
 
   .about-picture {

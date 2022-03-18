@@ -26,6 +26,7 @@ body {
 }
 
 #book-appointment {
+  max-width: 95%;
   background: #fff;
   min-height: 480px;
   padding: 0;
@@ -78,7 +79,7 @@ body {
 #book-appointment .booking-frame .frame-container {
   height: auto;
   min-height: 300px;
-  padding: 15px 0;
+  padding: 15px 7px;
 }
 
 #book-appointment #booking-frame-2 .frame-container {

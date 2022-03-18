@@ -12,7 +12,7 @@ if (isset($_GET['loginrequired']) && $_GET['loginrequired'] == 1) {
             <img src="./../../Resources/img/Logo_kör.png" alt="logo-img-circle" width="350px">
         </div> -->
         <div class="col-3"></div>
-        <div class="col-6 user-login-form">
+        <div class="col-12 col-md-6 user-login-form">
             <form method="POST" action="">
                 <div class="mb-3">
                     <label for="email-address" class="form-label">Email cím</label>
@@ -27,7 +27,9 @@ if (isset($_GET['loginrequired']) && $_GET['loginrequired'] == 1) {
                 </div>
                 <div id="loginMessage"></div>
                 <button type="button" class="user-login-btn" id="user-login">Belépés</button>
-                <button type="button" class="user-reg-btn" id="user-login">Regisztráció</button>
+                <button type="button" class="user-reg-btn" id="user-registration">
+                    <a href="userRegistration.php">Regisztráció</a>
+                </button>
             </form>
         </div>
         <div class="col-3"></div>
