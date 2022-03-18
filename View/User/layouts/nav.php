@@ -7,7 +7,7 @@
             <a href="https://www.instagram.com/lashes_and_more_byhj/" target="blank">
                 <i class="fab fa-instagram"></i>
             </a>
-            <a href="" target="blank">
+            <a href="contactPage.php">
                 <i class="fas fa-at"></i>
             </a>
         </div>
@@ -96,7 +96,7 @@
         <div class="navbar-mobile">
             <nav class="navbar">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="mainServicesListed.php">
+                    <a class="navbar-brand" href="homePage.php">
                         <img src="../../Resources/img/logo_navbar.png" alt="logo-image" width="300" class="d-inline-block align-text-top">
                     </a>
                     <i id="nav-menu-icon" class="fas fa-bars"></i>
@@ -151,26 +151,6 @@
                     ?>
 
                 </div>
-
-                <!-- <a class="nav-link-style-drop" href="mainServicesListed.php">
-                        <i class="fas fa-spa"></i>
-                        Szolgáltatások</a>
-                    <a class="nav-link-style-drop" href="manageAppointmentBooking.php">
-                        <i class="fas fa-calendar-check"></i>
-                        Időpontfoglalás
-                    </a>
-                    <a class="nav-link-style-drop" href="./changeAdminPassword.php">
-                        <i class="fas fa-key"></i>
-                        Jelszó módosítása
-                    </a>
-                    <a class="nav-link-style-drop" href="./adminRegistration.php">
-                        <i class="fas fa-user-plus"></i>
-                        Új felhasználó
-                    </a>
-                    <a class="nav-link-style-drop" href="./../../Resources/Session/Admin/logout.php">
-                        <i class="fas fa-sign-out-alt"></i>
-                        Kilépés
-                    </a> -->
         </div>
         </nav>
     </div>

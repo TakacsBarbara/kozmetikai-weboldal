@@ -1,6 +1,8 @@
 <?php
 if (isset($_GET['loginrequired']) && $_GET['loginrequired'] == 1) {
-    echo "<div id='login-message-container'><p id='required-login-message'>Kérem jelentkezzen be!</p></div>";
+    echo "<div id='login-message-container'><p id='required-login-message'>Kérlek jelentkezz be!</p></div>";
+} else {
+    echo "<div class='sign-in-title'><h1>Bejelentkezés</h1></div>";
 }
 ?>
 
@@ -25,6 +27,7 @@ if (isset($_GET['loginrequired']) && $_GET['loginrequired'] == 1) {
                 </div>
                 <div id="loginMessage"></div>
                 <button type="button" class="user-login-btn" id="user-login">Belépés</button>
+                <button type="button" class="user-reg-btn" id="user-login">Regisztráció</button>
             </form>
         </div>
         <div class="col-3"></div>

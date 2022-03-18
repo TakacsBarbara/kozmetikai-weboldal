@@ -20,6 +20,12 @@ body {
 }
 
 #book-appointment {
+  border-radius: 0.25rem;
+  overflow: hidden;
+  box-shadow: rgba(45, 62, 80, 0.12) 0 1px 5px 0;
+}
+
+#book-appointment {
   background: #fff;
   min-height: 480px;
   padding: 0;
@@ -209,15 +215,89 @@ body {
   color: inherit;
 }
 
+@media (max-width: 405px) {
+  #book-appointment #book-appointment-form #book-appointment-submit,
+  #book-appointment #book-appointment-form #book-appointment-change {
+    margin-top: -180px;
+  }
+
+  #book-appointment .booking-frame .command-buttons #button-back-3 {
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 767px) {
+  #book-appointment .ui-datepicker-calendar th span,
+  #book-appointment .ui-datepicker-calendar td span {
+    width: 2.1rem;
+  }
+
+  #book-appointment .ui-datepicker-calendar td span {
+    height: 2.1rem;
+  }
+
+  #book-appointment .frame-container .frame-content {
+    margin-right: auto;
+    margin-left: auto;
+    justify-content: center;
+  }
+
+  #book-appointment .frame-container .frame-content .col-12 {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  #book-appointment .frame-container .frame-content .free-appointments {
+    max-width: 60%;
+  }
+
+  #book-appointment
+    .frame-container
+    .frame-content
+    .free-appointments
+    .form-group {
+    text-align: center;
+  }
+
+  #book-appointment .booking-frame {
+    padding: 0;
+  }
+
+  #book-appointment #datepicker {
+    margin-top: 0;
+  }
+
+  #book-appointment #datepicker.calendar {
+    position: static;
+    max-width: 270px;
+    margin: 0 auto;
+  }
+
+  #book-appointment #datepicker .ui-datepicker-inline {
+    padding: 0 0 5px !important;
+  }
+
+  #book-appointment .free-appointments #select-time-new {
+    margin-left: 0;
+  }
+
+  #book-appointment .free-appointments #select-time-new #available-hours {
+    margin-right: 0;
+  }
+
+  #book-appointment .booking-frame .frame-container.booking-end-step {
+    text-align: center;
+    padding: 20px 10px;
+  }
+
+  #book-appointment .booking-frame .command-buttons {
+    padding: 0 10px;
+  }
+}
+
 @media (min-width: 768px) {
   .wrapper {
     min-height: 50vh;
-  }
-
-  #book-appointment {
-    border-radius: 0.25rem;
-    overflow: hidden;
-    box-shadow: rgba(45, 62, 80, 0.12) 0 1px 5px 0;
   }
 
   #book-appointment #company-name {

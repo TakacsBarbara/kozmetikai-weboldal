@@ -177,7 +177,7 @@ body {
 
 .user-login-form-style,
 .user-forgot-password-style {
-  margin: 110px auto;
+  margin: 0 auto;
 }
 
 .user-login-form,
@@ -205,6 +205,25 @@ body {
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
     border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   background-color: #835858;
+  margin-top: 25px;
+}
+
+.user-reg-btn {
+  float: right;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  border: 1px solid transparent;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  background-color: #ea8a8a;
   margin-top: 25px;
 }
 
@@ -677,14 +696,40 @@ body {
   margin: 0 auto;
 }
 
-/**************************** About Page **********************************/
+/**************************** About Page, Appointment Booking Page **********************************/
 
-.about-title {
+.appointment-booking-description {
+  margin: 0 auto 40px;
+  text-align: justify;
+}
+
+.appointment-booking-description div {
+  margin-bottom: 10px;
+}
+
+.appointment-booking-description div span {
+  color: #666666;
+}
+
+.appointment-booking-description .greeting {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.appointment-booking-description .greeting span {
+  font-size: 1.15rem;
+}
+
+.about-title,
+.appointment-booking-title,
+.sign-in-title {
   text-align: center;
   margin-bottom: 40px;
 }
 
-.about-title h1 {
+.about-title h1,
+.appointment-booking-title h1,
+.sign-in-title {
   margin: 30px 0 0;
 }
 
@@ -760,7 +805,9 @@ body {
 }
 
 @media screen and (min-width: 768px) {
-  .about-title h1 {
+  .about-title h1,
+  .appointment-booking-title h1,
+  .sign-in-title h1 {
     margin: 30px 0 60px;
   }
 
@@ -774,7 +821,9 @@ body {
 }
 
 @media screen and (min-width: 950px) {
-  .about-title h1 {
+  .about-title h1,
+  .appointment-booking-title h1,
+  .sign-in-title h1 {
     margin: -30px 0 60px;
   }
 
