@@ -733,7 +733,8 @@ body {
 .appointment-booking-title,
 .sign-in-title,
 .blog-list-title,
-.blog-title {
+.blog-title,
+.contact-title {
   text-align: center;
   margin-bottom: 40px;
 }
@@ -742,7 +743,8 @@ body {
 .appointment-booking-title h1,
 .sign-in-title h1,
 .blog-list-title h1,
-.blog-title h1 {
+.blog-title h1,
+.contact-title h1 {
   margin: 30px 0 0;
 }
 
@@ -843,6 +845,10 @@ body {
 
 .blog-contact p {
   font-size: 1.2rem;
+}
+
+.blog-content strong span {
+  color: #ea8a8a;
 }
 
 .blog-contact button,
@@ -956,12 +962,47 @@ body {
   border-top: 4px solid #ffcbcb;
 }
 
+.contact-section {
+  text-align: center;
+}
+
+.contact-section .row {
+  justify-content: center;
+}
+
+.contact-section .gmap-container {
+  margin: 0 auto;
+}
+
+.contact-infos ul,
+.opening-infos ul {
+  list-style-type: none;
+  line-height: 2rem;
+  padding-left: 0;
+}
+
+.map-responsive {
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
+  height: 0;
+}
+
+.map-responsive iframe {
+  left: 0;
+  top: 0;
+  height: 70%;
+  width: 100%;
+  position: absolute;
+}
+
 @media screen and (min-width: 768px) {
   .about-title h1,
   .appointment-booking-title h1,
   .sign-in-title h1,
   .blog-list-title h1,
-  .blog-title h1 {
+  .blog-title h1,
+  .contact-title h1 {
     margin: 30px 0 60px;
   }
 
@@ -972,6 +1013,10 @@ body {
   .about-subtitle {
     padding-left: 60px;
   }
+
+  .contact-infos {
+    text-align: left;
+  }
 }
 
 @media screen and (min-width: 950px) {
@@ -979,7 +1024,8 @@ body {
   .appointment-booking-title h1,
   .sign-in-title h1,
   .blog-list-title h1,
-  .blog-title h1 {
+  .blog-title h1,
+  .contact-title h1 {
     margin: -25px 0 60px;
   }
 

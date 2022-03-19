@@ -42,6 +42,9 @@ if (isset($_SESSION["userId"])) {
                             <div class="step-3">
                                 <span>3. lépés: Nézd át az összesítő adatokat és ha minden rendben, foglald le az időpontot.</span>
                             </div>
+                            <div class="step-4">
+                                <span>4. lépés: Foglalt időpontjaim menüpontban láthatod a lefoglalt időpont státuszát, illetve emailben értesíteni foglak, ha jóváhagytam a foglalást.</span>
+                            </div>
                             <div class="greeting">
                                 <span>Szeretettel várlak szalonomba. 😊</span>
                             </div>

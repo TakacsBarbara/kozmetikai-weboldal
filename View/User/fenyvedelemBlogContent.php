@@ -16,7 +16,7 @@
               </section>
               <h2>Milyen terméket válassz?</h2>
               <section>
-                <span>Fontos, hogy olyan fényvédőt vásárolj, amely teljeskörű védelmet nyújt a káros sugarakkal szemben. <strong>NE CSAK</strong> az SPF jelzést figyeld, mivel az csak az UV-B sugarakat szűri meg, hanem minimum 4*-os UV-A szűrőt is tartalmazzon. Az UV-A sugarak okozzák a bőrrákot, így fontos, hogy széleskörű védelmet válasszunk.</span>
+                <span>Fontos, hogy olyan fényvédőt vásárolj, amely teljeskörű védelmet nyújt a káros sugarakkal szemben. <strong><span>NE CSAK</span></strong> az SPF jelzést figyeld, mivel az csak az UV-B sugarakat szűri meg, hanem minimum 4*-os UV-A szűrőt is tartalmazzon. Az UV-A sugarak okozzák a bőrrákot, így fontos, hogy széleskörű védelmet válasszunk.</span>
               </section>
               <h2>Bőrtónusodnak megfelelő védelem</h2>
               <section>
@@ -42,7 +42,7 @@
                 <span>A fizikai fényvédők ásványi anyagokat tartalmaznak. Pl: cink-oxid, titanium-dioxide... Ezek egy fizikai barriert képeznek a bőrön. Természetesebb, kevésbé irritáló készítmények, esetleges esztétikai hátrányuk, hogy fehér réteget hagyhat. Vízben tartózkodás, verejtékezés stb... esetén elveszti a hatását.</span>
               </section>
               <section>
-                <span>Bármelyik védelmet is választod, tudnod kell, nincs tökéletes és teljes védelem! <strong>Fontos, hogy folyamatosan pótoljuk, illetve kerüljük a nagyon erős sugárzást!</strong> </span>
+                <span>Bármelyik védelmet is választod, tudnod kell, nincs tökéletes és teljes védelem! <strong><span>Fontos, hogy folyamatosan pótoljuk, illetve kerüljük a nagyon erős sugárzást!</span></strong> </span>
               </section>
               <section>A napon töltött huzamosabb idő után ajánlott a hidratálás kívülről-belülről egyaránt.</section>
               <section>Legközelebb hozok nektek egy-két gondolatot az utóápolásról, illetve házi praktikát az égés csillapítására.</section>

@@ -31,7 +31,7 @@
                   </div>
                   <li><strong>Szappanválasztás:</strong> Próbálj kímélő, lehetőleg természetes anyagokból készülő szappant választani. Langyos vizet használj a túl forró helyett!</li>
                   <li><strong>A levegő párásítása:</strong> Használj párásító készüléket, a levegő nedvességtartalmának fokozására. Párologtass illóolajat. (A mostani időszakban egy citrom-, eukaliptusz- vagy teafaolajjal kombinálva 2in1 hatást érhetsz el.)</li>
-                  <li>Ha a <strong>tüneteid nem enyhülnek esetleg fokozódnak</strong>, akkor érdemes egy bőrgyógyász szakorvos véleményét kikérni, ugyanis a kézszárazság mögött egyéb betegségek is állhatnak.(allergia, ekcéma, cukorbetegség, psoriasis, gyógyszer okozta stb...)</li>
+                  <li>Ha a <strong><span>tüneteid nem enyhülnek esetleg fokozódnak</span></strong>, akkor érdemes egy bőrgyógyász szakorvos véleményét kikérni, ugyanis a kézszárazság mögött egyéb betegségek is állhatnak.(allergia, ekcéma, cukorbetegség, psoriasis, gyógyszer okozta stb...)</li>
                 </ol>
               </section>
             </div>
