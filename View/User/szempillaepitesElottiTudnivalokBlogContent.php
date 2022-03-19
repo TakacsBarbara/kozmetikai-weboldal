@@ -12,7 +12,7 @@
             </div>
             <div class="blog-section-content">
               <section>
-                <span>Összefoglaltam nektek, hogy mit kell tudnod új vendégként, ha műszempillát szeretnél.</span>
+                <span>Összefoglaltam Nektek, hogy mit kell tudnod új vendégként, ha műszempillát szeretnél.</span>
               </section>
               <h2>Szeretnélek megkérni, hogy mielőtt érkezel hozzám az időpontodra</h2>
               <section>
@@ -31,7 +31,7 @@
                 </ul>
               </section>
               <section>
-                <h2>Készülj, úgy hogy</h2>
+                <h2>Készülj úgy, hogy</h2>
                 <ul>
                   <li>előtte nap moss hajat</li>
                   <li>ha van kontaktlencséd, akkor azt el kell távolítani (erre nálam is sort keríthetsz)</li>

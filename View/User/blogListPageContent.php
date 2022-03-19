@@ -58,7 +58,7 @@
                       <h3>Szempillaépítés</h3>
                     </div>
                     <div class="blog-post-description">
-                      <span>Összefoglaltam nektek, hogy mit kell tudnotok új vendégként, ha műszempillát szeretnétek.</span>
+                      <span>Összefoglaltam Nektek, hogy mit kell tudnotok új vendégként, ha műszempillát szeretnétek.</span>
                     </div>
                     <div class="blog-post-button">
                       <button type="button">

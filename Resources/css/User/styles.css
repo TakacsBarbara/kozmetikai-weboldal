@@ -880,7 +880,8 @@ body {
 
 .blog-post-card {
   text-align: center;
-  border: 2px solid #ffcbcb;
+  box-shadow: 1px 1px 10px 5px rgb(255 237 237);
+  /* border: 2px solid #ffcbcb; */
   border-radius: 10px;
   padding: 20px 0;
   margin-bottom: 30px;
@@ -1000,4 +1001,3 @@ body {
 }
 
 /**************************************************************************/
-

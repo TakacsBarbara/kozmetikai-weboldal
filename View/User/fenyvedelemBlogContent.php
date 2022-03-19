@@ -12,7 +12,7 @@
             </div>
             <div class="blog-section-content">
               <section>
-                <span>A napvédők a legkevésbé használt bőrápolási termékek. Pedig alapdarabnak kellene lenniük az arcápolási termékeink között. 💆🏻‍♀️ Ugyanis a napsugarak a legfőbb okozói a bőr károsodásának; a ráncoktól kezdve, a kollagén roncsolódásán keresztül a kellemetlen pigmentfoltokig. Emiatt szeretnék egy pár szót szólni nektek a fényvédelemmel kapcsolatosan.</span>
+                <span>A napvédők a legkevésbé használt bőrápolási termékek. Pedig alapdarabnak kellene lenniük az arcápolási termékeink között. Ugyanis a napsugarak a legfőbb okozói a bőr károsodásának; a ráncoktól kezdve, a kollagén roncsolódásán keresztül a kellemetlen pigmentfoltokig. Emiatt szeretnék egy pár szót szólni nektek a fényvédelemmel kapcsolatosan.</span>
               </section>
               <h2>Milyen terméket válassz?</h2>
               <section>
