@@ -61,6 +61,42 @@
               </div>
             </div>
           </section>
+          <section class="send-message-form">
+            <div class="container">
+              <div class="send-message-overlay"></div>
+              <div class="container user-login-form-style">
+                <div class="row">
+                  <div class="col-12 col-md-6 user-msg-form">
+                    <div class="user-msg-title">
+                      <h2>Tedd fel kérdésed üzenetben!</h2>
+                    </div>
+                    <form method="POST" action="">
+                      <div class="mb-3">
+                        <!-- <label for="user-msg-name" class="form-label">Név<span class="text-danger">*</span></label> -->
+                        <input type="text" class="form-control" id="user-msg-name" placeholder="Név*">
+                      </div>
+                      <div class="mb-3">
+                        <!-- <label for="user-email-address" class="form-label">Email cím<span class="text-danger">*</span></label> -->
+                        <input type="text" class="form-control" id="user-email-address" placeholder="Email cím*">
+                      </div>
+                      <div class="mb-3">
+                        <!-- <label for="user-phone" class="form-label">Telefonszám<span class="text-danger">*</span></label> -->
+                        <input type="phone" class="form-control" id="user-phone" placeholder="Telefonszám*">
+                      </div>
+                      <div class="mb-3">
+                        <!-- <label for="phone" class="form-label">Üzenet<span class="text-danger">*</span></label> -->
+                        <textarea id="user-msg" class="form-control" placeholder="Üzenet szövege*" cols="30" rows="5" maxlength="750" style="resize: none;"></textarea>
+                      </div>
+                      <div id="resultMessage"></div>
+                      <div class="mb-3" id="user-send-msg-btn-container">
+                        <button type="button" class="user-login-btn" id="user-send-msg-btn">Küldés</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
         </div>
       </div>
     </div>

@@ -30,7 +30,6 @@ $(document).ready( () => {
 
         if (index === 1) {
             if ($.trim($("#select-service option:selected").text())) {
-                console.log($.trim($("#select-service option:selected").text()));
     
                 let actualDate = $("#datepicker").datepicker( 'getDate' );
                 $("#appointment-date-input").attr("value", ($.datepicker.formatDate("yy-mm-dd", actualDate)));
@@ -107,7 +106,6 @@ $(document).ready( () => {
     }
 
     $('#book-appointment-submit').on('click', function() {
-        let guestId = 13;
         let resServiceId = $("#service-id-input").val();
         let resDate = $("#appointment-date-input").val();
         let resAppointmentStart = $("#appointment-duration-start-input").val();
@@ -120,7 +118,6 @@ $(document).ready( () => {
                 resDate: resDate,
                 resAppointmentStart: resAppointmentStart,
                 resAppointmentEnd: resAppointmentEnd,
-                guestId: guestId
             },
             success: function(data) {
                 if (data == 1) {
