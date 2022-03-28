@@ -53,13 +53,6 @@
                 </ul>
               </div>
             </div>
-            <div class="row">
-              <div class="col-12 col-md-10 gmap-container">
-                <div class="map-responsive">
-                  <iframe style="border:0;" width="600" height="450" allowfullscreen="" loading="lazy" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d669.019307400048!2d17.271462127611628!3d47.87683197726389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476c77e2267a49eb%3A0xc99b630994ba642e!2zTW9zb25tYWd5YXLDs3bDoXIsIErDs2thaSBNw7NyIHUuIDgsIDkyMDA!5e0!3m2!1shu!2shu!4v1647707824690!5m2!1shu!2shu"></iframe>
-                </div>
-              </div>
-            </div>
           </section>
           <section class="send-message-form">
             <div class="container">
@@ -72,19 +65,15 @@
                     </div>
                     <form method="POST" action="">
                       <div class="mb-3">
-                        <!-- <label for="user-msg-name" class="form-label">Név<span class="text-danger">*</span></label> -->
                         <input type="text" class="form-control" id="user-msg-name" placeholder="Név*">
                       </div>
                       <div class="mb-3">
-                        <!-- <label for="user-email-address" class="form-label">Email cím<span class="text-danger">*</span></label> -->
                         <input type="text" class="form-control" id="user-email-address" placeholder="Email cím*">
                       </div>
                       <div class="mb-3">
-                        <!-- <label for="user-phone" class="form-label">Telefonszám<span class="text-danger">*</span></label> -->
                         <input type="phone" class="form-control" id="user-phone" placeholder="Telefonszám*">
                       </div>
                       <div class="mb-3">
-                        <!-- <label for="phone" class="form-label">Üzenet<span class="text-danger">*</span></label> -->
                         <textarea id="user-msg" class="form-control" placeholder="Üzenet szövege*" cols="30" rows="5" maxlength="750" style="resize: none;"></textarea>
                       </div>
                       <div id="resultMessage"></div>
@@ -93,6 +82,15 @@
                       </div>
                     </form>
                   </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="gmap">
+            <div class="row">
+              <div class="col-12 col-md-10 gmap-container">
+                <div class="map-responsive">
+                  <iframe style="border:0;" width="600" height="450" allowfullscreen="" loading="lazy" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d669.019307400048!2d17.271462127611628!3d47.87683197726389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476c77e2267a49eb%3A0xc99b630994ba642e!2zTW9zb25tYWd5YXLDs3bDoXIsIErDs2thaSBNw7NyIHUuIDgsIDkyMDA!5e0!3m2!1shu!2shu!4v1647707824690!5m2!1shu!2shu"></iframe>
                 </div>
               </div>
             </div>

@@ -4,7 +4,6 @@
             <div id="header">
                 <span id="company-name">Regisztráció</span>
             </div>
-
             <div id="booking-frame-3" class="booking-frame registration">
                 <div class="frame-container">
 
@@ -73,7 +72,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="drug-allergy" class="control-label">
-                                    Gyógyszer allergia
+                                    Tartósan szedett gyógyszer
                                 </label>
                                 <textarea id="drug-allergy" class="form-control" id="drug-allergy" cols="5" rows="2" maxlength="255" style="resize: none;"></textarea>
                             </div>

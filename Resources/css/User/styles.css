@@ -12,6 +12,11 @@ body {
   box-sizing: border-box;
 }
 
+/* body {
+  background-image: url("./../../img/watercolor.jpg");
+  background-repeat: repeat;
+} */
+
 .italianno-font-family {
   font-family: "Italianno", cursive;
 }
@@ -110,11 +115,12 @@ body {
 }
 
 #new-appointment-btn {
+  font-size: 1.1rem;
   text-decoration: none;
   color: #fff;
   background-color: #ea8a8a;
-  border-radius: 5px;
-  padding: 5px 10px;
+  border-radius: 10px;
+  padding: 15px 20px;
 }
 
 #new-appointment-btn:hover {
@@ -740,7 +746,8 @@ body {
 .sign-in-title,
 .blog-list-title,
 .blog-title,
-.contact-title {
+.contact-title,
+.price-list-title {
   text-align: center;
   margin-bottom: 40px;
 }
@@ -750,7 +757,8 @@ body {
 .sign-in-title h1,
 .blog-list-title h1,
 .blog-title h1,
-.contact-title h1 {
+.contact-title h1,
+.price-list-title h1 {
   margin: 30px 0 0;
 }
 
@@ -976,7 +984,7 @@ body {
   justify-content: center;
 }
 
-.contact-section .gmap-container {
+.gmap-container {
   margin: 0 auto;
 }
 
@@ -989,16 +997,16 @@ body {
 
 .map-responsive {
   overflow: hidden;
-  padding-bottom: 30%;
+  padding-bottom: 60%;
   position: relative;
   height: 0;
 }
 
 .map-responsive iframe {
-  left: 0;
+  left: 10%;
   top: 0;
   height: 70%;
-  width: 100%;
+  width: 80%;
   position: absolute;
 }
 
@@ -1010,6 +1018,8 @@ body {
   background-image: url(./../../img/contact-form-bg-pink.png);
   background-position: top center;
   background-size: cover;
+  margin-top: 20px;
+  margin-bottom: 50px;
 }
 
 .send-message-form .container {
@@ -1081,7 +1091,8 @@ body {
   .sign-in-title h1,
   .blog-list-title h1,
   .blog-title h1,
-  .contact-title h1 {
+  .contact-title h1,
+  .price-list-title h1 {
     margin: 30px 0 60px;
   }
 
@@ -1104,7 +1115,8 @@ body {
   .sign-in-title h1,
   .blog-list-title h1,
   .blog-title h1,
-  .contact-title h1 {
+  .contact-title h1,
+  .price-list-title h1 {
     margin: -25px 0 60px;
   }
 
@@ -1125,6 +1137,84 @@ body {
   }
 }
 
+.price-list-content {
+  color: #666666;
+}
+
+.price-list-section {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.price-list-section .border-bottom {
+  width: 80%;
+  height: 5px;
+  border-bottom: 1px solid lightgray;
+  margin: 10px auto 30px;
+}
+
+@media screen and (min-width: 401px) {
+  .price-list-section .border-bottom {
+    width: 60%;
+  }
+}
+
+@media screen and (min-width: 701px) {
+  .price-list-section .border-bottom {
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .price-list-section .border-bottom {
+    width: 90%;
+  }
+}
+
+.price-list-main-services:first-child {
+  margin-top: 90px;
+}
+
+.price-list-section h2 {
+  font-size: 2.5rem;
+  font-family: "Italianno";
+  font-weight: 600;
+  margin-bottom: 30px;
+  margin-top: 60px;
+}
+
+.price-list-service-name {
+  font-size: 1.3rem;
+}
+
+.price-list-service-price {
+  font-size: 1.1rem;
+}
+
+.price-list-section .col-md-3 {
+  margin: 0 auto;
+}
+
+.book-appointment-button-container {
+  text-align: center;
+  margin: 90px auto 0;
+}
+
+@media screen and (min-width: 352px) {
+  .price-list-section h2 {
+    font-size: 3rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .price-list-service.name {
+    text-align: left;
+  }
+
+  .price-list-service.price {
+    text-align: right;
+  }
+}
 /**************************************************************************/
 
 .footer {

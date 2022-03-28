@@ -1,5 +1,14 @@
 <?php
 
+$sql = "SELECT * FROM szolgaltatas_fokategoria";
+$result = $conn->query($sql);
+
+$sql2 = "SELECT * FROM szolgaltatas_alkategoria";
+$result2 = $conn->query($sql2);
+
+$mainServices = $result;
+$subServices = mysqli_fetch_all($result2, MYSQLI_ASSOC);
+
 if (isset($_SESSION["userId"])) {
     $userId = $_SESSION["userId"];
 

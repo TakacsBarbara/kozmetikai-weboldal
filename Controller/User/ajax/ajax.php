@@ -101,7 +101,7 @@ if (isset($_POST["resServiceId"]) && isset($_POST["resDate"]) && isset($_POST["r
         $resDate = date("Y.m.d.", $timestamp);
 
         $message = "<p>A lefoglalt új időpont: " . $resDate . " " . $resAppointmentStart . " - " . $resAppointmentEnd . "</p>";
-        $mail->AddAddress('takacs.barby27@gmail.com', 'Takács Barbara');
+        $mail->AddAddress('lashesandmore.hj@gmail.com', 'Hegyi Judit');
         $mail->Subject  =  'Időpontfoglalás - Rendszerüzenet';
         $mail->Body    = $message;
         $mail->Send();
@@ -136,7 +136,7 @@ if (isset($_POST["reservedAppointmentIdToChange"]) && isset($_POST["newResServic
         $message = "<h3>Időpontmódosítás!</h3><p>" . $guest["vezeteknev"] . " " . $guest["keresztnev"] .
             " módosította korábban lefoglalt időpontját.</p><br>Az új időpont: " . $newDate . " " . $newResAppointmentStart . " - " . $newResAppointmentEnd .
             "<br>Lefoglalt szolgáltatás: " . $service["megnevezes"] . "<br><br>Vendég elerhetőségei:<br>Email cím: " . $guest["email"] . "<br>Telefonszám: " . $guest["tel_szam"];
-        $mail->AddAddress('takacs.barby27@gmail.com', 'Takács Barbara');
+        $mail->AddAddress('lashesandmore.hj@gmail.com', 'Hegyi Judit');
         $mail->Subject  =  'Időpontmódosítás - Rendszerüzenet';
         $mail->Body    = $message;
         $mail->Send();
@@ -172,7 +172,7 @@ if (isset($_POST["reservedServiceId"])) {
 
     $message = "<h3>Lemondott időpont!</h3><p>" . $guest["vezeteknev"] . " " . $guest["keresztnev"] .
         " lemondta korábban lefoglalt időpontját ( " . $appointmentDate . " " . $appointmentStart . " - " . $appointmentEnd . " ).</p>Vendég elerhetőségei:<br>Email cím: " . $guest["email"] . "<br>Telefonszám: " . $guest["tel_szam"];
-    $mail->AddAddress('takacs.barby27@gmail.com', 'Takács Barbara');
+    $mail->AddAddress('lashesandmore.hj@gmail.com', 'Hegyi Judit');
     $mail->Subject  =  'Lemondott időpont - Rendszerüzenet';
     $mail->Body    = $message;
 
@@ -226,7 +226,7 @@ if (isset($_POST["userName"]) && isset($_POST["email"]) && isset($_POST["phone"]
 
     $content = "<h3>Új üzenete érkezett</h3><p>Üzenet feladója: " . $userName . "<br>Email cím: " . $email .
         "<br>Telefonszám: " . $phone . "<br><br>Üzenet:<br>" . $message;
-    $mail->AddAddress('takacs.barby27@gmail.com', 'Takács Barbara');
+    $mail->AddAddress('lashesandmore.hj@gmail.com', 'Hegyi Judit');
     $mail->Subject  =  'Új üzenet';
     $mail->Body    = $content;
 
