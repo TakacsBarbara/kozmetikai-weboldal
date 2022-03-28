@@ -61,7 +61,6 @@ body {
 }
 
 #user-appointments-table-container .table-container {
-  max-width: 85%;
   margin: 0px auto 50px;
 }
 
@@ -84,20 +83,13 @@ body {
   padding: 3px 5px;
 }
 
-.btn-change {
-  background-color: #ea8a8a;
+.btn-change i,
+.btn-delete i {
+  font-size: 1.2rem;
 }
 
-.btn-change:hover {
-  background-color: #ce7777;
-}
-
-.btn-delete {
-  background-color: #4e3440;
-}
-
-.btn-delete:hover {
-  background-color: #36242d;
+.btn-delete i {
+  color: #ea8a8a;
 }
 
 .hidden {
@@ -286,6 +278,10 @@ body {
 
 #user-send-msg-btn-container {
   text-align: center;
+}
+
+.table th {
+  border-top: none !important;
 }
 
 /******************* navbar-style *******************/
@@ -747,7 +743,8 @@ body {
 .blog-list-title,
 .blog-title,
 .contact-title,
-.price-list-title {
+.price-list-title,
+.user-bookings-title {
   text-align: center;
   margin-bottom: 40px;
 }
@@ -758,7 +755,8 @@ body {
 .blog-list-title h1,
 .blog-title h1,
 .contact-title h1,
-.price-list-title h1 {
+.price-list-title h1,
+.user-bookings-title h1 {
   margin: 30px 0 0;
 }
 
@@ -1092,7 +1090,8 @@ body {
   .blog-list-title h1,
   .blog-title h1,
   .contact-title h1,
-  .price-list-title h1 {
+  .price-list-title h1,
+  .user-bookings-title h1 {
     margin: 30px 0 60px;
   }
 
@@ -1120,6 +1119,10 @@ body {
     margin: -25px 0 60px;
   }
 
+  .user-bookings-title h1 {
+    margin: -25px 0 0;
+  }
+
   .about-picture {
     width: 40%;
     display: inline-block;
@@ -1137,8 +1140,8 @@ body {
   }
 }
 
-.price-list-content {
-  color: #666666;
+.reserved-appointment-change {
+  margin-bottom: 5px;
 }
 
 .price-list-section {
@@ -1200,6 +1203,45 @@ body {
   margin: 90px auto 0;
 }
 
+.user-bookings-desktop {
+  display: none;
+}
+
+.user-bookings-mobil {
+  text-align: center;
+}
+
+.user-bookings-mobil .row {
+  box-shadow: 1px 1px 10px 5px rgb(255 237 237);
+  padding: 25px 0 10px;
+  border-radius: 10px;
+  margin-bottom: 40px;
+}
+
+.user-bookings-mobil .user-booking-service {
+  font-family: "Italianno";
+  font-size: 1.9rem;
+}
+
+.user-bookings-mobil .user-booking-date {
+  font-size: 1.2rem;
+}
+
+.user-bookings-mobil .row div {
+  margin-bottom: 10px;
+}
+
+@media screen and (max-width: 425px) {
+  #book-appointment-change,
+  #book-appointment-submit {
+    margin-top: -170px;
+  }
+
+  #button-back-3 {
+    margin-top: 40px;
+  }
+}
+
 @media screen and (min-width: 352px) {
   .price-list-section h2 {
     font-size: 3rem;
@@ -1213,6 +1255,14 @@ body {
 
   .price-list-service.price {
     text-align: right;
+  }
+
+  .user-bookings-desktop {
+    display: block;
+  }
+
+  .user-bookings-mobil {
+    display: none;
   }
 }
 /**************************************************************************/
