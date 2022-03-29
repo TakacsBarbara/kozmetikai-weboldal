@@ -138,7 +138,7 @@ body {
   }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 767px) {
   .img-container,
   #logo-img-circle {
     display: none;
@@ -238,7 +238,7 @@ body {
 }
 
 .admin-login-form {
-  padding-top: 50px;
+  margin: 0 auto;
 }
 
 .admin-login-btn {
@@ -351,6 +351,10 @@ body {
   background-color: rgba(0, 0, 0, 0.144);
 }
 
+.table {
+  margin-top: 40px;
+}
+
 .table-background {
   background-color: #fff;
 }
@@ -363,7 +367,11 @@ body {
 
 .table-header {
   color: #4e3440;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
+}
+
+.table th {
+  border-top: none !important;
 }
 
 .td-content-center {
@@ -386,25 +394,63 @@ body {
 /*Új főszolgáltatás gomb*/
 
 .new-mainservice-text {
-  font-size: 22px;
+  font-size: 16px;
 }
 
 .new-mainservice-plus-icon {
   color: #ea8a8a;
-  font-size: 28px;
-  margin-right: 7px;
+  font-size: 20px;
 }
 
 .new-mainservice-btn {
   background-color: #fff;
   border: 0.5px solid #ea8a8a;
   border-radius: 30px;
-  padding: 12px 30px;
+  padding: 10px 15px;
 }
 
 .new-mainservice-btn-container {
-  padding: 30px 0 0;
+  margin-bottom: 30px;
   text-align: center;
+}
+
+.mainServicesMobil {
+  margin-bottom: 30px;
+}
+
+.mainServicesMobil a {
+  color: #4e3440;
+  text-decoration: none;
+  font-family: "Italianno";
+  font-size: 2rem;
+}
+
+.mainServicesMobil a:hover {
+  color: #4e3440;
+  text-decoration: none;
+}
+
+@media screen and (min-width: 992px) {
+  .new-mainservice-text {
+    font-size: 22px;
+  }
+
+  .new-mainservice-plus-icon {
+    color: #ea8a8a;
+    font-size: 28px;
+    margin-right: 7px;
+  }
+
+  .new-mainservice-btn {
+    background-color: #fff;
+    border: 0.5px solid #ea8a8a;
+    border-radius: 30px;
+    padding: 12px 30px;
+  }
+
+  .new-mainservice-btn-container {
+    text-align: center;
+  }
 }
 
 /* services php - Service műveleteinek űrlapjai*/
@@ -471,4 +517,32 @@ body {
 
 .hidden {
   display: none;
+}
+
+.admin-services-title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.admin-services-title h1 {
+  margin: 30px 0 0;
+}
+
+.admin-services-mobil {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.admin-services-desktop {
+  display: none;
+}
+
+@media screen and (min-width: 992px) {
+  .admin-services-mobil {
+    display: none;
+  }
+
+  .admin-services-desktop {
+    display: block;
+  }
 }

@@ -46,8 +46,8 @@ if (isset($_SESSION["userId"])) {
                                         ?>
                                     </div>
                                     <div class="col-12">
-                                        <a id="change-btn-ref" href="./appointmentBooking.php?id=<?php echo $reservation["id"] ?>" class="btn-change"><i class="fas fa-pencil-alt"></i></a>
-                                        <a id="<?php echo $reservation["id"] ?>" class="btn-delete reserved-appointment-delete"><i class="fas fa-trash-alt"></i></a>
+                                        <a id="change-btn-ref" href="./appointmentBooking.php?id=<?php echo $reservation["id"] ?>" class="btn-change"><i class="fas fa-pencil-alt" title="Módosítás"></i></a>
+                                        <a id="<?php echo $reservation["id"] ?>" class="btn-delete reserved-appointment-delete"><i class="fas fa-trash-alt" title="Törlés"></i></a>
                                     </div>
                                 </div>
                             <?php

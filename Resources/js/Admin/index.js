@@ -12,6 +12,23 @@ $(document).ready( () => {
 
     });
 
+    $('.mainServicesMobil').on('click',function() {
+        let mainServiceID = $(this).children("a").attr('id');
+        
+        let state = $('.sc_'+mainServiceID).attr("style");
+        if(state === "display: none;"){
+            $.each( $('.sc_'+mainServiceID), function() {
+                    $(this).css("display","table-row");
+            });
+            $('#arrow_mobil_'+mainServiceID).removeClass("fa-chevron-down").addClass("fa-chevron-up");
+        }
+        else{
+            $.each( $('.sc_'+mainServiceID), function() {
+                $(this).css("display","none");
+            });
+            $('#arrow_mobil_'+mainServiceID).removeClass("fa-chevron-up").addClass("fa-chevron-down");
+        }
+    });
 
     $('.mainServices').on('click',function() {
         let mainServiceID = $(this).children("a").attr('id');

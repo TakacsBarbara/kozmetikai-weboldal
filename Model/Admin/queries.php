@@ -1,50 +1,32 @@
 <?php
 
 
-    $sql = "SELECT * FROM szolgaltatas_fokategoria";
-    //echo "LEKÉRDEZÉS". $sql;
-    $result = $conn->query($sql);
+$sql = "SELECT * FROM szolgaltatas_fokategoria";
+$result = $conn->query($sql);
 
-    //print_r($result);
+$sql2 = "SELECT * FROM szolgaltatas_alkategoria";
+$result2 = $conn->query($sql2);
 
-    $sql_2 = "SELECT * FROM szolgaltatas_alkategoria";
-    $result_2 = $conn->query($sql_2);
+$mainServicesMobil = $result;
+$subServicesMobil = mysqli_fetch_all($result2, MYSQLI_ASSOC);
 
-    $row = $result;
-    //$row_2 = $result_2;
-    //$row_2_t = $result_2->mysqli_fetch_all(MYSQLI_ASSOC);
-    $row_2_t = mysqli_fetch_all($result_2, MYSQLI_ASSOC);
-    // $row = $result -> fetch_array(MYSQLI_ASSOC);
+$sqlDesktop = "SELECT * FROM szolgaltatas_fokategoria";
+$resultDesktop = $conn->query($sqlDesktop);
 
-    //echo "foreach <br>";
-    //print_r($row_2_t);
+$sqlDesktop2 = "SELECT * FROM szolgaltatas_alkategoria";
+$resultDesktop2 = $conn->query($sqlDesktop2);
 
-    foreach($row_2_t as $row_number => $value ) {
-        //print_r($value["megnevezes"]);
+$mainServicesDesktop = $resultDesktop;
+$subServicesDesktop = mysqli_fetch_all($resultDesktop2, MYSQLI_ASSOC);
+
+foreach ($subServicesDesktop as $row_number => $value) {
+    //print_r($value["megnevezes"]);
+}
+
+foreach ($subServicesDesktop as $row_number) {
+    //echo print_r($row_number)."<br>";
+    foreach ($row_number as $key => $value) {
+        // print_r($key . " ". $value);
+        // echo "<br>";
     }
-
-    foreach($row_2_t as $row_number) {
-        //echo print_r($row_number)."<br>";
-        foreach($row_number as $key=> $value) {
-           // print_r($key . " ". $value);
-           // echo "<br>";
-        }
-    }
-
-
-    // echo "while <br>";
-    // while($row_2_t = $result_2->fetch_array(MYSQLI_ASSOC)) {
-    //     print_r ($row_2_t);
-    // }
-    
-
-    /*
-    if ($result->num_rows > 0) {
-        echo "Sikeres bejelentkezés";
-    } else {
-    
-        echo "Sikertelen bejelentkezés!";
-    }
-    */
-
-?>
+}

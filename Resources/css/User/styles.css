@@ -83,6 +83,11 @@ body {
   padding: 3px 5px;
 }
 
+.btn-change:hover,
+.btn-delete:hover {
+  cursor: pointer;
+}
+
 .btn-change i,
 .btn-delete i {
   font-size: 1.2rem;
