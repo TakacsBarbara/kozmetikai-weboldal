@@ -1270,7 +1270,54 @@ body {
     display: none;
   }
 }
-/**************************************************************************/
+/*********************************HOME page *****************************************/
+
+.home-beauty-salon .greeting {
+  text-align: center;
+  margin-top: -90px;
+  margin-bottom: 50px;
+  border-radius: 15px;
+}
+
+/* .home-beauty-salon .greeting-background {
+  padding: 140px 0;
+  border-radius: 15px;
+  background-image: url("./../../img/home-background.png");
+  margin: 0 auto;
+} */
+
+.home-beauty-salon .greeting h1 {
+  margin-bottom: 30px;
+}
+
+.home-beauty-salon .about-the-salon {
+  text-align: center;
+  margin-top: 70px;
+}
+
+.home-beauty-salon .about-the-salon h2 {
+  font-family: "Italianno";
+  font-size: 3.5rem;
+  margin-bottom: 30px;
+}
+
+.home-beauty-salon .about-the-salon img {
+  max-width: 70%;
+  height: auto;
+  border: 10px double #ebc4bd;
+  margin-bottom: 50px;
+}
+
+.home-beauty-salon .about-the-salon .about-description {
+  display: inline-block;
+  width: 80%;
+}
+
+.home-beauty-salon .about-the-salon .about-description p {
+  font-size: 1.1rem;
+}
+
+/************************************************************************************/
 
 .footer {
   margin-top: 50px;
