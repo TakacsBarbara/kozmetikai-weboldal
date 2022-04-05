@@ -1272,9 +1272,13 @@ body {
 }
 /*********************************HOME page *****************************************/
 
+.home-beauty-salon hr {
+  border-top: 0px solid rgba(0,0,0,.1);
+}
+
 .home-beauty-salon .greeting {
   text-align: center;
-  margin-top: -90px;
+  margin-top: 10px;
   margin-bottom: 50px;
   border-radius: 15px;
 }
@@ -1288,6 +1292,7 @@ body {
 
 .home-beauty-salon .greeting h1 {
   margin-bottom: 30px;
+  font-size: 2rem;
 }
 
 .home-beauty-salon .about-the-salon {
@@ -1297,25 +1302,346 @@ body {
 
 .home-beauty-salon .about-the-salon h2 {
   font-family: "Italianno";
-  font-size: 3.5rem;
+  font-size: 3.4rem;
   margin-bottom: 30px;
 }
 
 .home-beauty-salon .about-the-salon img {
-  max-width: 70%;
+  max-width: 100%;
   height: auto;
   border: 10px double #ebc4bd;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
+  padding: 10px;
 }
 
 .home-beauty-salon .about-the-salon .about-description {
   display: inline-block;
-  width: 80%;
+  width: 100%;
 }
 
 .home-beauty-salon .about-the-salon .about-description p {
   font-size: 1.1rem;
 }
+
+.home-beauty-salon .our-services {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.home-beauty-salon .our-services .services-home {
+  justify-content: center;
+}
+
+.home-beauty-salon .our-services h2 {
+  font-family: 'Italianno';
+  font-size: 3.5rem;
+  margin: 50px auto 40px;
+}
+
+.home-beauty-salon .our-services p {
+  font-size: 1.1rem;
+  margin-top: 30px;
+}
+
+.home-beauty-salon .our-services ul {
+  text-align: left;
+  max-width: 40%;
+  margin: 30px auto;
+}
+
+.home-beauty-salon .our-services ul li {
+  font-size: 1.1rem;
+}
+
+.home-beauty-salon .our-greeting p {
+  text-align: center;
+  font-size: 1.25rem;
+  margin: 10px 0 20px;
+}
+
+.guests-said {
+  display: none;
+  position: relative;
+  background-attachment: fixed;
+  background-image: url("./../../img/guests-section-bg.jpg");
+  background-position: center center;
+  margin: 70px 0;
+  padding: 1px;
+  z-index: 0;
+}
+
+.guests-said::before {
+  content: "";
+  position: absolute;
+  left: 0; right: 0;
+  top: 0; bottom: 0;
+  background: rgba(0,0,0,.6);
+}
+
+.guests-said .title {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  z-index: 1;
+}
+
+.guests-said .title h2 {
+  font-family: 'Italianno';
+  font-size: 4rem;
+  color: #ffffff;
+  z-index: 2;
+}
+
+.guests-said #carouselExampleDark {
+  margin: 30px auto 50px;
+  max-width: 70%;
+}
+
+.guests-said .carousel-inner {
+  padding-bottom: 50px;
+}
+
+.guests-said .carousel-item img {
+  border: 10px double #ebc4bd;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.our-services .services-home .blog-post-description {
+  height: 50px !important;
+}
+
+.about-the-salon button, .our-services button {
+  font-weight: 600;
+  line-height: 1.5;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  border: 1px solid transparent;
+  padding: 0.6rem 0.75rem;
+  font-size: 1.2rem;
+  border-radius: 0.5rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  background-color: #ea8a8a;
+}
+
+.about-the-salon button:hover, .our-services button:hover {
+  background-color: #ce7777;
+}
+
+.about-the-salon button a, .our-services button a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.2rem;
+}
+
+.about-the-salon button {
+  margin-bottom: 50px;
+}
+
+.why-choose-me {
+  margin-bottom: 80px;
+}
+
+.why-choose-me .row {
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.why-choose-me .title {
+  text-align: center;
+}
+
+.why-choose-me .title h2 {
+  font-family: 'Italianno';
+  font-size: 2.8rem;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+.why-choose-me .reason-title {
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.why-choose-me .reason-description {
+  text-align: center;
+}
+
+.why-choose-me .reason-description p {
+  font-size: 1.1rem;
+}
+
+.why-choose-me .picture-container{
+  order: 1;
+}
+
+.why-choose-me .reasons {
+  order: 2;
+}
+
+.why-choose-me .picture-container img {
+  border-radius: 15px;
+  max-width: 100%;
+  height: auto;
+}
+
+.why-choose-me .free-consultation-btn, 
+.why-choose-me .check-prices-btn,
+.why-choose-me .professional-products-btn {
+  text-align: center;
+}
+
+.why-choose-me .free-consultation-btn #free-consultation-btn, 
+.why-choose-me .check-prices-btn #check-prices-btn,
+.why-choose-me .professional-products-btn #professional-products-btn {
+  font-weight: 600;
+  text-transform: uppercase;
+  font-style: normal;
+  text-decoration: none;
+  line-height: 45px;
+  letter-spacing: 1.1px;
+  fill: #ffffff;
+  color: #ffffff;
+  border: none;
+  border-radius: 15px;
+  padding: 0px 20px 0px 20px;
+}
+
+.why-choose-me .free-consultation-btn #free-consultation-btn a, 
+.why-choose-me .check-prices-btn #check-prices-btn a,
+.why-choose-me .professional-products-btn #professional-products-btn a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.why-choose-me .free-consultation-btn #free-consultation-btn {
+  background-color: #835858;
+}
+
+.why-choose-me .free-consultation-btn #free-consultation-btn:hover {
+  background-color: #583c3c;
+}
+
+.why-choose-me .check-prices-btn #check-prices-btn {
+  background-color: #ffcbcb;
+}
+
+.why-choose-me .check-prices-btn #check-prices-btn:hover {
+  background-color: #dfb0b0;
+}
+
+.why-choose-me .professional-products-btn #professional-products-btn {
+  background-color: #ea8a8a;
+}
+
+.why-choose-me .professional-products-btn #professional-products-btn:hover {
+  background-color: #cf7c7c;
+}
+
+.why-choose-me .free-consultation-btn #free-consultation-btn a {
+  font-size: 0.9rem;
+}
+
+@media screen and (min-width: 325px) {
+
+  .home-beauty-salon .about-the-salon h2 {
+    font-size: 3.5rem;
+  }
+}
+
+@media screen and (min-width: 375px) {
+
+  .why-choose-me .title h2 {
+    font-size: 3.5rem;
+  }
+
+  .why-choose-me .free-consultation-btn #free-consultation-btn a {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (min-width: 381px) {
+
+  .home-beauty-salon .greeting h1 {
+    font-size: 2.5rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+
+  .home-beauty-salon .about-the-salon img {
+  margin-bottom: 50px;
+  max-width: 70%;
+  }
+
+  .home-beauty-salon .about-the-salon .about-description {
+    width: 80%;
+  }
+
+  .home-beauty-salon .our-greeting p {
+    font-size: 1.35rem;
+    margin: 30px 0 20px;
+  }
+
+  .guests-said {
+    display: block;
+  }
+
+  .guests-said #carouselExampleDark {
+    margin: 30px auto 50px;
+    max-width: 100%;
+  }
+
+  .why-choose-me .title h2 {
+    font-size: 3.5rem;
+    margin-bottom: 50px;
+    margin-top: 0;
+  }
+
+  .why-choose-me .picture-container, .why-choose-me .reasons {
+    order: unset;
+  }
+
+  .why-choose-me .reason-title {
+    margin-top: 0;
+  }
+
+  .why-choose-me .reason-description {
+    padding-right: 30px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+
+  .why-choose-me .picture-container{
+    line-height: 308px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+
+  .home-content .our-services .blog-post-title h3 {
+    font-size: 1.6rem;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+
+  .home-beauty-salon .greeting {
+    margin-top: -70px;
+  }
+
+  .guests-said #carouselExampleDark {
+    margin: 30px auto 50px;
+    max-width: 70%;
+  }
+}
+
 
 /************************************************************************************/
 
