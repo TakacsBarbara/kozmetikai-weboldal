@@ -45,7 +45,7 @@
                     </div>
                     <div class="blog-post-content">
                       <div class="blog-post-title">
-                        <h3>Szempillahosszabítás</h3>
+                        <h3>Szempillahosszabbítás</h3>
                       </div>
                       <div class="blog-post-description">
                         <span>1D | 2D | 3D műszempillák</span>
