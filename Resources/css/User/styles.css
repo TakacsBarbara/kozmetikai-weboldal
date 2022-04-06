@@ -1496,13 +1496,17 @@ body {
 
 .why-choose-me .free-consultation-btn, 
 .why-choose-me .check-prices-btn,
-.why-choose-me .professional-products-btn {
+.why-choose-me .professional-products-btn,
+.szempillahosszabitas-btn,
+.szempilla-kisokos-btn {
   text-align: center;
 }
 
 .why-choose-me .free-consultation-btn #free-consultation-btn, 
 .why-choose-me .check-prices-btn #check-prices-btn,
-.why-choose-me .professional-products-btn #professional-products-btn {
+.why-choose-me .professional-products-btn #professional-products-btn,
+.szempillahosszabitas-btn #szempillahosszabitas-btn,
+.szempilla-kisokos-btn #szempilla-kisokos-btn {
   font-weight: 600;
   text-transform: uppercase;
   font-style: normal;
@@ -1518,7 +1522,9 @@ body {
 
 .why-choose-me .free-consultation-btn #free-consultation-btn a, 
 .why-choose-me .check-prices-btn #check-prices-btn a,
-.why-choose-me .professional-products-btn #professional-products-btn a {
+.why-choose-me .professional-products-btn #professional-products-btn a,
+.szempillahosszabitas-btn #szempillahosszabitas-btn a,
+.szempilla-kisokos-btn #szempilla-kisokos-btn a{
   color: #ffffff;
   text-decoration: none;
 }
@@ -1531,19 +1537,23 @@ body {
   background-color: #583c3c;
 }
 
-.why-choose-me .check-prices-btn #check-prices-btn {
+.why-choose-me .check-prices-btn #check-prices-btn,
+.szempilla-kisokos-btn #szempilla-kisokos-btn {
   background-color: #ffcbcb;
 }
 
-.why-choose-me .check-prices-btn #check-prices-btn:hover {
+.why-choose-me .check-prices-btn #check-prices-btn:hover,
+.szempilla-kisokos-btn #szempilla-kisokos-btn:hover {
   background-color: #dfb0b0;
 }
 
-.why-choose-me .professional-products-btn #professional-products-btn {
+.why-choose-me .professional-products-btn #professional-products-btn,
+.szempillahosszabitas-btn #szempillahosszabitas-btn {
   background-color: #ea8a8a;
 }
 
-.why-choose-me .professional-products-btn #professional-products-btn:hover {
+.why-choose-me .professional-products-btn #professional-products-btn:hover,
+.szempillahosszabitas-btn #szempillahosszabitas-btn:hover {
   background-color: #cf7c7c;
 }
 
@@ -1553,6 +1563,26 @@ body {
 
 .home-content .our-services .blog-post-title h3 {
   font-size: 2rem;
+}
+
+#free-consultation-form {
+  background-image: url("./../../img/free-consultation-bg.png");
+}
+
+.book-appointment-lashes {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-top: 20px;
+}
+
+.szempillaepites .description p {
+  font-size: 1.1rem;
+  text-align: justify;
+}
+
+.about-services-page .image-container {
+  display: flex;
+  align-items: center;
 }
 
 @media screen and (min-width: 325px) {
@@ -1681,9 +1711,31 @@ body {
 
 .about-services-content .image-container img {
   border-radius: 15px;
+  max-width: 100%;
 }
 
+.szempilla-kisokos {
+  margin-top: 50px !important;
+  box-shadow: 1px 1px 10px 5px rgb(0 0 0 / 8%);
+  padding: 30px 20px 20px;
+  border-radius: 15px;
+}
 
+.szempilla-kisokos p {
+  font-size: 1.1rem;
+  text-align: center;
+  line-height: 1.3;
+  margin-bottom: 20px;
+}
+
+.pearl-img-container {
+  text-align: center;
+  margin: 80px auto;
+}
+
+.pearl-img-container .pearls {
+  width: 10%;
+}
 
 @media screen and (min-width: 768px) {
 

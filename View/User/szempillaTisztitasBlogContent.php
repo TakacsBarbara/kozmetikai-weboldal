@@ -8,7 +8,7 @@
         <div class="blog-content">
           <section class="blog-section">
             <div class="blog-picture">
-              <img src="./../../Resources/img/blog-img/pilla-tisztitasa.png" alt="Bemutatkozás fotó">
+              <img src="./../../Resources/img/blog-img/pilla-tisztitasa.png" alt="Szempillák tisztítása">
             </div>
             <div class="blog-section-content">
               <section>
