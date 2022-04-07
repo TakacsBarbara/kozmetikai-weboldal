@@ -267,7 +267,39 @@
               </div>
             </div>
             <div class="brands">
-
+              <div class="row">
+                <h2>Munkám során használt márkák</h2>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+                  <p class="dark-pink">Lashbrill</p>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+                  <p>Lash flash</p>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+                  <p class="light-pink">Szépség gyár</p>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+                  <p>Best Lashes</p>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+                  <p class="dark-pink">Janssen</p>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+                  <p>Intensive</p>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+                  <p class="light-pink">Mesotica</p>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+                  <p>Alveola</p>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+                  <p class="dark-pink">JimJams</p>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+                  <p>LashesbyLove</p>
+                </div>
+              </div>
             </div>
           </section>
           <section id="free-consultation-form" class="send-message-form">

@@ -32,9 +32,13 @@
                     </div>
                   </div>
                   <div class="border-bottom"></div>
-            <?php
+              <?php
                 }
-              }
+              } ?>
+              <div class="pearl-img-container">
+                <img src="./../../Resources/img/pearl-border.png" alt="pearls" class="pearls">
+              </div>
+            <?php
             }
             ?>
           </section>

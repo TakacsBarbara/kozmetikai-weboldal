@@ -1494,6 +1494,28 @@ body {
   height: auto;
 }
 
+.why-choose-me .brands .row {
+  display: flex;
+  justify-content: center;
+}
+
+.why-choose-me .brands h2 {
+  margin: 0 auto 50px;
+}
+
+.why-choose-me .brands p {
+  font-size: 2.5rem;
+  font-family: 'Italianno';
+}
+
+.why-choose-me .brands .dark-pink {
+  color: #ea8a8a;
+}
+
+.why-choose-me .brands .light-pink {
+  color: #ffcbcb;
+}
+
 .why-choose-me .free-consultation-btn, 
 .why-choose-me .check-prices-btn,
 .why-choose-me .professional-products-btn,
