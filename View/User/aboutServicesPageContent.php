@@ -69,24 +69,68 @@
             <div class="row">
               <div class="content-container col-12 col-md-8">
                 <div class="description">
-                  <p>Ennek a technikának a lényege, hogy 1D szett esetén a szempillákra egyenként egy, 2D szett esetén kettő, illetve 3D szett estén három szál kerül felragasztásra speciális műszempilla ragasztóval. </p>
-                  <p>A szálanként meghosszabbított szempillák természesebb hatást keltenek más szempillaragasztási módszerekkel szemben. Stílusodnak, szem és arcformádnak megfelelően, különböző hosszúságú, vastagságú és ívű szempillát tudok építeni.</p>
-                  <p>Ha te is unod már, hogy reggelente sok időt töltesz el a szempillaspirál használatával a tükör előtt és a nap közben elkenődött festékből is eleged van, akkor foglalj időpontot hozzám műszempilla építésre, ahol a Te stílusodnak megfelelő pillákat fogsz kapni!</p>
+                  <div class="facial-treatment">
+                    <h3>Arc- és dekoltázsmasszázs</h3>
+                    <p>A masszázs a bőrtípusodnak leginkább megfelelő krémmel történik, ami vitalizálja és értékes anyagokkal tölti fel, ezzel ragyogó bőrt varázsolva.</p>
+                  </div>
+                  <div class="facial-treatment">
+                    <h3>Alapkezelés</h3>
+                    <p>letisztítás | peeling | tonizálás | tisztítás | arcmasszázs | arcmaszk | befejező hatóanyagok a bőrtípustól függően</p>
+                  </div>
+                  <div class="facial-treatment">
+                    <h3>Tini kezelés</h3>
+                    <p>letisztítás | peeling | tonizálás | tisztítás | pakolás | befejező hatóanyagok</p>
+                  </div>
                 </div>
               </div>
               <div class="image-container col-12 col-md-4">
-                <img src="./../../Resources/img/about-services/szempillahosszabbitas.png" alt="Szempillahosszabbítás">
+                <img src="./../../Resources/img/about-services/arckezeles1.png" alt="Arckezelés, arcpakolás, arcmasszázs">
               </div>
             </div>
             <div class="row">
               <div class="image-container col-12 col-md-4">
-                <img src="./../../Resources/img/about-services/szempillahosszabbitas.png" alt="Szempillahosszabbítás">
+                <img src="./../../Resources/img/about-services/arckezeles2.png" alt="Arckezelésekhez használt termékek">
               </div>
               <div class="content-container col-12 col-md-8">
                 <div class="description">
-                  <p>Ennek a technikának a lényege, hogy 1D szett esetén a szempillákra egyenként egy, 2D szett esetén kettő, illetve 3D szett estén három szál kerül felragasztásra speciális műszempilla ragasztóval. </p>
-                  <p>A szálanként meghosszabbított szempillák természesebb hatást keltenek más szempillaragasztási módszerekkel szemben. Stílusodnak, szem és arcformádnak megfelelően, különböző hosszúságú, vastagságú és ívű szempillát tudok építeni.</p>
-                  <p>Ha te is unod már, hogy reggelente sok időt töltesz el a szempillaspirál használatával a tükör előtt és a nap közben elkenődött festékből is eleged van, akkor foglalj időpontot hozzám műszempilla építésre, ahol a Te stílusodnak megfelelő pillákat fogsz kapni!</p>
+                  <div class="facial-treatment">
+                    <h3>Nagykezelés</h3>
+                    <p>alapkezelés | ultrahang arckezelés vagy tűnélküli mesoterápia | ampulla szérum</p>
+                  </div>
+                  <div class="facial-treatment">
+                    <h3>Tápláló kezelés</h3>
+                    <p>letisztítás | peeling | tonizálás | masszázs | ultrahang arckezelés | befejező hatóanyagok</p>
+                  </div>
+                  <div class="facial-treatment">
+                    <h3>Mikrodermabráziós kezelés</h3>
+                    <p>letisztítás | mikrodermabrázió | maszk | befejező hatóanyagok</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div id="mikrodermabrazio" class="col-12 col-lg-8 mikrodermabrazio">
+                <h2>A mikrodermabrázióról</h2>
+                <p class="justify-content">A mikrodermabrázió önmagában is egy eredményes bőrmegújító kozmetikai kezelés. Emellett a mikrodermabráziót
+                  követően lényegesen könnyebben tudnak bejutni a kozmetikai hatóanyagok a mélyebb rétegekbe, mivel a felső,
+                  elhalt hámréteg nem akadályozza bejutásukat, és nem szívja fel az értékes összetevőket. Ezért a kozmetikai
+                  kezelések hatékonyságát hihetetlen mértékben fokozza, ha a kezelés előtt mikrodermabráziót végzünk.
+                </p>
+                <p class="larger-text">Az alábbi bőrproblémák kezelésére ajánlott</p>
+                <div class="col-12 col-lg-6 list-container">
+                  <ul>
+                    <li>akne, aknés sebhelyek</li>
+                    <li>öregedési foltok</li>
+                    <li>laza, petyhüdt bőr</li>
+                    <li>finom vonalak és ráncok</li>
+                    <li>napkárosodott bőr</li>
+                    <li>egyenetlen bőr textúra</li>
+                    <li>érdes bőr</li>
+                    <li>pórusok méretének normalizálása</li>
+                    <li>bőr tónusának helyreállítása</li>
+                    <li>dehidratált bőr</li>
+                    <li>striák</li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -101,40 +145,46 @@
             <div class="row">
               <div class="content-container col-12 col-md-8">
                 <div class="description">
-                  <p>Ennek a technikának a lényege, hogy 1D szett esetén a szempillákra egyenként egy, 2D szett esetén kettő, illetve 3D szett estén három szál kerül felragasztásra speciális műszempilla ragasztóval. </p>
-                  <p>A szálanként meghosszabbított szempillák természesebb hatást keltenek más szempillaragasztási módszerekkel szemben. Stílusodnak, szem és arcformádnak megfelelően, különböző hosszúságú, vastagságú és ívű szempillát tudok építeni.</p>
-                  <p>Ha te is unod már, hogy reggelente sok időt töltesz el a szempillaspirál használatával a tükör előtt és a nap közben elkenődött festékből is eleged van, akkor foglalj időpontot hozzám műszempilla építésre, ahol a Te stílusodnak megfelelő pillákat fogsz kapni!</p>
+                  <div class="makeup">
+                    <h2>Nappali smink</h2>
+                    <p>Szolíd, hétköznapokban is viselhető smink, akár iskolában vagy munkahelyen.</p>
+                  </div>
+                  <div class="makeup">
+                    <h2>Alkalmi smink</h2>
+                    <p>Különböző eseményekre készülő sminkeket is készítek, például esküvőre, ballagásra, fotózásokra egyaránt.
+                      Mindig azt tartom szem előtt, hogy a Te stílusodnak leginkább megfelelő színekkel és technikákkal készítsem el a sminkedet.</p>
+                  </div>
                 </div>
               </div>
               <div class="image-container col-12 col-md-4">
-                <img src="./../../Resources/img/about-services/szempillahosszabbitas.png" alt="Szempillahosszabbítás">
-              </div>
-            </div>
-            <div class="row">
-              <div class="image-container col-12 col-md-4">
-                <img src="./../../Resources/img/about-services/szempillahosszabbitas.png" alt="Szempillahosszabbítás">
-              </div>
-              <div class="content-container col-12 col-md-8">
-                <div class="description">
-                  <p>Ennek a technikának a lényege, hogy 1D szett esetén a szempillákra egyenként egy, 2D szett esetén kettő, illetve 3D szett estén három szál kerül felragasztásra speciális műszempilla ragasztóval. </p>
-                  <p>A szálanként meghosszabbított szempillák természesebb hatást keltenek más szempillaragasztási módszerekkel szemben. Stílusodnak, szem és arcformádnak megfelelően, különböző hosszúságú, vastagságú és ívű szempillát tudok építeni.</p>
-                  <p>Ha te is unod már, hogy reggelente sok időt töltesz el a szempillaspirál használatával a tükör előtt és a nap közben elkenődött festékből is eleged van, akkor foglalj időpontot hozzám műszempilla építésre, ahol a Te stílusodnak megfelelő pillákat fogsz kapni!</p>
-                </div>
+                <img src="./../../Resources/img/about-services/smink.png" alt="Alkalmi és nappali sminkek">
               </div>
             </div>
           </section>
           <div class="pearl-img-container">
             <img src="./../../Resources/img/pearl-border.png" alt="pearls" class="pearls">
           </div>
-          <section class="szempillaepites">
-            <div class="title">
-
+          <section class="szempillalifting">
+          <div class="title">
+              <h2>Szempilla lifting</h2>
             </div>
-            <div class="subtitle">
-
-            </div>
-            <div class="description">
-
+            <div class="row">
+              <div class="image-container col-12 col-md-4">
+                <img src="./../../Resources/img/about-services/smink.png" alt="Alkalmi és nappali sminkek">
+              </div>
+              <div class="content-container col-12 col-md-8">
+                <div class="description">
+                  <div class="makeup">
+                    <h2>Nappali smink</h2>
+                    <p>Szolíd, hétköznapokban is viselhető smink, akár iskolában vagy munkahelyen.</p>
+                  </div>
+                  <div class="makeup">
+                    <h2>Alkalmi smink</h2>
+                    <p>Különböző eseményekre készülő sminkeket is készítek, például esküvőre, ballagásra, fotózásokra egyaránt.
+                      Mindig azt tartom szem előtt, hogy a Te stílusodnak leginkább megfelelő színekkel és technikákkal készítsem el a sminkedet.</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </section>
           <section class="szempillaepites">
