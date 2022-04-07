@@ -54,7 +54,7 @@
               </div>
             </div>
           </section>
-          <section class="send-message-form">
+          <section id="uzenetkuldes" class="send-message-form">
             <div class="container">
               <div class="send-message-overlay"></div>
               <div class="container user-login-form-style">

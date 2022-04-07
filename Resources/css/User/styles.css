@@ -1575,6 +1575,10 @@ body {
   margin-top: 20px;
 }
 
+#szempillaepites .title h2 {
+  font-size: 2.4rem;
+}
+
 .szempillaepites .description p {
   font-size: 1.1rem;
   text-align: justify;
@@ -1583,6 +1587,34 @@ body {
 .about-services-page .image-container {
   display: flex;
   align-items: center;
+}
+
+.about-services-content img {
+  margin: 0 auto 20px;
+}
+
+.about-services-content .description p {
+  text-align: center;
+}
+
+.szempilla-kisokos {
+  margin: 0 !important;
+}
+
+#szempillaepites img {
+  max-width: 70%;
+}
+
+#szempillalifting .title h2 {
+  font-size: 3rem;
+}
+
+#szemoldoklaminalas .title h2 {
+  font-size: 2.7rem;
+}
+
+#smink .makeup h2 {
+  text-align: center;
 }
 
 @media screen and (min-width: 325px) {
@@ -1601,6 +1633,10 @@ body {
   .why-choose-me .free-consultation-btn #free-consultation-btn a {
     font-size: 1rem;
   }
+
+  #szempillaepites .title h2, #szempillalifting .title h2, #szemoldoklaminalas .title h2 {
+    font-size: 3.5rem;
+  }
 }
 
 @media screen and (min-width: 381px) {
@@ -1611,6 +1647,30 @@ body {
 }
 
 @media screen and (min-width: 768px) {
+
+  #szempillaepites img {
+    max-width: 100%;
+  }
+
+  #smink .makeup h2 {
+    text-align: left;
+  }
+
+  .about-services-content img {
+    margin: 0;
+  }
+
+  .about-services-content .description p {
+    text-align: justify;
+  }
+
+  .about-services-content .arckezeles .description p {
+    text-align: center;
+  }
+
+  .szempilla-kisokos {
+    margin: auto;
+  }
 
   .home-beauty-salon .about-the-salon img {
   margin-bottom: 50px;
@@ -1716,19 +1776,23 @@ body {
 }
 
 .szempilla-kisokos, .mikrodermabrazio {
-  margin-top: 50px !important;
   box-shadow: 1px 1px 10px 5px rgb(0 0 0 / 8%);
   padding: 30px 20px 20px;
   border-radius: 15px;
 }
 
+.szempilla-kisokos {
+  margin-top: 50px !important;
+}
+
 #mikrodermabrazio {
   margin: 0 auto;
-  padding: 30px 50px;
+  padding: 20px;
   text-align: center;
 }
 
 #mikrodermabrazio h2 {
+  font-size: 1.6rem;
   margin-bottom: 30px;
 }
 
@@ -1742,8 +1806,7 @@ body {
 }
 
 #mikrodermabrazio .list-container ul {
-  list-style: none;
-  padding-left: 0;
+  text-align: left;
 }
 
 #mikrodermabrazio .list-container {
@@ -1756,22 +1819,23 @@ body {
 
 .szempilla-kisokos p, .mikrodermabrazio p {
   font-size: 1.1rem;
-  text-align: center;
+  text-align: justify;
   line-height: 1.3;
   margin-bottom: 20px;
 }
 
 .pearl-img-container {
   text-align: center;
-  margin: 80px auto;
+  margin: 30px auto;
 }
 
 .pearl-img-container .pearls {
-  width: 9%;
+  width: 20%;
 }
 
 .facial-treatment {
   text-align: center;
+  margin-bottom: 30px;
 }
 
 .makeup {
@@ -1785,16 +1849,53 @@ body {
 .makeup p {
   font-size: 1.1rem;
   margin-bottom: 30px;
+  text-align: justify;
+}
+
+.lifting p, .laminalas p, .tetovalas p {
+  font-size: 1.1rem;
+  text-align: justify;
 }
 
 @media screen and (min-width: 768px) {
+
+  .pearl-img-container {
+    margin: 80px auto;
+  }
+  
+  .pearl-img-container .pearls {
+    width: 9%;
+  }
 
   .about-services-content .image-container,
   .about-services-content .content-container {
     order: unset;
   }
 
+  .szempilla-kisokos p, .mikrodermabrazio p {
+    font-size: 1.1rem;
+    text-align: center;
+    line-height: 1.3;
+    margin-bottom: 20px;
+  }
+
+  #mikrodermabrazio {
+    padding: 30px 50px;
+  }
+
+  #mikrodermabrazio h2 {
+    font-size: 2rem;
+  }
+
 }
+
+@media screen and (min-width: 1024px) {
+  
+  .mikrodermabrazio {
+    margin-top: 50px !important;
+  }
+}
+
 
 /**************************************************************************************************/
 

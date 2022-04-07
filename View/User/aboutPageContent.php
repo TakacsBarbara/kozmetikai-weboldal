@@ -72,7 +72,7 @@
       <!-- <div class="about-contact">
         <p>Kérdésével bátran keressen megadott elérhetőségeim egyikén!</p>
         <button type="submit">
-          <a href="./contactPage.php">Felveszem a kapcsolatot</a>
+          <a href="./contactPage.php#uzenetkuldes">Felveszem a kapcsolatot</a>
         </button>
       </div> -->
     </div>

@@ -88,7 +88,26 @@
                   </div>
                 </div>
               </div>
-            </div>
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="blog-post-card">
+                  <div class="blog-post-picture">
+                    <img src="./../../Resources/img/blog-img/bloglist/pillakisokos.png" alt="Szempilla kisokos">
+                  </div>
+                  <div class="blog-post-content">
+                    <div class="blog-post-title">
+                      <h3>Pilla kisokos</h3>
+                    </div>
+                    <div class="blog-post-description">
+                      <span>Ha műszempillaépítés előtt állsz, olvasd át ezt a néhány hasznos tudnivalót!</span>
+                    </div>
+                    <div class="blog-post-button">
+                      <button type="button">
+                        <a href="./szempillaKisokos.php">Tovább olvasom</a>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
           </section>
         </div>
       </div>

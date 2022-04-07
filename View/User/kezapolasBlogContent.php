@@ -40,7 +40,7 @@
         <div class="blog-contact">
           <p>Kérdés esetén fordulj hozzám bizalommal!</p>
           <button type="submit">
-            <a href="./contactPage.php">Felveszem a kapcsolatot</a>
+            <a href="./contactPage.php#uzenetkuldes">Felveszem a kapcsolatot</a>
           </button>
         </div>
       </div>
