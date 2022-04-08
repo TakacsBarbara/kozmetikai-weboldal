@@ -750,7 +750,8 @@ body {
 .contact-title,
 .price-list-title,
 .user-bookings-title,
-.about-services-title {
+.about-services-title,
+.guestbook-title {
   text-align: center;
   margin-bottom: 40px;
 }
@@ -763,7 +764,8 @@ body {
 .contact-title h1,
 .price-list-title h1,
 .user-bookings-title h1,
-.about-services-title h1 {
+.about-services-title h1,
+.guestbook-title h1 {
   margin: 30px 0 0;
 }
 
@@ -1099,7 +1101,8 @@ body {
   .contact-title h1,
   .price-list-title h1,
   .user-bookings-title h1,
-  .about-services-title h1 {
+  .about-services-title h1,
+  .guestbook-title h1 {
     margin: 30px 0 60px;
   }
 
@@ -1124,7 +1127,8 @@ body {
   .blog-title h1,
   .contact-title h1,
   .price-list-title h1,
-  .about-services-title h1 {
+  .about-services-title h1,
+  .guestbook-title h1 {
     margin: -25px 0 60px;
   }
 
@@ -1210,6 +1214,11 @@ body {
 .book-appointment-button-container {
   text-align: center;
   margin: 90px auto 0;
+}
+
+.book-appointment-button-container p {
+  font-size: 1.3rem;
+  margin-bottom: 40px;
 }
 
 .user-bookings-desktop {
@@ -1919,7 +1928,97 @@ body {
 }
 
 
-/**************************************************************************************************/
+/****************************************Guestbook**********************************************************/
+
+.guestbook-section .opinion-container {
+  margin: 0 auto;
+  border: 10px double #ebc4bd;
+    margin: 0 auto;
+    padding: 25px;
+}
+
+.guestbook-section .row {
+  margin-bottom: 60px;
+}
+
+.guestbook-section .opinion-container .date-name-container {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin-top: 20px;
+}
+
+.guestbook-section .opinion-container .opinion {
+  font-size: 1.1rem;
+}
+
+.guestbook-section .opinion-container .opinion-name {
+  font-size: 1.6rem;
+  color: #e47979;
+}
+
+.tell-your-opinion {
+  text-align: center;
+}
+
+.tell-your-opinion .user-opinion-form {
+  margin: 30px auto 20px;
+}
+
+.tell-your-opinion .user-opinion-form .mb-3 {
+  text-align: left;
+}
+
+.tell-your-opinion .user-opinion-send-btn {
+  background-color: #ffcbcb;
+}
+
+.tell-your-opinion .user-opinion-send-btn:hover {
+  background-color: #e2b3b3;
+}
+
+.tell-your-opinion .user-opinion-login-btn {
+  background-color: #ea8a8a;
+}
+
+.tell-your-opinion .user-opinion-login-btn:hover {
+  background-color: #c57777;
+}
+
+.opinion-content-container, .opinion-btn-container {
+  display: flex;
+  justify-content: center;
+  z-index: 1;
+}
+
+.opinion-btn-container {
+  margin-bottom: 30px;
+}
+
+.opinion-content-container p {
+  color: #ffffff;
+  z-index: 2;
+}
+
+.opinion-btn-container a {
+  z-index: 2;
+}
+
+.opinion-btn-container button {
+  background-color: white;
+  color: #4e3440;
+  padding: 10px 25px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 25px;
+}
+
+.opinion-btn-container button:hover {
+  background-color: rgb(236, 234, 234);
+  border: none;
+}
+
+/*******************************************************************************************************/
 
 .footer {
   margin-top: 50px;

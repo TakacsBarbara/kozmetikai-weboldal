@@ -201,6 +201,14 @@
                   <span class="visually-hidden">Next</span>
                 </button>
               </div>
+              <div class="opinion-content-container">
+                <p>Olvass még több véleményt vagy írd meg saját tapasztalatod!</p>
+              </div>
+              <div class="opinion-btn-container">
+                <a href="./guestsSaidPage.php">
+                  <button>További vélemények</button>
+                </a>
+              </div>
             </div>
           </section>
           <section class="why-choose-me">

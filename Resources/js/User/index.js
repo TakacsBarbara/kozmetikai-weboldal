@@ -200,6 +200,29 @@ $("#pswdChange").click( () => {
     }
 });
 
+$("#user-opinion-btn").click( () => {
+    let opinionMessage = $("#user-opinion-message").val();
+
+    if (opinionMessage.length) {
+        $.post({
+            url: "../../Controller/User/ajax/ajax.php",
+            data: {
+                opinionMessage: opinionMessage,
+            },
+            success: function(data) {
+                if (data == 1) {
+                    showSuccessMessage("#resultMessage", "Üzenet elküldve!");
+                    setTimeout(refreshGuestbook, 3000);
+                } else if (data === "False") {
+                    showErrorMessage("#resultMessage", "Üzenet küldése sikertelen!");
+                }
+            }
+        });
+    } else {
+        showErrorMessage("#resultMessage", "Kérem gépelje be az üzenetet!");
+    }
+});
+
 // function generateNewPassword() {
 //     var chars = "0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 //     var passwordLength = 12;
@@ -281,6 +304,10 @@ function setSuccessStyle() {
 
 function refreshReservationList(){
     window.location.replace("http://localhost/PHP/View/User/userAppointmentsList.php");
+}
+
+function refreshGuestbook(){
+    window.location.replace("http://localhost/PHP/View/User/guestsSaidPage.php");
 }
 
 function directToHomePage(){

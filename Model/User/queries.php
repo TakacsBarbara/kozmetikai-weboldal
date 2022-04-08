@@ -9,6 +9,14 @@ $result2 = $conn->query($sql2);
 $mainServices = $result;
 $subServices = mysqli_fetch_all($result2, MYSQLI_ASSOC);
 
+$sql3 =
+    "SELECT vendegkonyv.ertekeles, vendegkonyv.hozzaszolas_datuma, vendegek.keresztnev
+    FROM vendegkonyv
+    JOIN vendegek
+    ON vendegek.id = vendegkonyv.vendeg_id
+    WHERE vendegkonyv.megjelenites=1";
+$opinions = $conn->query($sql3);
+
 if (isset($_SESSION["userId"])) {
     $userId = $_SESSION["userId"];
 

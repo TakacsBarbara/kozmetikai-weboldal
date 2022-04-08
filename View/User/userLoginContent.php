@@ -27,9 +27,7 @@ if (isset($_GET['loginrequired']) && $_GET['loginrequired'] == 1) {
                                 </div>
                                 <div id="loginMessage"></div>
                                 <button type="button" class="user-login-btn" id="user-login">Belépés</button>
-                                <button type="button" class="user-reg-btn" id="user-registration">
-                                    <a href="userRegistration.php">Regisztráció</a>
-                                </button>
+                                <a href="userRegistration.php"><button type="button" class="user-reg-btn" id="user-registration">Regisztráció</button></a>
                             </form>
                         </div>
                         <div class="col-3"></div>

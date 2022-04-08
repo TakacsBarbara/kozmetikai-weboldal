@@ -43,6 +43,7 @@
             ?>
           </section>
           <div class="book-appointment-button-container">
+            <p>Ha valamelyik szolgáltatásom felkeltette érdeklődésed, foglalj időpontot online!</p>
             <a href="./appointmentBooking.php" id="new-appointment-btn">Időpontot foglalok</a>
           </div>
         </div>

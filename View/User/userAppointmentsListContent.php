@@ -104,7 +104,7 @@ if (isset($_SESSION["userId"])) {
                                                         <?php
                                                         $date = date_create($reservation["idopont_datuma"]);
                                                         $time = date_create($reservation["idopont_kezdete"]);
-                                                        echo date_format($date, "Y.m.d") . ' ' . date_format($time, 'H:i');
+                                                        echo date_format($date, "Y.m.d.") . ' ' . date_format($time, 'H:i');
                                                         ?>
                                                     </td>
                                                     <td class="td-content-center">

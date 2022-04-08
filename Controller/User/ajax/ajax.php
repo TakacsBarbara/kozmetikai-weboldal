@@ -257,6 +257,21 @@ if (isset($_POST["actualPassword"]) && isset($_POST["newPassword"]) && isset($_P
     }
 }
 
+if (isset($_POST["opinionMessage"])) {
+    $message = $_POST["opinionMessage"];
+    $guestId = $_SESSION["userId"];
+
+    $sql = "INSERT INTO vendegkonyv (ertekeles, megjelenites, vendeg_id)
+            VALUES ('$message', '0', '$guestId')";
+    $result = $conn->query($sql);
+
+    if ($result === TRUE) {
+        echo 1;
+    } else {
+        echo 0;
+    }
+}
+
 function getResultValue($result)
 {
     if ($result === TRUE) {
