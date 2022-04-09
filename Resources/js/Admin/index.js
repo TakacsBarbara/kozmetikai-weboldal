@@ -284,6 +284,57 @@ $(document).ready( () => {
         });
     });
 
+    $('.opinion-delete').on("click", function() {
+        // let reservedServiceId = $(this).attr("id");
+        let opinionId = $(this).attr("id");
+        let resultName = "#resultMessage-" + opinionId;
+    
+        $.confirm({
+            'title'     : 'Vélemény törlése',
+            'message'   : 'Biztosan törölni szeretné a felhasználói véleményt?',
+            'buttons'   : {
+                'Igen'   : {
+                    'class' : 'pink',
+                    'action': function(){
+                        $.post({
+                            url: "../../Controller/Admin/ajax/ajax.php",
+                            data: {opinionId: opinionId},
+                            success: function(data) {
+                                if (data == 1) {
+                                    showSuccessMessage(resultName, "A törlés sikeres volt!");
+                                } else {
+                                    showErrorMessage(resultName, "A törlés nem sikerült!");
+                                }
+                                setTimeout(refreshGuestBook, 3000);
+                            }
+                        });
+                    }
+                },
+                'Nem'    : {
+                    'class' : 'gray'
+                }
+            }
+        });
+    });
+    
+    $('.opinion-confirmation').on("click", function() {
+        let confirmOpinionId = $(this).attr("id");
+        let resultName = "#resultMessage-" + confirmOpinionId;
+    
+        $.post({
+            url: "../../Controller/Admin/ajax/ajax.php",
+            data: {confirmOpinionId: confirmOpinionId},
+            success: function(data) {
+                if (data == 1) {
+                    showSuccessMessage(resultName, "A jóváhagyás sikeres volt!");
+                } else {
+                    showErrorMessage(resultName, "A jóváhagyás nem sikerült!");
+                }
+                setTimeout(refreshGuestBook, 3000);
+            }
+        });
+    });
+
     function refresh(){
         window.location.replace("http://localhost/PHP/View/Admin/mainServicesListed.php");
     }
@@ -324,13 +375,17 @@ $(document).ready( () => {
     function showErrorMessage(divID, message) {
         $(divID).html(message);
         $(divID).addClass("alert-danger");
-        $(divID).css({"color":"#c70c0c", "padding":"10px 20px", "border-radius":"10px"});
+        $(divID).css({"color":"#c70c0c", "padding":"20px", "border-radius":"10px", "width": "60%", "margin": "20px auto", "text-align": "center", "font-size": "1.3rem"});
     }
 
     function showSuccessMessage(divID, message) {
         $(divID).html(message);
         $(divID).addClass("alert-success");
-        $(divID).css({"color":"#0a9b0f", "padding":"10px 20px", "border-radius":"10px"});
+        $(divID).css({"color":"#0a9b0f", "padding":"20px", "border-radius":"10px", "width": "60%", "margin": "20px auto", "text-align": "center", "font-size": "1.3rem"});
+    }
+    
+    function refreshGuestBook(){
+        window.location.replace("http://localhost/PHP/View/Admin/guestBook.php");
     }
 
 });

@@ -215,3 +215,29 @@ if (isset($_POST["rejectedAppointmentId"])) {
         echo 0;
     }
 }
+
+if (isset($_POST["opinionId"])) {
+    $opinionId = $_POST["opinionId"];
+
+    $sql = "DELETE FROM vendegkonyv WHERE id='$opinionId'";
+    $result = $conn->query($sql);
+
+    if ($result == TRUE) {
+        echo 1;
+    } else {
+        echo 0;
+    }
+}
+
+if (isset($_POST["confirmOpinionId"])) {
+    $confirmOpinionId = $_POST["confirmOpinionId"];
+
+    $sql = "UPDATE vendegkonyv SET megjelenites='1' WHERE id='$confirmOpinionId'";
+    $result = $conn->query($sql);
+
+    if ($result == TRUE) {
+        echo 1;
+    } else {
+        echo 0;
+    }
+}

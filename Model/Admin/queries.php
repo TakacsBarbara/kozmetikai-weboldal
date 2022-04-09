@@ -19,6 +19,14 @@ $resultDesktop2 = $conn->query($sqlDesktop2);
 $mainServicesDesktop = $resultDesktop;
 $subServicesDesktop = mysqli_fetch_all($resultDesktop2, MYSQLI_ASSOC);
 
+$sql3 =
+    "SELECT vendegkonyv.id, vendegkonyv.ertekeles, vendegkonyv.hozzaszolas_datuma, vendegek.vezeteknev, vendegek.keresztnev, vendegek.email
+    FROM vendegkonyv
+    JOIN vendegek
+    ON vendegek.id = vendegkonyv.vendeg_id
+    WHERE vendegkonyv.megjelenites=0";
+$opinions = $conn->query($sql3);
+
 foreach ($subServicesDesktop as $row_number => $value) {
     //print_r($value["megnevezes"]);
 }

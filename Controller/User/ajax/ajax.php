@@ -265,6 +265,13 @@ if (isset($_POST["opinionMessage"])) {
             VALUES ('$message', '0', '$guestId')";
     $result = $conn->query($sql);
 
+    $link = "<a href='http://localhost/PHP/View/Admin/guestBook.php'>tovább a weboldalra</a>";
+    $content = "<h3>Új vélemény érkezett</h3><p>Az új véleményt megtekintheti a linkre kattintva: " . $link;
+    $mail->AddAddress('lashesandmore.hj@gmail.com', 'Hegyi Judit');
+    $mail->Subject  =  'Új vélemény';
+    $mail->Body    = $content;
+    $mail->Send();
+
     if ($result === TRUE) {
         echo 1;
     } else {

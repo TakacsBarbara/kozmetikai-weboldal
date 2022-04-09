@@ -546,3 +546,62 @@ body {
     display: block;
   }
 }
+
+.guestbook-title {
+  margin: 30px auto 50px;
+  text-align: center;
+}
+
+.guestbook-section .opinion-container {
+  margin: 0 auto;
+  border: 10px double #ebc4bd;
+  margin: 0 auto;
+  padding: 25px;
+}
+
+.guestbook-section .row {
+  margin-bottom: 60px;
+}
+
+.guestbook-section .opinion-container .opinion {
+  margin-top: 30px;
+}
+
+.guestbook-section .opinion-container .opinion {
+  font-size: 1.1rem;
+}
+
+.guestbook-section .opinion-container .opinion-name {
+  font-size: 1.2rem;
+  color: #e47979;
+}
+
+.guestbook-section .control-btn-container {
+  margin-top: 20px;
+}
+
+.guestbook-section .control-btn-container button {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 15px;
+}
+
+.guestbook-section .control-btn-container .opinion-confirmation {
+  background-color: #f8acac;
+  color: #ffffff;
+}
+
+.guestbook-section .control-btn-container .opinion-confirmation:hover {
+  background-color: #e09c9c;
+  color: #ffffff;
+}
+
+.guestbook-section .control-btn-container .opinion-delete {
+  background-color: darkred;
+  color: #ffffff;
+}
+
+.guestbook-section .control-btn-container .opinion-delete:hover {
+  background-color: rgb(100, 2, 2);
+  color: #ffffff;
+}

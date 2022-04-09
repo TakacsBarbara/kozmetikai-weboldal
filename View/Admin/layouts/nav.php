@@ -15,26 +15,9 @@
                                 <li class="nav-item">
                                     <a class="nav-link-style" href="manageAppointmentBooking.php">Időpontfoglalás</a>
                                 </li>
-                                <!-- <li class=" dropdown-appointments nav-item"> -->
-                                <!-- <div class="dropdown"> -->
-                                <!-- <button class="dropbtn">Időpontfoglalás</button>
-                        <div class="dropdown-content-appointments">
-                            <a class="nav-link-style-drop" href="createAppointments.php">Időpontok rögzítése</a>
-                            <a class="nav-link-style-drop" href="manageAppointments.php">Foglalások kezelése</a>
-                        </div> -->
-                                <!-- </div> -->
-                                <!-- <a class="nav-link-style" href="#">Időpontfoglalás</a> -->
-                                <!-- </li> -->
-
-                                <!-- <li class="nav-item">
-                    <a class="nav-link-style" href="#">Blog</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link-style" href="#">Vélemények jóváhagyása</a>
-                </li> -->
-
-
-
+                                <li class="nav-item">
+                                    <a class="nav-link-style" href="guestBook.php">Vélemények jóváhagyása</a>
+                                </li>
                             </ul>
                         </div>
                         <div class="dropdown">
