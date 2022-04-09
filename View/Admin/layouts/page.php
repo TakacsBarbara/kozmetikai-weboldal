@@ -1,6 +1,6 @@
 <?php  
     session_start();
-    class Page {
+    class PageAdmin {
       
         function displayContent($pageName) {
             include "../../Model/Admin/all_files.php";
@@ -16,4 +16,3 @@
         }
 
     }
-?>

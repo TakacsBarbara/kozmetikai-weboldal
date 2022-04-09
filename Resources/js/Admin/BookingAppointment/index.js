@@ -92,7 +92,6 @@ $(document).ready( () => {
                     <td>` + (i+1) + `</td>
                     <td>` + bookedUserAppointments[i]["vezeteknev"] + " " + bookedUserAppointments[i]["keresztnev"] + `</td>
                     <td class="td-content-center">` + bookedUserAppointments[i]["megnevezes"] + `</td>
-                    <td class="td-content-center">` + formattedReservedDate + `.</td>
                     <td class="td-content-center" colspan="2">` + formattedAppointmentStart + " - " + formattedAppointmentEnd + `</td>
                     <td class="td-content-center">` + confirmationstatus + `</td>
                     <td class="td-content-center">

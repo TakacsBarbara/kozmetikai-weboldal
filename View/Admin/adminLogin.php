@@ -1,6 +1,6 @@
 <?php 
     include "layouts/page.php";
     
-    $page = new Page();
+    $page = new PageAdmin();
     $page -> displayContent("adminLoginContent.php");
 ?>

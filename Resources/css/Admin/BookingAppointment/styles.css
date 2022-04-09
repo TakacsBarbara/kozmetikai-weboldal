@@ -23,6 +23,11 @@ body {
   margin-top: 10px;
 }
 
+.appointment-management-container .title {
+  text-align: center;
+  margin: 30px auto;
+}
+
 .appointment-management-container .am-container {
   width: 90%;
   margin: 0 auto;
@@ -32,8 +37,11 @@ body {
   background-color: transparent;
 }
 
+.appointment-management-container .am-container .btn-status-ok {
+  margin-bottom: 5px;
+}
+
 .appointment-management-container .datepicker-container {
-  padding-top: 100px;
   text-align: center;
 }
 
