@@ -7,6 +7,7 @@ if (isset($_SESSION["username"])) {
         <div class="guestbook-page">
           <div class="guestbook-title">
             <h1>Vélemények</h1>
+            <h5>A Jóváhagyás gombra kattintva a felhasználói vélemény megjelenik a weboldalon. Törlés gomb megnyomása esetén a vélemény törlődik az adatbázisból és nem állítható vissza!</h5>
           </div>
           <div class="guestbook-content">
             <section class="guestbook-section">
