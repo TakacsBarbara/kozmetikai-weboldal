@@ -23,9 +23,9 @@ if (isset($_SESSION["username"])) {
                   <col style="width: 40px;">
                   <col style="width: 200px;">
                   <col style="width: 300px;">
-                  <col style="width: 80px;">
-                  <col style="width: 80px;">
-                  <col style="width: 200px;">
+                  <col style="width: 90px;">
+                  <col style="width: 90px;">
+                  <col style="width: 180px;">
                   <col style="width: 300px;">
                 </colgroup>
                 <thead>

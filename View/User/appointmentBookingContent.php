@@ -238,8 +238,11 @@ if (isset($_SESSION["userId"])) {
                     </div>
                 </div>
             </div>
-        <?php
-    } else {
-        echo '<script>window.location="http://localhost/PHP/View/User/userLogin.php?loginrequired=1"</script>';
-    }
-        ?>
+        </div>
+    </div>
+
+<?php
+} else {
+    echo '<script>window.location="http://localhost/PHP/View/User/userLogin.php?loginrequired=1"</script>';
+}
+?>

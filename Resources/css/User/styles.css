@@ -1405,10 +1405,10 @@ body {
   z-index: 2;
 }
 
-.guests-said #carouselExampleDark {
-  margin: 30px auto 50px;
+/* .guests-said #carouselExampleDark {
+  margin: 30px auto 20px;
   max-width: 70%;
-}
+} */
 
 .guests-said .carousel-inner {
   padding-bottom: 50px;
@@ -1722,7 +1722,7 @@ body {
   }
 
   .guests-said #carouselExampleDark {
-    margin: 30px auto 50px;
+    margin: 30px auto 20px;
     max-width: 100%;
   }
 
@@ -1766,7 +1766,7 @@ body {
   }
 
   .guests-said #carouselExampleDark {
-    margin: 30px auto 50px;
+    margin: 30px auto 10px;
     max-width: 70%;
   }
 }
@@ -2023,5 +2023,30 @@ body {
 .footer {
   margin-top: 50px;
   width: 100%;
-  height: 400px;
+  background-color: #efefef;
+  border-top: 1px solid #4e3440;
+}
+
+.footer .row {
+  text-align: center;
+}
+
+.footer .row .col-12 {
+  margin: 0 auto;
+}
+
+.footer .menus-container {
+  border-bottom: 1px solid #dfd9d9;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.footer .menus-container a {
+  font-size: 0.9rem;
+  color: #36242d;
+}
+
+.footer .menus-container a:hover {
+  font-size: 0.9rem;
+  color: #36242d;
 }

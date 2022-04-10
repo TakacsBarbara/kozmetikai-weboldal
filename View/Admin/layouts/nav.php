@@ -61,6 +61,10 @@
                         <i class="fas fa-calendar-check"></i>
                         Időpontfoglalás
                     </a>
+                    <a class="nav-link-style-drop" href="guestBook.php">
+                        <i class="fas fa-comment"></i>
+                        Vélemények jóváhagyása
+                    </a>
                     <a class="nav-link-style-drop" href="./changeAdminPassword.php">
                         <i class="fas fa-key"></i>
                         Jelszó módosítása
