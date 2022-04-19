@@ -169,6 +169,21 @@
               </ul>
             </div>
           </section>
+          <section class="guest-said-mobile">
+            <div class="container">
+              <div class="title">
+                <h1>Vélemények</h1>
+                <p>Vendégeim véleménye fontos számomra,
+                  kérlek írd meg Te is saját tapasztalatod
+                  vagy olvasd el az eddigi véleményeket!</p>
+              </div>
+              <div class="opinion-btn-mobil">
+                <a href="./guestsSaidPage.php">
+                  <button>További vélemények</button>
+                </a>
+              </div>
+            </div>
+          </section>
           <section class="guests-said">
             <div class="container">
               <div class="overlay"></div>

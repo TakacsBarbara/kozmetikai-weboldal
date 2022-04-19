@@ -1377,6 +1377,36 @@ body {
   margin: 10px 0 20px;
 }
 
+.guest-said-mobile {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.guest-said-mobile h1 {
+  font-family: 'Italianno';
+  font-size: 3.6rem;
+}
+
+.guest-said-mobile p {
+  font-size: 1.3rem;
+}
+
+.guest-said-mobile button {
+  font-weight: 600;
+  line-height: 1.5;
+  color: #ffffff;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  border: 1px solid transparent;
+  padding: 0.6rem 0.75rem;
+  font-size: 1.3rem;
+  border-radius: 0.5rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  background-color: #f5bebe;
+}
+
 .guests-said {
   display: none;
   position: relative;
@@ -1409,11 +1439,6 @@ body {
   color: #ffffff;
   z-index: 2;
 }
-
-/* .guests-said #carouselExampleDark {
-  margin: 30px auto 20px;
-  max-width: 70%;
-} */
 
 .guests-said .carousel-inner {
   padding-bottom: 50px;
@@ -1720,6 +1745,10 @@ body {
   .home-beauty-salon .our-greeting p {
     font-size: 1.35rem;
     margin: 30px 0 20px;
+  }
+
+  .guest-said-mobile {
+    display: none;
   }
 
   .guests-said {
