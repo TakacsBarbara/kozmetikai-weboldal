@@ -184,7 +184,7 @@
                     <p>
                       Szempilla liftingnél csak a saját szempillád kerül kezelésre, semmilyen műszál vagy egyéb
                       hozzáadott dolog nem kerül fel tartósan. Az eredmény tartóssága általában 4-5 hét, ez pilláid
-                      állapotától függ, illetve, hogy milyen gyorsan cserélődnek. Az eljárás körülbelül 80 percet vesz igénybe.
+                      állapotától függ, illetve, hogy milyen gyorsan cserélődnek. Az eljárás körülbelül 60-90 percet vesz igénybe.
                     </p>
                   </div>
                   <div class="lifting">
@@ -216,21 +216,22 @@
                 <div class="description">
                   <div class="laminalas">
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur lobortis molestie imperdiet.
+                      Rakoncátlan szemöldök? Lefelé növő szálacskák? Ugye te sem szereted?...
+                      A szemöldök laminálás a legtrendibb szemöldök formázási eljárás jelenleg a szépségiparban.
                     </p>
                   </div>
                   <div class="laminalas">
                     <p>
-                      Duis commodo elit ac nisi blandit pellentesque. In sed ipsum in justo aliquam ullamcorper
-                      quis ut tellus. Donec commodo lorem et suscipit vestibulum. Suspendisse potenti. Donec ante
-                      arcu, dapibus in metus et, tempus venenatis odio. Orci varius natoque penatibus et magnis
-                      dis parturient montes, nascetur ridiculus mus. Etiam mattis risus a sapien fringilla, nec elementum purus pulvinar.
+                      A szemöldök laminálás egy új beauty őrület, amely segítségével szabályos, szimmetrikus és tökéletesen fésült szemöldököt tudunk formálni.
+                      A szemöldököt nem károsítja, amennyiben a megfelelő anyaggal és hatóidőkkel dolgozunk.
+                      Az eljárás nagyjából 60 percet vesz igénybe, amely során a szempilla liftinghez hasonlóan alakítjuk ki a kívánt formát.
+                      (Az egyéni adottságoktól is függően.)
                     </p>
                   </div>
                   <div class="laminalas">
                     <p>
-                      Proin non arcu nunc. Vivamus sed dui sagittis, iaculis odio et, venenatis tortor. In ullamcorper
-                      ipsum vel dui porttitor, in euismod odio placerat.
+                      A laminálás után 24-48 óráig nem érheti nedvesség a kezelt területet.
+                      Az időpont előtt már lehetőleg ne szedegessük a szemöldököt, így a szakember nagyobb szabadsággal tudja kialakítani a vágyott formát.
                     </p>
                   </div>
                 </div>

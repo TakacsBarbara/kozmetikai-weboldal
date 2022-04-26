@@ -1,9 +1,11 @@
 <?php 
 if (isset($_SESSION["username"])) {
 
-    $sql = "SELECT * FROM szolgaltatas_fokategoria WHERE id=".$_GET['id'];
-    $result = $conn->query($sql);
-    $row = $result -> fetch_array(MYSQLI_ASSOC);
+    // $sql = "SELECT * FROM szolgaltatas_fokategoria WHERE id=".$_GET['id'];
+    // $result = $conn->query($sql);
+    // $row = $result -> fetch_array(MYSQLI_ASSOC);
+
+    $row = selectMainService($conn);
 
     $service_name = $row["szolgaltatas_neve"];
     $service_id = $row["id"];

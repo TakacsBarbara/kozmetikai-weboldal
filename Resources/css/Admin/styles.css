@@ -341,11 +341,11 @@ body {
 /* 
 .sub-service-row:nth-child(odd) {
   background-color: #faf2f288;
-}
+}*/
 
-.main-service-row: {
-  background-color: #faf2f288;
-} */
+.main-service-row a:hover, .sub-service-row a:hover {
+  text-decoration: none;
+} 
 
 #listed-mainservices-table-container tbody tr:hover {
   background-color: rgba(0, 0, 0, 0.144);
@@ -604,4 +604,28 @@ body {
 .guestbook-section .control-btn-container .opinion-delete:hover {
   background-color: rgb(100, 2, 2);
   color: #ffffff;
+}
+
+.admin-login-page .title h1 {
+  text-align: center;
+  margin: 30px auto 60px;
+}
+
+.admin-login-page .admin-login-form {
+  padding-top: 3%;
+}
+
+.admin-login-page .admin-login-form-style img {
+  max-width: 70%;
+}
+
+.admin-login-page .admin-login-form-style .img-container-admin {
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .admin-login-page .admin-login-form form {
+    max-width: 70%;
+    margin: 30px auto;
+  }
 }

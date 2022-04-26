@@ -1,24 +1,30 @@
 <?php
 if (isset($_SESSION["userId"])) {
     if (isset($_GET['id'])) {
-        $sqlResApp = "SELECT szAlkat_id FROM idopontfoglalas WHERE id=" . $_GET['id'];
-        $resultResApp = $conn->query($sqlResApp);
-        $rowResApp = $resultResApp->fetch_array(MYSQLI_ASSOC);
+        // $sqlResApp = "SELECT szAlkat_id FROM idopontfoglalas WHERE id=" . $_GET['id'];
+        // $resultResApp = $conn->query($sqlResApp);
+        // $rowResApp = $resultResApp->fetch_array(MYSQLI_ASSOC);
 
+        $rowResApp = collectReservedAppointment($conn);
         $subserviceId = $rowResApp["szAlkat_id"];
 
-        $sqlSub = "SELECT * FROM szolgaltatas_alkategoria WHERE id=" . $subserviceId;
-        $resultSub = $conn->query($sqlSub);
-        $rowSub = $resultSub->fetch_array(MYSQLI_ASSOC);
+        // $sqlSub = "SELECT * FROM szolgaltatas_alkategoria WHERE id=" . $subserviceId;
+        // $resultSub = $conn->query($sqlSub);
+        // $rowSub = $resultSub->fetch_array(MYSQLI_ASSOC);
 
+        $rowSub = getReservedAppointment($conn, $subserviceId);
         $subserviceName = $rowSub["megnevezes"];
         $mainserviceId = $rowSub["foKat_id"];
 
-        $sqlMain = "SELECT szolgaltatas_neve FROM szolgaltatas_fokategoria WHERE id=" . $mainserviceId;
-        $resultMain = $conn->query($sqlMain);
-        $rowMain = $resultMain->fetch_array(MYSQLI_ASSOC);
+        // $sqlMain = "SELECT szolgaltatas_neve FROM szolgaltatas_fokategoria WHERE id=" . $mainserviceId;
+        // $resultMain = $conn->query($sqlMain);
+        // $rowMain = $resultMain->fetch_array(MYSQLI_ASSOC);
 
+        $rowMain = getMainService($conn, $mainserviceId);
         $mainserviceName = $rowMain["szolgaltatas_neve"];
+
+
+        $resultSub = getSubServices($conn, $mainserviceId);
     } else {
         $mainserviceName = null;
     }
@@ -86,9 +92,11 @@ if (isset($_SESSION["userId"])) {
                                                             <select id="select-category" class="form-control">
                                                                 <option id="option-default" value="default" style="color:#666;" selected disabled>Válasszon kategóriát</option>
                                                                 <?php
-                                                                $sql = "SELECT szolgaltatas_neve FROM szolgaltatas_fokategoria";
-                                                                $result = $conn->query($sql);
-                                                                while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
+                                                                // $sql = "SELECT szolgaltatas_neve FROM szolgaltatas_fokategoria";
+                                                                // $result = $conn->query($sql);
+
+                                                                $resultMain = getMainServices($conn);
+                                                                while ($row = $resultMain->fetch_array(MYSQLI_ASSOC)) {
                                                                     foreach ($row as $key => $value) {
                                                                         if ($mainserviceName == $value) {
                                                                             echo '<option value="' . $value . '" selected>' . $value . '</option>';
@@ -110,10 +118,10 @@ if (isset($_SESSION["userId"])) {
                                                                 <?php
                                                                 if (isset($_GET['id'])) {
 
-                                                                    $sql = "SELECT megnevezes FROM szolgaltatas_alkategoria WHERE foKat_id=" . $mainserviceId;
-                                                                    $result = $conn->query($sql);
+                                                                    // $sql = "SELECT megnevezes FROM szolgaltatas_alkategoria WHERE foKat_id=" . $mainserviceId;
+                                                                    // $resultSub = $conn->query($sql);
 
-                                                                    while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
+                                                                    while ($row = $resultSub->fetch_array(MYSQLI_ASSOC)) {
                                                                         foreach ($row as $key => $value) {
                                                                             if ($subserviceName == $value) {
                                                                                 echo '<option value="' . $value . '" selected>' . $value . '</option>';

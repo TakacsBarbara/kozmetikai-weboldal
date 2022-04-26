@@ -44,4 +44,47 @@ if (isset($_SESSION["userId"])) {
     $reservationDatas = $conn->query($sql_1);
 
     echo ($reservationDatas);
+
+    function collectReservedAppointment($conn)
+    {
+        $sqlResApp = "SELECT szAlkat_id FROM idopontfoglalas WHERE id=" . $_GET['id'];
+        $resultResApp = $conn->query($sqlResApp);
+        $rowResApp = $resultResApp->fetch_array(MYSQLI_ASSOC);
+
+        return $rowResApp;
+    }
+
+    function getReservedAppointment($conn, $subserviceId)
+    {
+        $sqlSub = "SELECT * FROM szolgaltatas_alkategoria WHERE id=" . $subserviceId;
+        $resultSub = $conn->query($sqlSub);
+        $rowSub = $resultSub->fetch_array(MYSQLI_ASSOC);
+
+        return $rowSub;
+    }
+
+    function getMainService($conn, $mainserviceId)
+    {
+        $sqlMain = "SELECT szolgaltatas_neve FROM szolgaltatas_fokategoria WHERE id=" . $mainserviceId;
+        $resultMain = $conn->query($sqlMain);
+        $rowMain = $resultMain->fetch_array(MYSQLI_ASSOC);
+
+        return $rowMain;
+    }
+
+    function getMainServices($conn)
+    {
+        $sql = "SELECT szolgaltatas_neve FROM szolgaltatas_fokategoria";
+        $result = $conn->query($sql);
+
+        return $result;
+    }
+
+    function getSubServices($conn, $mainserviceId)
+    {
+        $sql = "SELECT megnevezes FROM szolgaltatas_alkategoria WHERE foKat_id=" . $mainserviceId;
+        $resultSub = $conn->query($sql);
+
+        return $resultSub;
+    }
 }

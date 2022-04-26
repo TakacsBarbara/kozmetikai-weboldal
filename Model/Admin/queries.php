@@ -38,3 +38,21 @@ foreach ($subServicesDesktop as $row_number) {
         // echo "<br>";
     }
 }
+
+function selectSubService($conn)
+{
+    $sql = "SELECT * FROM szolgaltatas_alkategoria WHERE id=" . $_GET['id'];
+    $result = $conn->query($sql);
+    $row = $result->fetch_array(MYSQLI_ASSOC);
+
+    return $row;
+}
+
+function selectMainService($conn)
+{
+    $sql = "SELECT * FROM szolgaltatas_fokategoria WHERE id=" . $_GET['id'];
+    $result = $conn->query($sql);
+    $row = $result->fetch_array(MYSQLI_ASSOC);
+
+    return $row;
+}
