@@ -10,7 +10,6 @@
             $this->title = $title;
         }
         
-
         function setTitle($title) {
             $this->title = $title;
         }
@@ -24,7 +23,6 @@
             $header = new MainHeader($this->title);
            
             include "../../Model/User/all_files.php";
-            //include "header.php";
             $header->displayHeader();
             include "nav.php";
             include $pageName;

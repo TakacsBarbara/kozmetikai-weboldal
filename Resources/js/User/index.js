@@ -40,7 +40,7 @@ $("#user-registration-btn").click( () => {
     let allergy = $("#allergy").val() ? $("#allergy").val() : "Nincs";
     let drugAllergy = $("#drug-allergy").val() ? $("#drug-allergy").val() : "Nincs";
 
-    let emailOk = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email);
+    let emailOk = /^[a-z0-9_]+([\._]?[a-z0-9]+)*@[a-z0-9]+([\.-]?[a-z0-9]+)*(\.[a-z0-9]{2,3})$/.test(email);
 
     checkInputValue(lastName.length < 2, "#last-name");
     checkInputValue(firstName.length < 2, "#first-name");
@@ -68,8 +68,11 @@ $("#user-registration-btn").click( () => {
             success: function(data) {
                 if (data == 1) {
                     showSuccessMessage("#regMessage", "Sikeres regisztráció!");
-                } else if (data === "False") {
+                    setTimeout(directToUserLoginPage, 2000);
+                } else if (data == 0) {
                     showErrorMessage("#regMessage", "Sikertelen regisztráció!");
+                } else if (data == 2) {
+                    showErrorMessage("#regMessage", "Az email cím már foglalt!");
                 }
             }
         });
@@ -102,7 +105,7 @@ $("#user-forgot-pswd-btn").click( () => {
     // let userEmail = $("#reset-password-email").val(); 
 
     // console.log(newPassword, confirmPassword, linkToken, userEmail);
-    console.log(newPassword, newPassword.length);
+    // console.log(newPassword, newPassword.length);
     
     if (newPassword.length >= 8) {
         if (newPassword === confirmPassword) {
@@ -112,11 +115,11 @@ $("#user-forgot-pswd-btn").click( () => {
                 data: {password: newPassword, reset_link_token: linkToken},
                 success: function(data) {
                     if (data == 1) {
-                        showSuccessMessage("#resultMessage", "A jelszó megváltozott")
+                        showSuccessMessage("#resultMessage", "A jelszó megváltozott!")
                         $("#user-forgotpswd-btn").css("display", "none");
                         setTimeout(directToUserLoginPage, 3000);
                     } else if (data == 0) {
-                        showErrorMessage("#resultMessage", "Jelszó megváltoztatása nem sikerült");
+                        showErrorMessage("#resultMessage", "Jelszó megváltoztatása nem sikerült!");
                     }
                 }
             });

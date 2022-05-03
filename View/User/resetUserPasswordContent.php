@@ -1,4 +1,5 @@
 <div class="container user-forgot-password-style">
+
   <div class="row">
     <div class="col-3"></div>
     <?php
@@ -14,6 +15,9 @@
         if ($row['exp_date'] >= $curDate) { ?>
 
           <div class="col-12 col-md-6 user-forgot-password-form">
+            <div class="title">
+              <h1>Új jelszó beállítása</h1>
+            </div>
             <form method="POST" action="">
               <input type="hidden" id="reset_link_token" name="reset_link_token" value="<?php echo $token; ?>">
               <div class="mb-3">

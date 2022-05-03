@@ -166,6 +166,7 @@ if (isset($_POST["confirmedAppointmentId"])) {
     $appointmentEnd = substr($appointment["idopont_vege"], 0, -3);
 
     $link = "<a href='http://localhost/PHP/View/User/appointmentBooking.php'>időpontfoglalás</a>";
+    //http://progmuveszete.hu/lashes_and_more/
     $message = "Kedves " . $guest["keresztnev"] . "!<br><br>Az általad lefoglalt időpontot (" . $appointmentDate . " " . $appointmentStart . " - " . $appointmentEnd . ") jóváhagytam.<br><br>Szeretettel várlak!<br><br>Üdvözlettel,<br>Hegyi Judit";
     $mail->AddAddress($guestEmail, $guestName);
     $mail->Subject  =  'Jóváhagyott időpont';

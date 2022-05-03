@@ -77,9 +77,7 @@
                                 <textarea id="drug-allergy" class="form-control" id="drug-allergy" cols="5" rows="2" maxlength="255" style="resize: none;"></textarea>
                             </div>
                         </div>
-                        <div class="col-12 regMessageContainer hidden">
-                            <di id="regMessage">
-                        </div>
+                        <di id="regMessage">
                     </div>
                     <div class="col-12 reg-btn-container">
                         <button type="submit" id="user-registration-btn">Regisztrálok</button>

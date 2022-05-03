@@ -186,6 +186,15 @@ body {
   padding-top: 50px;
 }
 
+.user-forgot-password-style {
+  margin: 0 auto 150px;
+}
+
+.user-forgot-password-style .title {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
 .user-login-btn {
   display: inline-block;
   font-weight: 600;
@@ -2071,7 +2080,7 @@ body {
 /*******************************************************************************************************/
 
 .footer {
-  margin-top: 50px;
+  margin-top: 100px;
   width: 100%;
   background-color: #efefef;
   border-top: 1px solid #4e3440;
